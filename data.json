@@ -1,0 +1,459 @@
+{
+    "Forms": {    
+        "Sidewalk Issues": {
+            "Sidewalk Grind/Patch": {
+                "Work Group": "Sidewalks",
+                "Work Type": "Sidewalk Grind/Patch",
+                "Address": "",
+                "Status": "",
+                "AssetId": "",
+                "Description": "",
+                "Comments": "",
+                "Priority": "",
+                "Department": "",
+                "SW Grind": "",
+                "SW Class II": "",
+                "SW Class III": "",
+                "SW Allcrete": "",
+                "Employees": {
+                    "Add Crew": "",
+                    "Add Employee": {
+                        "Date": "",
+                        "Crew": "",
+                        "Employee": "",
+                        "Hours": "",
+                        "Overtime": ""
+                    }
+                },
+                "Equipment": {
+                    "Add Crew Equipment": "",
+                    "Add Equipment": {
+                        "Date": "",
+                        "Crew": "",
+                        "Equipment": "",
+                        "Hours": "",
+                        "Overtime": ""
+                    }
+                },
+                "Materials": {
+                    "Add Group": "",
+                    "Add Material": {
+                        "Material Group": "",
+                        "Material": "",
+                        "Unit": "",
+                    }
+                }
+            },
+            "Sidewalk Grind (Only)": {
+                "Work Group": "Sidewalks",
+                "Work Type": "Sidewalk Grind (Only)",
+                "Address": "",
+                "Status": "",
+                "AssetId": "",
+                "Description": "",
+                "Comments": "",
+                "Priority": "",
+                "Department": "",
+                "SW Grind": "",
+                "SW Class II": "",
+                "SW Class III": "",
+                "SW Allcrete": "",
+                "Employees": {
+                    "Add Crew": "",
+                    "Add Employee": {
+                        "Date": "",
+                        "Crew": "",
+                        "Employee": "",
+                        "Hours": "",
+                        "Overtime": ""
+                    },
+                    "Equipment": {
+                        "Add Crew Equipment": "",
+                        "Add Equipment": {
+                            "Date": "",
+                            "Crew": "",
+                            "Equipment": "",
+                            "Hours": "",
+                            "Overtime": ""
+                        }
+                    },
+                    "Materials": {
+                        "Add Group": "",
+                        "Add Material": {
+                            "Material Group": "",
+                            "Material": "",
+                            "Unit": "",
+                        }
+                    }
+                }
+            },
+            "Sidewalks AC Patch (Only)": {
+                "Work Group": "Sidewalks",
+                "Work Type": "Sidewalks AC Patch (Only)",
+                "Address": "",
+                "Status": "",
+                "AssetId": "",
+                "Description": "",
+                "Comments": "",
+                "Priority": "",
+                "Department": "",
+                "SW Grind": "",
+                "SW Class II": "",
+                "SW Class III": "",
+                "SW Allcrete": "",
+                "Employees": {
+                    "Add Crew": "",
+                    "Add Employee": {
+                        "Date": "",
+                        "Crew": "",
+                        "Employee": "",
+                        "Hours": "",
+                        "Overtime": ""
+                    }
+                },
+                "Equipment": {
+                    "Add Crew Equipment": "",
+                    "Add Equipment": {
+                        "Date": "",
+                        "Crew": "",
+                        "Equipment": "",
+                        "Hours": "",
+                        "Overtime": ""
+                    }
+                },
+                "Materials": {
+                    "Add Group": "",
+                    "Add Material": {
+                        "Material Group": "",
+                        "Material": "",
+                        "Unit": "",
+                    }
+                }
+            },
+            "Sidewalks-Other": {
+                "Work Group": "Sidewalks",
+                "Work Type": "Sidewalks-Other",
+                "Address": "",
+                "Status": "",
+                "AssetId": "",
+                "Description": "",
+                "Comments": "",
+                "Priority": "",
+                "Department": "",
+                "SW Grind": "",
+                "SW Class II": "",
+                "SW Class III": "",
+                "SW Allcrete": "",
+                "Employees": {
+                    "Add Crew": "",
+                    "Add Employee": {
+                        "Date": "",
+                        "Crew": "",
+                        "Employee": "",
+                        "Hours": "",
+                        "Overtime": ""
+                    }
+                },
+                "Equipment": {
+                    "Add Crew Equipment": "",
+                    "Add Equipment": {
+                        "Date": "",
+                        "Crew": "",
+                        "Equipment": "",
+                        "Hours": "",
+                        "Overtime": ""
+                    }
+                },
+                "Materials": {
+                    "Add Group": "",
+                    "Add Material": {
+                        "Material Group": "",
+                        "Material": "",
+                        "Unit": "",
+                    }
+                }
+            },
+            "Sidewalk Inspection": {
+                "Work Group": "Sidewalks",
+                "Work Type": "Sidewalks Inspection",
+                "Address": "",
+                "Status": "",
+                "AssetId": "",
+                "Description": "",
+                "Comments": "",
+                "Priority": "",
+                "Department": "",
+                "SW Grind": "",
+                "SW Class II": "",
+                "SW Class III": "",
+                "SW Allcrete": "",
+                "Reuqest for Services": {
+                    "Request Form Signed": "",
+                    "Propery Address": "",
+                    "Description of Replacement": "",
+                    "Agreed Sum in Dollars Upon Completion of Inspection": "",
+                    "Signed By": "",
+                    "Signed Date": ""
+                },
+                "Employees": {
+                    "Add Crew": "",
+                    "Add Employee": {
+                        "Date": "",
+                        "Crew": "",
+                        "Employee": "",
+                        "Hours": "",
+                        "Overtime": ""
+                    }
+                },
+                "Equipment": {
+                    "Add Crew Equipment": "",
+                    "Add Equipment": {
+                        "Date": "",
+                        "Crew": "",
+                        "Equipment": "",
+                        "Hours": "",
+                        "Overtime": ""
+                    }
+                },
+                "Materials": {
+                    "Add Group": "",
+                    "Add Material": {
+                        "Material Group": "",
+                        "Material": "",
+                        "Unit": "",
+                    }
+                }
+            }
+        }, "ParksorMarina": {
+        "Asphalt/Concrete Repair-Marina": {
+            "Work Group": "Park of Marina Maintenance",
+            "Work Type": "Asphalt/Concrete Repair-Marina",
+            "Address": "", 
+            "Status": "New Request",
+            "Assest ID": "",
+            "Description": "",
+            "Comments": "",
+            "Priority": "",
+            "Department": "",
+            "Employees": {
+                "Add Crew": "",
+                "Add Employee": {
+                    "Date": "",
+                    "Crew": "",
+                    "Employee": "",
+                    "Hours": "",
+                    "Overtime": ""
+                }
+            },
+            "Equipment": {
+                "Add Crew Equipment": "",
+                "Add Equipment": {
+                    "Date": "",
+                    "Crew": "",
+                    "Equipment": "",
+                    "Hours": "",
+                    "Overtime": ""
+                }
+            },
+            "Materials": {
+                "Add Group": "",
+                "Add Material": {
+                    "Material Group": "",
+                    "Material": "",
+                    "Unit": ""
+                }
+            }
+        },
+        "Asphalt/Concrete Repair-Park": {
+            "Work Group": "Park of Marina Maintenance",
+            "Work Type": "Asphalt/Concrete Repair-Park",
+            "Address": "", 
+            "Status": "New Request",
+            "Assest ID": "",
+            "Description": "",
+            "Comments": "",
+            "Priority": "",
+            "Department": "",
+            "Employees": {
+                "Add Crew": "",
+                "Add Employee": {
+                    "Date": "",
+                    "Crew": "",
+                    "Employee": "",
+                    "Hours": "",
+                    "Overtime": ""
+                }
+            },
+            "Equipment": {
+                "Add Crew Equipment": "",
+                "Add Equipment": {
+                    "Date": "",
+                    "Crew": "",
+                    "Equipment": "",
+                    "Hours": "",
+                    "Overtime": ""
+                }
+            },
+            "Materials": {
+                "Add Group": "",
+                "Add Material": {
+                    "Material Group": "",
+                    "Material": "",
+                    "Unit": ""
+                }
+            }
+        }
+    },
+    "Storm Response": {
+        "Storm Drain Tops": {
+            "Work Group": "Storm Drain or Sewer",
+            "Work Type": "Storm Drain Tops",
+            "Address": "", 
+            "Status": "New Request",
+            "Assest ID": "",
+            "Description": "",
+            "Comments": "",
+            "Priority": "",
+            "Department": "",
+            "Employees": {
+                "Add Crew": "",
+                "Add Employee": {
+                    "Date": "",
+                    "Crew": "",
+                    "Employee": "",
+                    "Hours": "",
+                    "Overtime": ""
+                }
+            },
+            "Equipment": {
+                "Add Crew Equipment": "",
+                "Add Equipment": {
+                    "Date": "",
+                    "Crew": "",
+                    "Equipment": "",
+                    "Hours": "",
+                    "Overtime": ""
+                }
+            },
+            "Materials": {
+                "Add Group": "",
+                "Add Material": {
+                    "Material Group": "",
+                    "Material": "",
+                    "Unit": ""
+                }
+            }
+        }
+    },
+    "Road Maintenance": {
+        "Asphalt Repair/Pothole": {
+            "Work Group": "Roads",
+            "Work Type": "Asphalt Repair-Pothole",
+            "Address": "",
+            "Status": "",
+            "AssetId": "",
+            "Description": "",
+            "Comments": "",
+            "Priority": "",
+            "Department": "",
+            "Pavement Maintenance Report": {
+                "A Patch (Sq Ft)": "",
+                "B Patch (Sq Ft)": "",
+                "Potholes Filled": "",
+                "Curb Gutters": "",
+                "Crack Seal (Blocks)": "",
+                "Grinds": "",
+                "Class II": "",
+                "Class III": "",
+                "V Ditches Cleared (Linear Ft)": "",
+                "Barricades Delivered": "",
+                "SWI": "",
+            },
+            "Employees": {
+                "Add Crew": "",
+                "Add Employee": {
+                    "Date": "",
+                    "Crew": "",
+                    "Employee": "",
+                    "Hours": "",
+                    "Overtime": "",
+            },
+            "Equipment": {
+                "Add Crew Equipment": "",
+                "Add Equipment": {
+                    "Date": "",
+                    "Crew": "",
+                    "Equipment": "",
+                    "Hours": "",
+                    "Overtime": ""
+                }
+            },
+            "Materials": {
+                "Add Group": "",
+                "Add Material": {
+                    "Material Group": "",
+                    "Material": "",
+                    "Unit": "",
+                }
+            },
+        },
+        "Other Assistance-Roads": {
+            "Work Group": "Roads",
+            "Work Type": "Asphalt Repair-Pothole",
+            "Address": "",
+            "Status": "",
+            "AssetId": "",
+            "Description": "",
+            "Comments": "",
+            "Priority": "",
+            "Department": "",
+            "Pavement Maintenance Report": {
+                "A Patch (Sq Ft)": "",
+                "B Patch (Sq Ft)": "",
+                "Potholes Filled": "",
+                "Curb Gutters": "",
+                "Crack Seal (Blocks)": "",
+                "Grinds": "",
+                "Class II": "",
+                "Class III": "",
+                "V Ditches Cleared (Linear Ft)": "",
+                "Barricades Delivered": "",
+                "SWI": "",
+            },
+            "Cost Account Report": {
+                "Date of Incident": "",
+                "Police Report #": "",
+                "Reinbursement Account #": "",
+                "Responsible Party": "",
+                "Notes For Cost Report": "",
+            },
+            "Employees": {
+                "Add Crew": "",
+                "Add Employee": {
+                    "Date": "",
+                    "Crew": "",
+                    "Employee": "",
+                    "Hours": "",
+                    "Overtime": "",
+            },
+            "Equipment": {
+                "Add Crew Equipment": "",
+                "Add Equipment": {
+                    "Date": "",
+                    "Crew": "",
+                    "Equipment": "",
+                    "Hours": "",
+                    "Overtime": ""
+                }
+            },
+            "Materials": {
+                "Add Group": "",
+                "Add Material": {
+                    "Material Group": "",
+                    "Material": "",
+                    "Unit": "",
+                }
+            }
+        }
+    }
+}
