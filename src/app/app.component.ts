@@ -66,6 +66,14 @@ export class AppComponent implements OnInit {
   goToCache() {
     this.router.navigate(['cache'])
   }
+
+  goToSettings() {
+    this.router.navigate(['settings'])
+  }
+
+  goToSupport() {
+    this.router.navigate(['support'])
+  }
   
   goToFolder() {
     this.router.navigate(['folder'])
