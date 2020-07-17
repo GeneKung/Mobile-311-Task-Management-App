@@ -8,9 +8,30 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{ folder }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-item class="top">
+    <ion-label>Work Requests</ion-label>
+    <ion-badge color="secondary" slot="end">
+      <ion-text>0</ion-text>
+    </ion-badge>
+  </ion-item>
+  <ion-item>
+    <ion-label class="tab">Photos</ion-label>
+    <ion-badge color="secondary" slot="end">
+      <ion-text>0</ion-text>
+    </ion-badge>
+  </ion-item>
+  <ion-item>
+    <ion-label class="tab">Breadcrumbs</ion-label>
+    <ion-badge color="secondary" slot="end">
+      <ion-text>0</ion-text>
+    </ion-badge>
+  </ion-item>
+  <ion-item>
+    <ion-label class="tab">Assets</ion-label>
+    <ion-badge color="secondary" slot="end">
+      <ion-text>0</ion-text>
+    </ion-badge>
+  </ion-item>
+  <ion-button expand="block" fill="outline">POST CACHE</ion-button>
+  <ion-button expand="block" fill="solid">CLEAR CACHE</ion-button>
 </ion-content>
