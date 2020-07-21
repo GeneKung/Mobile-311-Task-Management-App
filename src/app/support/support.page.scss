@@ -1,15 +1,41 @@
-ion-title{
-    text-align: center;
+ion-toolbar {
+    height: 70px;
 }
+
+ion-menu-button {
+    margin-top: 20px;
+}
+ion-title {
+    margin-top: 20px;
+} 
 
 body{
     background-image: url(https://map.mobile311.com/Mobile311/Images/App/M311_Logo.png);
     background-repeat: no-repeat;
     background-position: center top;
-    margin-top: 20px; 
-    background-size: 40%;
+    background-size: 80%;
+    position: absolute;
+    width: 414px;
+height: 644px;
+left: 0;
+top: 100px;
 }
 
-.options{
-    margin-top: 300px;
+ion-button {
+    position: relative;
+    top: 300px;
+    left: 25px;
+    height: 48px;
+    width: 336px;
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 20px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
 }
