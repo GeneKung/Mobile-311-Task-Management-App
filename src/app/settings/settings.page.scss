@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap');
 p.subtitle{
     position: absolute;
     width: 344px;
@@ -5,7 +6,7 @@ p.subtitle{
     left: 16px;
     top: 6px;
     /* ionic/ button/ small */
-    font-family: Nunito Sans;
+    font-family: "Nunito Sans";
     font-style: normal;
     font-weight: bold;
     font-size: 12px;
@@ -25,7 +26,7 @@ p.secondSubtitle {
     left: 16px;
     top: 225px;
     /* ionic/ button/ small */
-    font-family: Nunito Sans;
+    font-family: "Nunito Sans";
     font-style: normal;
     font-weight: bold;
     font-size: 12px;
@@ -54,4 +55,7 @@ p.secondSubtitle {
 #slidingBar {
     position:relative;
     top:70px;
+}
+ion-toggle {
+    margin-top: 7px;
 }
