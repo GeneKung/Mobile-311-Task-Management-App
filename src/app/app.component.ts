@@ -73,7 +73,9 @@ export class AppComponent implements OnInit {
   goToSupport() {
     this.router.navigate(['support'])
   }
-  
+  gotoLogout() {
+    this.router.navigate(['logout'])
+  }
   goToFolder() {
     this.router.navigate(['folder'])
   }
