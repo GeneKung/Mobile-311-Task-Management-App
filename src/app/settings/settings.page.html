@@ -1,0 +1,63 @@
+<ion-header [translucent] = "true">
+    <ion-toolbar>
+      <ion-buttons slot = "start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>settings</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <p class="subtitle">Work Item</p>
+    
+    <ion-row id="row1">
+      <ion-col size = "2">
+        <ion-toggle color="primary"></ion-toggle>
+      </ion-col>
+      <ion-col size = "8">
+        <ion-item>Check Duplicate Work Item</ion-item>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row id="row2">
+      <ion-col size = "12">Check Duplicate Distance</ion-col>
+    </ion-row>
+  
+    <ion-item id="slidingBar">
+      <ion-range min="8" max="250" color="secondary">
+        <ion-label slot="start">8 ft <ion-icon size="small" slot="start" name="sunny"></ion-icon></ion-label>
+        <ion-label slot="end">250 ft <ion-icon size="small" slot="end" name="sunny"></ion-icon></ion-label>
+      </ion-range>
+    </ion-item>
+  
+    <p class="secondSubtitle">BREADCRUMBS</p>
+    
+    <div id="row3">
+      <ion-list>
+        <ion-item>
+          <ion-label>Post BreadCrumbs</ion-label>
+          <ion-select ok-text="Select" cancel-text="Cancel">
+            <ion-select-option value="Never">Never</ion-select-option>
+            <ion-select-option value="15 Sec">15 Sec</ion-select-option>
+            <ion-select-option value="30 Sec">30 Sec</ion-select-option>
+            <ion-select-option value="1 Min">1 Min</ion-select-option>
+            <ion-select-option value="5 Min">5 Min</ion-select-option>
+            <ion-select-option value="10 Min">10 Min</ion-select-option>
+            <ion-select-option value="30 Min">30 Min</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Check Duplicate Distance</ion-label>
+          <ion-select ok-text="Select" cancel-text="Cancel">
+            <ion-select-option value="Never">Never</ion-select-option>
+            <ion-select-option value="15 Sec">15 Sec</ion-select-option>
+            <ion-select-option value="30 Sec">30 Sec</ion-select-option>
+            <ion-select-option value="1 Min">1 Min</ion-select-option>
+            <ion-select-option value="5 Min">5 Min</ion-select-option>
+            <ion-select-option value="10 Min">10 Min</ion-select-option>
+            <ion-select-option value="30 Min">30 Min</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-content>
