@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { CachePageRoutingModule } from './cache-routing.module';
 
 import { CachePage } from './cache.page';
-
 @NgModule({
   imports: [
     CommonModule,
