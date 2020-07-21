@@ -1,0 +1,57 @@
+p.subtitle{
+    position: absolute;
+    width: 344px;
+    height: 22px;
+    left: 16px;
+    top: 6px;
+    /* ionic/ button/ small */
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    /* ionic / medium */
+    color: #7D849F;
+}
+p.secondSubtitle {
+    /* Subtitle 1 */
+    position: absolute;
+    width: 344px;
+    height: 22px;
+    left: 16px;
+    top: 225px;
+    /* ionic/ button/ small */
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    /* ionic / medium */
+    color: #7D849F;
+}
+#row1 {
+    position: relative;;
+    left: 16px;
+    top: 40px;
+}
+#row2 {
+    position:absolute;
+    top:105px;
+    left:94px;
+}
+#row3 {
+    position:relative;
+    top:140px;
+}
+#slidingBar {
+    position:relative;
+    top:70px;
+}
