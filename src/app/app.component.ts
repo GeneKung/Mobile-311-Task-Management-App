@@ -27,14 +27,12 @@ export class AppComponent implements OnInit {
       this.splashScreen.hide();
     });
   }
-
   goToCache() {
     this.router.navigate(['cache'])
   }
   goToSettings() {
     this.router.navigate(['settings'])
   }
-
   goToSupport() {
     this.router.navigate(['support'])
   }
