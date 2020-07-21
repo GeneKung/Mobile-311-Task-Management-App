@@ -9,29 +9,29 @@
 
 <ion-content [fullscreen]="true">
   <ion-item class="top">
-    <ion-label>Work Requests</ion-label>
+    <ion-label class="tab">Work Requests</ion-label>
     <ion-badge color="secondary" slot="end">
-      <ion-text>0</ion-text>
+      <ion-text>{{requests}}</ion-text>
     </ion-badge>
   </ion-item>
   <ion-item>
     <ion-label class="tab">Photos</ion-label>
     <ion-badge color="secondary" slot="end">
-      <ion-text>0</ion-text>
+      <ion-text>{{photos}}</ion-text>
     </ion-badge>
   </ion-item>
   <ion-item>
     <ion-label class="tab">Breadcrumbs</ion-label>
     <ion-badge color="secondary" slot="end">
-      <ion-text>0</ion-text>
+      <ion-text>{{breadcrumbs}}</ion-text>
     </ion-badge>
   </ion-item>
   <ion-item>
     <ion-label class="tab">Assets</ion-label>
     <ion-badge color="secondary" slot="end">
-      <ion-text>0</ion-text>
+      <ion-text>{{assets}}</ion-text>
     </ion-badge>
   </ion-item>
   <ion-button expand="block" fill="outline">POST CACHE</ion-button>
-  <ion-button expand="block" fill="solid">CLEAR CACHE</ion-button>
+  <ion-button expand="block" fill="solid" (click)="clearCache()">CLEAR CACHE</ion-button>
 </ion-content>
