@@ -1,8 +1,27 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>logout</ion-title>
+    <ion-icon id="signInIcon" slot="start" name="log-in"></ion-icon>
+    <ion-title>Sign-In</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
+
+  
+  <ion-item id="row1">
+    <ion-label position="stacked">Password<ion-text color="danger"></ion-text></ion-label>
+    <ion-input required type="text"></ion-input>
+  </ion-item>
+  
+  <ion-item id="row2">
+    <ion-label position="stacked">Username<ion-text color="danger"></ion-text></ion-label>
+    <ion-input required type="text"></ion-input>
+  </ion-item>
+
+  <ion-item id="row3">
+    <ion-label>Remember Me</ion-label>
+    <ion-checkbox color="primary" checked slot="start"></ion-checkbox>
+  </ion-item>
+
+  <ion-button  id="row4" expand="block" fill="solid" >LOGIN</ion-button>
 
 </ion-content>

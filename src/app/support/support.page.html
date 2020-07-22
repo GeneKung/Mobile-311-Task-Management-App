@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -7,9 +13,13 @@
   </ion-toolbar>
 </ion-header>
 <body>
-    <div class="options">
-      <ion-button expand="block" fill="solid">Go to Website</ion-button>
-      <ion-button expand="block" fill="solid">Email</ion-button>
-      <ion-button expand="block" fill="solid">Call</ion-button>
-    </div>
+  <div class="options">
+    <ion-button expand="block" fill="solid" color="success"><p>Website</p><ion-icon name="browsers"></ion-icon>
+    </ion-button>
+    <br>
+    <ion-button expand="block" fill="solid" color="secondary"><span text-left><p>Email</p></span> <ion-icon name="mail-outline"></ion-icon></ion-button>
+    <br>
+    <ion-button expand="block" fill="solid" color="tertiary"><p>Call</p><ion-icon name="call-outline"></ion-icon></ion-button>
+  </div>
 </body>
+

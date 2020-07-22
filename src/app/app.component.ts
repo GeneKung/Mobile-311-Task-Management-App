@@ -35,7 +35,6 @@ export class AppComponent implements OnInit {
   goToSettings() {
     this.router.navigate(['settings'])
   }
-
   goToSupport() {
     this.router.navigate(['support'])
   }
