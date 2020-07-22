@@ -18,5 +18,10 @@ export class LoginPage implements OnInit {
   ionViewWillEnter() {
     this.menuCtrl.enable(false);
    }
+
+   signIn(){
+    this.router.navigate(['support'])
+    this.menuCtrl.enable(true);
+  }
    
 }
