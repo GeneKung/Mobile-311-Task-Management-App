@@ -40,6 +40,9 @@ export class AppComponent implements OnInit {
   gotoLogout() {
     this.router.navigate(['logout'])
   }
+  gotoTasks() {
+    this.router.navigate(['tasks'])
+  }
     ngOnInit() {
   }
 }
