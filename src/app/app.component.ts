@@ -4,7 +4,6 @@ import { NavController ,Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
-import { LogoutPage } from '../app/logout/logout.page'
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
