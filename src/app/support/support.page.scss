@@ -23,25 +23,17 @@ body{
 
 ion-button {
     position: relative;
-    top: 205px;
     height: 80px;
+    margin-left: 5px;
     font-family: "Nunito Sans";
     font-style: normal;
     font-weight: 1000;
     font-size: 20px;
-    line-height: 27px;
-    display: flex;
-    align-items: center;
     text-align: center;
     letter-spacing: 1px;
     text-transform: uppercase;
-    margin-bottom: 5px;
-    margin-left: 6px;
-    margin-right:6px;
 }
-ion-button.website {
-    --background: #93B53D;
-}
+
 
 ion-icon{
     position: absolute; 
@@ -52,6 +44,6 @@ ion-icon{
 p{
     position: absolute; 
     left: 0;
-    top: 6px;
+    top: 15px;
     font-size: 25px;
 }
