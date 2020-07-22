@@ -24,8 +24,4 @@ export class LoginPage implements OnInit {
     this.menuCtrl.enable(true);
   }
    
-   signIn(){
-    this.router.navigate(['support'])
-    this.menuCtrl.enable(true);
-  }
 }
