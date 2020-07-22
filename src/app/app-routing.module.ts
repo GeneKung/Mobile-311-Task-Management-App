@@ -2,10 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: 'cache', 
-    loadChildren: () => import('./cache/cache.module').then(m => m.CachePageModule)
-  },
+  
   {
     path: 'support',
     loadChildren: () => import('./support/support.module').then(m => m.SupportPageModule)
@@ -18,7 +15,10 @@ const routes: Routes = [
     path: 'logout',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
-
+  {
+    path: 'cache',
+    loadChildren: () => import('./cache/cache.module').then( m => m.CachePageModule)
+  }
 
 ];
 
