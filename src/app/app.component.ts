@@ -11,7 +11,7 @@ import { LogoutPage } from '../app/logout/logout.page'
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public rootPage: any;
+  
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.rootPage = LogoutPage; 
+      
     });
   }
   goToCache() {
