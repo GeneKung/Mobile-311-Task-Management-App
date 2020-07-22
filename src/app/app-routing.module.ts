@@ -2,13 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {path: 'folder', loadChildren: './folder/folder.module#FolderPageModule'},
-  {path: 'cache', loadChildren: './cache/cache.module#CachePageModule'},
-  {
-    path: '',
-    redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
-  },
+  
   {
     path: 'support',
     loadChildren: () => import('./support/support.module').then(m => m.SupportPageModule)
@@ -21,7 +15,10 @@ const routes: Routes = [
     path: 'logout',
     loadChildren: () => import('./logout/logout.module').then( m => m.LogoutPageModule)
   },
-
+  {
+    path: 'cache',
+    loadChildren: () => import('./cache/cache.module').then( m => m.CachePageModule)
+  }
 
 ];
 
