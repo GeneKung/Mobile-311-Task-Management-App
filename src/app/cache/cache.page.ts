@@ -9,7 +9,7 @@ export class CachePage implements OnInit {
   public cache: string;
   constructor(private activatedRoute: ActivatedRoute) { }
   requests = 3;
-  photos = 1;
+  photos = 234;
   assets = 2;
   breadcrumbs = 0;
   
