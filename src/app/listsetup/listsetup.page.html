@@ -10,5 +10,67 @@
 </ion-header>
 
 <ion-content>
+  <ion-item id="row1">
+    <ion-label position="stacked"><ion-text >Number of Requests</ion-text></ion-label>
+    <ion-input required type="number"></ion-input>
+  </ion-item>
+  <ion-item id="row2">
+    <ion-label position="stacked"><ion-text >Number of Days</ion-text></ion-label>
+    <ion-input required type="number"></ion-input>
+  </ion-item>
+  
+  <ion-item id="row3">
+    <ion-label>Show Only Assignments</ion-label>
+    <ion-toggle color="primary"></ion-toggle>
+  </ion-item>
+  <ion-item id="row4">
+    <ion-label>Show Suspended Users</ion-label>
+    <ion-toggle color="primary"></ion-toggle>
+  </ion-item>
+  <ion-item id="row5">
+    <ion-label>Show Citizen Request</ion-label>
+    <ion-toggle color="primary"></ion-toggle>
+  </ion-item>
 
+  <ion-item id="row6">
+    <ion-label>Work Types</ion-label>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+  <ion-item id="row7">
+    <ion-label>Statuses</ion-label>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+  <ion-item id="row8">
+    <ion-label>Users</ion-label>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <ion-item id="row9">
+    <ion-label>Sort Order</ion-label>
+    <ion-select ok-text="Confirm" cancel-text="Cancel">
+      <ion-select-option value="Distance">Distance</ion-select-option>
+      <ion-select-option value="Id">Id</ion-select-option>
+      <ion-select-option value="Collected Date">Collected Date</ion-select-option>
+      <ion-select-option value="Modified Date">Modified Date</ion-select-option>
+      <ion-select-option value="Address">Address</ion-select-option>
+      <ion-select-option value="Priority">Priority</ion-select-option>
+      <ion-select-option value="Asc">Asc</ion-select-option>
+      <ion-select-option value="Desc">Desc</ion-select-option>
+    </ion-select>
+  </ion-item>
+  
+  <ion-button  id="row10" expand="block" fill="solid" color="secondary">Reset</ion-button>
+  <ion-button  id="row11" expand="block" fill="solid" color="primary">Save</ion-button>
 </ion-content>
