@@ -34,7 +34,7 @@
 
   <ion-item id="row6">
     <ion-label>Work Types</ion-label>
-    <ion-buttons slot="end">
+    <ion-buttons slot="end" (click)="goWorkType()">
       <ion-button slot="icon-only">
         <ion-icon name="arrow-forward"></ion-icon>
       </ion-button>
@@ -42,7 +42,7 @@
   </ion-item>
   <ion-item id="row7">
     <ion-label>Statuses</ion-label>
-    <ion-buttons slot="end">
+    <ion-buttons slot="end" (click)="goToStatuses()">
       <ion-button slot="icon-only">
         <ion-icon name="arrow-forward"></ion-icon>
       </ion-button>
