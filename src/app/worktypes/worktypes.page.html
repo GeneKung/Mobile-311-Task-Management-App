@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Work Types</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item class="top">
+    <ion-checkbox class="checkbox-square"></ion-checkbox>
+    <ion-label class="tab">Abandoned Hazardous Waste</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-checkbox class="checkbox-square"></ion-checkbox>
+    <ion-label class="tab">Abandoned Shopping Cart</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-checkbox class="checkbox-square"></ion-checkbox>
+    <ion-label class="tab">Animla Control</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-checkbox class="checkbox-square"></ion-checkbox>
+    <ion-label class="tab">Asphalt Repair/Pothole</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-checkbox class="checkbox-square"></ion-checkbox>
+    <ion-label class="tab">City Trees</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-checkbox class="checkbox-square"></ion-checkbox>
+    <ion-label class="tab">Dead Animal</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-checkbox class="checkbox-square"></ion-checkbox>
+    <ion-label class="tab">Debris at Marina</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-checkbox class="checkbox-square"></ion-checkbox>
+    <ion-label class="tab">Debris in Park</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-checkbox class="checkbox-square"></ion-checkbox>
+    <ion-label class="tab">Debris in Public Right-of-Way</ion-label>
+  </ion-item>
+  <ion-button expand="block" fill="solid" >UNCHECK ALL</ion-button>
+  <ion-button expand="block" fill="solid" (click)="clearCache()" class="clear">CHECK ALL</ion-button>
+</ion-content>

@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap');
+ion-menu-button {
+    color: var(gray);
+  }
+
+ion-toolbar {
+    height: 70px;
+}
+
+ion-menu-button {
+    margin-top: 20px;
+}
+ion-title {
+    margin-top: 20px;
+} 
+ion-item {
+    height: 48px;
+    margin-left: -20px;
+    border-width: 3px;
+    border-color: lightgray;
+}
+ion-checkbox{
+    position: absolute;
+    left: 15px;
+}
+ion-label {
+    position: absolute;
+    left: 20px;
+    margin-left: 10%; 
+}
+ion-item.top {
+    margin-top: 24px;
+}
+ion-button {
+    position: relative;
+    top: 20px;
+    left: 12px;
+    height: 40px;
+    width: 336px;
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 20px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+
+ion-text {
+    position: relative;
+    top: -2px;
+    text-align: center;
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+ion-button.clear {
+    --background: #4AC3FF;
+}
