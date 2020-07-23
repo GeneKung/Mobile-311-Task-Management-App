@@ -26,9 +26,14 @@ const routes: Routes = [
   {
     path: 'listsetup',
     loadChildren: () => import('./listsetup/listsetup.module').then( m => m.ListsetupPageModule)
-  },  {
+  },
+  {
     path: 'status',
     loadChildren: () => import('./status/status.module').then( m => m.StatusPageModule)
+  },
+  {
+    path: 'worktypes',
+    loadChildren: () => import('./worktypes/worktypes.module').then( m => m.WorkTypesPageModule)
   }
 
 
