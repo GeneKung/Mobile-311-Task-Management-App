@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import {  MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-users',
   templateUrl: './users.page.html',
@@ -13,7 +14,7 @@ export class UsersPage implements OnInit {
   checkBoxList:any;
 
 
-  constructor(private activatedRoute: ActivatedRoute,  private router: Router){
+  constructor(private activatedRoute: ActivatedRoute,  private router: Router, public menuCtrl: MenuController){
     this.checkBoxList = [
       {
         value:"gene@alan.app",
