@@ -18,13 +18,14 @@ const routes: Routes = [
   {
     path: 'cache',
     loadChildren: () => import('./cache/cache.module').then( m => m.CachePageModule)
-  },  {
+  },
+  {
     path: 'tasks',
     loadChildren: () => import('./tasks/tasks.module').then( m => m.TasksPageModule)
   },
   {
-    path: 'statuses',
-    loadChildren: () => import('./statuses/statuses.module').then( m => m.StatusesPageModule)
+    path: 'listsetup',
+    loadChildren: () => import('./listsetup/listsetup.module').then( m => m.ListsetupPageModule)
   }
 
 
