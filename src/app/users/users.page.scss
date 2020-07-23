@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap');
-ion-title {
-    font-family: "Nunito Sans";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 22px;
-    line-height: 30px;
-    /* identical to box height */
+ion-menu-button {
+    color: var(gray);
+  }
 
-    display: flex;
+ion-toolbar {
+    height: 70px;
 }
+
+ion-back-button {
+    margin-top: 20px;
+}
+ion-title {
+    margin-top: 20px;
+} 
 ion-item {
     height: 48px;
     margin-left: -20px;
@@ -45,9 +49,6 @@ ion-button {
     text-transform: uppercase;
     margin-bottom: 5px;
 }
-ion-button.uncheck {
-    --background: #4AC3FF;
-}
 
 
 ion-text {
@@ -64,4 +65,8 @@ ion-text {
     align-items: center;
     text-align: center;
     color: #FFFFFF;
+}
+
+ion-button.clear {
+    --background: #4AC3FF;
 }
