@@ -2,54 +2,54 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {  MenuController } from '@ionic/angular';
 @Component({
-  selector: 'app-worktypes',
-  templateUrl: './worktypes.page.html',
-  styleUrls: ['./worktypes.page.scss'],
+  selector: 'app-status',
+  templateUrl: './status.page.html',
+  styleUrls: ['./status.page.scss'],
 })
-export class WorkTypesPage implements OnInit {
-  public worktypes: string;
+export class StatusPage implements OnInit {
+  public status: string;
   isIndeterminate:boolean;
   masterCheck:boolean;
   checkBoxList:any;
-
-
-  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController,){
+  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController,) {
     this.checkBoxList = [
       {
-        value:"Abandoned Hazardous Waste",
+        value:"Courtesy Notice",
         isChecked:false
       },{
-        value:"Abandoned Shopping Cart",
+        value:"Door Tag",
         isChecked:false
       },{
-        value:"Animla Control",
+        value:"Duplicate Request",
         isChecked:false
       },{
-        value:"Asphalt Repair/Pothole",
+        value:"NOV",
         isChecked:false
       },{
-        value:"Asphalt/Concrete Repair-Park",
+        value:"New Request",
         isChecked:false
       },{
-        value:"City Trees",
+        value:"Received",
         isChecked:false
       },{
-        value:"Dead Animal",
+        value:"Scheduled for LED Replacement",
         isChecked:false
       },{
-        value:"Debris at Marina",
+        value:"VOID",
         isChecked:false
       },{
-        value:"Debris in Park",
+        value:"Work In Progress",
         isChecked:false
       },{
-        value:"Debris in Public Right-of-Way",
+        value:"Admin. Citation",
         isChecked:false
       },
     ];
+   }
+  ngOnInit() {
+    this.status = this.activatedRoute.snapshot.paramMap.get('id');
   }
-
-
+  
   checkAll() {
     setTimeout(()=>{
       this.checkBoxList.forEach(obj => {
@@ -65,15 +65,11 @@ export class WorkTypesPage implements OnInit {
       });
     });
   }
-  
+
   ionViewWillEnter() {
     this.menuCtrl.enable(false);
    }
-  
-  ngOnInit() {
-    this.worktypes = this.activatedRoute.snapshot.paramMap.get('id');
-  }
-  
+
   checkEvent() {
     const totalItems = this.checkBoxList.length;
     let checked = 0;

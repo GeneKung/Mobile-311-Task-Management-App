@@ -49,6 +49,9 @@ ion-button {
     text-transform: uppercase;
     margin-bottom: 5px;
 }
+ion-button.uncheck {
+    --background: #4AC3FF;
+}
 
 
 ion-text {
@@ -65,8 +68,4 @@ ion-text {
     align-items: center;
     text-align: center;
     color: #FFFFFF;
-}
-
-ion-button.clear {
-    --background: #4AC3FF;
 }

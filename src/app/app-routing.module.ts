@@ -24,6 +24,14 @@ const routes: Routes = [
     loadChildren: () => import('./tasks/tasks.module').then( m => m.TasksPageModule)
   },
   {
+    path: 'listsetup',
+    loadChildren: () => import('./listsetup/listsetup.module').then( m => m.ListsetupPageModule)
+  },
+  {
+    path: 'status',
+    loadChildren: () => import('./status/status.module').then( m => m.StatusPageModule)
+  },
+  {
     path: 'worktypes',
     loadChildren: () => import('./worktypes/worktypes.module').then( m => m.WorkTypesPageModule)
   },
@@ -31,6 +39,7 @@ const routes: Routes = [
     path: 'users',
     loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule)
   }
+
 
 
 ];
