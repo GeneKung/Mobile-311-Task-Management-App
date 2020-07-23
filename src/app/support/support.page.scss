@@ -7,6 +7,7 @@ ion-menu-button {
 }
 ion-title {
     margin-top: 20px;
+    font-family: "Nunito Sans";
 } 
 
 body{
@@ -24,7 +25,6 @@ body{
 ion-button {
     position: relative;
     height: 80px;
-    margin-left: 5px;
     font-family: "Nunito Sans";
     font-style: normal;
     font-weight: 1000;
@@ -44,6 +44,6 @@ ion-icon{
 p{
     position: absolute; 
     left: 0;
-    top: 15px;
+    top: 6px;
     font-size: 25px;
 }
