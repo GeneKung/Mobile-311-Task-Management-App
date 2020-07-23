@@ -8,3 +8,24 @@ ion-title {
 
     display: flex;
 }
+
+ion-button {
+    position: relative;
+    left: 12px;
+    height: 48px;
+    width: 336px;
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 20px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+ion-button.uncheck {
+    --background: #4AC3FF;
+}
