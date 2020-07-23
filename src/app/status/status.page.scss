@@ -8,7 +8,25 @@ ion-title {
 
     display: flex;
 }
-
+ion-item {
+    height: 48px;
+    margin-left: -20px;
+    border-width: 3px;
+    border-color: lightgray;
+}
+ion-checkbox{
+    position: absolute;
+    left: 15px;
+    margin-left: 5%;
+}
+ion-label {
+    position: absolute;
+    left: 20px;
+    margin-left: 10%; 
+}
+ion-item.top {
+    margin-top: 24px;
+}
 ion-button {
     position: relative;
     left: 12px;
@@ -28,4 +46,20 @@ ion-button {
 }
 ion-button.uncheck {
     --background: #4AC3FF;
+}
+
+ion-text {
+    position: relative;
+    top: -2px;
+    text-align: center;
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
 }
