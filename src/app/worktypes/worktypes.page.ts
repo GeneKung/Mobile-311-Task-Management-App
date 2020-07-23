@@ -49,34 +49,23 @@ export class WorkTypesPage implements OnInit {
   }
 
 
-  checkMaster() {
+  checkAll() {
     setTimeout(()=>{
       this.checkBoxList.forEach(obj => {
-        obj.isChecked = this.masterCheck;
+        obj.isChecked = true;
       });
     });
   }
 
-  checkEvent() {
-    const totalItems = this.checkBoxList.length;
-    let checked = 0;
-    this.checkBoxList.map(obj => {
-      if (obj.isChecked) checked++;
+  unCheckAll() {
+    setTimeout(()=>{
+      this.checkBoxList.forEach(obj => {
+        obj.isChecked = false;
+      });
     });
-    if (checked > 0 && checked < totalItems) {
-      //If even one item is checked but not all
-      this.isIndeterminate = true;
-      this.masterCheck = false;
-    } else if (checked == totalItems) {
-      //If all are checked
-      this.masterCheck = true;
-      this.isIndeterminate = false;
-    } else {
-      //If none is checked
-      this.isIndeterminate = false;
-      this.masterCheck = false;
-    }
   }
+
+  
   ngOnInit() {
     this.worktypes = this.activatedRoute.snapshot.paramMap.get('id');
   }
