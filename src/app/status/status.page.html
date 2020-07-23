@@ -13,13 +13,7 @@
       (ionChange)="checkEvent()"></ion-checkbox>
     </ion-item>
   </ion-list>
-  <ion-list>
-    <ion-item>
-      <ion-label><strong>Select All</strong></ion-label>
-      <ion-checkbox slot="start" 
-      [(ngModel)]="masterCheck"
-      [indeterminate]="isIndeterminate"
-        (click)="checkMaster($event)"></ion-checkbox>
-    </ion-item>
-  </ion-list>
+  
+  <ion-button expand="block" fill="solid" (click)="unCheckAll()" class="uncheck">UNCHECK ALL</ion-button>
+  <ion-button expand="block" fill="solid" (click)="checkAll()">CHECK ALL</ion-button>
 </ion-content>
