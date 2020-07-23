@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import {  MenuController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tasks',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tasks.page.scss'],
 })
 export class TasksPage implements OnInit {
-
-  constructor() { }
+  public tasks: string;
+  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router) { }
 
   ngOnInit() {
+    this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
   }
-
+  goListSetup(){
+    this.router.navigate(['listsetup'])
+  }
 }
