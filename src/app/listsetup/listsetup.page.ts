@@ -28,4 +28,7 @@ export class ListsetupPage implements OnInit {
   goToStatuses(){
     this.router.navigate(["status"])
   }
+  goToUsers(){
+    this.router.navigate(['users'])
+  }
 }

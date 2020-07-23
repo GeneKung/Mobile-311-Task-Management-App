@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-users',
   templateUrl: './users.page.html',
@@ -12,7 +13,7 @@ export class UsersPage implements OnInit {
   checkBoxList:any;
 
 
-  constructor(private activatedRoute: ActivatedRoute){
+  constructor(private activatedRoute: ActivatedRoute,  private router: Router){
     this.checkBoxList = [
       {
         value:"gene@alan.app",
