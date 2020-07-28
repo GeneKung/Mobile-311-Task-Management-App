@@ -13,22 +13,9 @@ ion-title {
     display: flex;
 }
 
-ion-segment-button {
-    font-family: "Nunito Sans";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 22px;
-    line-height: 30px;
-    /* identical to box height */
-
-    display: flex;
-}
-
-ion-icon {
-    font-size: 20px;
-}
-
-ion-button.add {
-    height:56px;
-    width:168px;
+#createTaskButton {
+    border-radius: 50px;
+    padding:20;
+    width: 150px;
+    height: 100px;
 }
