@@ -2,18 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {  MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
-
 @Component({
-  selector: 'app-tasks',
-  templateUrl: './tasks.page.html',
-  styleUrls: ['./tasks.page.scss'],
+  selector: 'app-map',
+  templateUrl: './map.page.html',
+  styleUrls: ['./map.page.scss'],
 })
-export class TasksPage implements OnInit {
-  public tasks: string;
+export class MapPage implements OnInit {
+  public map: string;
   constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router) { }
 
   ngOnInit() {
-    this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
+    this.map = this.activatedRoute.snapshot.paramMap.get('id');
   }
   goListSetup(){
     this.router.navigate(['listsetup'])
