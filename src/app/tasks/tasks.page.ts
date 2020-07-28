@@ -11,6 +11,8 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 })
 export class TasksPage implements OnInit {
   public tasks: string;
+  lat: any;
+  lng: any;
   constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation) { }
 
   ngOnInit() {
@@ -19,13 +21,16 @@ export class TasksPage implements OnInit {
   goListSetup(){
     this.router.navigate(['listsetup'])
   }
-  goMap(){
-    this.router.navigate(['map'])
-  }
   goList(){
     this.router.navigate(['tasks'])
   }
   goCreateTask(){
     this.router.navigate(['createtask'])
+  }
+  ionViewDidLoad() {
+    this.geolocation.getCurrentPosition().then( pos => {
+      this.lat = pos.coords.latitude;
+      this.lng = pos.coords.longitude;
+    }).catch( err => console.log(err));
   }
 }
