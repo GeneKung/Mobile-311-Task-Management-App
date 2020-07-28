@@ -130,8 +130,9 @@ ion-label.tab {
 
 ion-avatar {
   position: relative;
-  font-size:48px;
-  margin-top:40px;
+  width: 48px;
+  height: 48px;
+  margin-top:36px;
   margin-left: 16px;
   margin-bottom: 40px;
 }
@@ -142,8 +143,6 @@ ion-toolbar {
 }
 
 ion-label.name {
-  margin-left: -47px;
-  margin-top: -5px;
   font-family: "Nunito Sans";
   font-style: normal;
   font-weight: 600;
@@ -156,12 +155,12 @@ ion-label.name {
   /* Alan Dark Blue */
   
   color: #0D1940;
+  position: absolute;
+  top: 98px;
+  left: 16px;
 }
 
 ion-label.position {
-  margin: 0px;
-  margin-left: 16px;
-  padding: 0px;
   font-family: "Nunito Sans";
   font-style: normal;
   font-weight: normal;
@@ -170,5 +169,7 @@ ion-label.position {
   /* identical to box height, or 143% */
 
   letter-spacing: 0.25px;
-  position: relative;
+  position: absolute;
+  top: 125px;
+  left: 16px;
 }
