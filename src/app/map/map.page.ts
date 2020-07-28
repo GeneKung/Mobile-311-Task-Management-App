@@ -23,4 +23,7 @@ export class MapPage implements OnInit {
   goList(){
     this.router.navigate(['tasks'])
   }
+  goCreateTask(){
+    this.router.navigate(['createtask'])
+  }
 }

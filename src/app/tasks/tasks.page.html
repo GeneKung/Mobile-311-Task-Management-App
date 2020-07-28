@@ -30,15 +30,8 @@
     </ion-segment>
   </ion-toolbar>
 
-  <!-- fab placed to the bottom end -->
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="goCreateTask()">
-    <ion-fab-button id="createTaskButton">
-      <ion-icon name="add-circle"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-
 </ion-content>
 
-<ion-button slot="fixed" vertical="bottom" horizontal="end" class="add">
+<ion-button slot="fixed" vertical="bottom" horizontal="end" class="add" (click)="goCreateTask()">
   <ion-icon name="add-outline" slot="start"></ion-icon> Add Task
 </ion-button>
