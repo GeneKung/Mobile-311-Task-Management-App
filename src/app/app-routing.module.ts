@@ -38,7 +38,11 @@ const routes: Routes = [
   {
     path: 'users',
     loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule)
+  },  {
+    path: 'createtask',
+    loadChildren: () => import('./createtask/createtask.module').then( m => m.CreatetaskPageModule)
   }
+
 
 
 
