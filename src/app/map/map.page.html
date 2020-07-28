@@ -1,9 +1,32 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>map</ion-title>
+<ion-header [translucent] = "true">
+  <ion-toolbar class="header">
+    <ion-buttons slot = "start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Tasks</ion-title>
+    <ion-buttons slot="end">
+      <ion-button  slot="icon-only" (click)="goListSetup()">
+        <ion-icon name="options-outline"></ion-icon>
+      </ion-button>
+      <ion-button slot="icon-only">
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
+      <ion-button slot="icon-only">
+        <ion-icon name="refresh-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-toolbar>
+    <ion-segment>
+      <ion-segment-button (click)="goList()">
+        List
+      </ion-segment-button>
+      <ion-segment-button (click)="goMap()">
+        Map
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-content>

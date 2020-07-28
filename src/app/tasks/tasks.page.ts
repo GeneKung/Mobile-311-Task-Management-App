@@ -18,4 +18,10 @@ export class TasksPage implements OnInit {
   goListSetup(){
     this.router.navigate(['listsetup'])
   }
+  goMap(){
+    this.router.navigate(['map'])
+  }
+  goList(){
+    this.router.navigate(['tasks'])
+  }
 }
