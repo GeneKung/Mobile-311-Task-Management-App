@@ -24,4 +24,7 @@ export class TasksPage implements OnInit {
   goList(){
     this.router.navigate(['tasks'])
   }
+  goCreateTask(){
+    this.router.navigate(['createtask'])
+  }
 }
