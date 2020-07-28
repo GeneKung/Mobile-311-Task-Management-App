@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {  MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @Component({
   selector: 'app-tasks',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class TasksPage implements OnInit {
   public tasks: string;
-  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router) { }
+  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation) { }
 
   ngOnInit() {
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
