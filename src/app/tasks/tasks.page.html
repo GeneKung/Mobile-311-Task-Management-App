@@ -20,14 +20,23 @@
 
 <ion-content>
   <ion-toolbar>
-    <ion-segment>
-      <ion-segment-button>
-        List
+    <ion-segment [(ngModel)]="selectTabs">
+      <ion-segment-button value="listView">
+        <ion-label>List</ion-label>
       </ion-segment-button>
-      <ion-segment-button>
-        Map
+      <ion-segment-button value="mapView">
+        <ion-label>Map</ion-label>
       </ion-segment-button>
     </ion-segment>
+
+    <div *ngIf="selectTabs == 'listView'">
+      <h3>List</h3>
+      <h1>Hello</h1>
+    </div>
+    <div *ngIf="selectTabs == 'mapView'">
+      <h3>Map</h3>
+      <h1>Bye</h1>
+    </div>
   </ion-toolbar>
 </ion-content>
 
@@ -37,7 +46,7 @@
   <ion-label>LONG: {{ lng }} </ion-label>
 </ion-toolbar>
 
-<ion-button slot="fixed" vertical="bottom" horizontal="end" class="add">
+<ion-button slot="fixed" vertical="bottom" horizontal="end" class="add" (click)="goCreateTask()">
   <ion-icon name="add-outline" slot="start"></ion-icon> Add Task
 </ion-button>
 
