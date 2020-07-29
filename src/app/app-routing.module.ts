@@ -42,7 +42,11 @@ const routes: Routes = [
   {
     path: 'createtask',
     loadChildren: () => import('./createtask/createtask.module').then( m => m.CreatetaskPageModule)
+  },  {
+    path: 'search',
+    loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
   },
+
 
 
 

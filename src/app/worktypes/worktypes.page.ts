@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {  MenuController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'app-worktypes',
   templateUrl: './worktypes.page.html',
@@ -13,7 +14,7 @@ export class WorkTypesPage implements OnInit {
   checkBoxList:any;
 
 
-  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController,){
+  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, public storage: Storage){
     this.checkBoxList = [
       {
         value:"Abandoned Hazardous Waste",
@@ -73,7 +74,7 @@ export class WorkTypesPage implements OnInit {
   ngOnInit() {
     this.worktypes = this.activatedRoute.snapshot.paramMap.get('id');
   }
-  
+
   checkEvent() {
     const totalItems = this.checkBoxList.length;
     let checked = 0;
