@@ -19,16 +19,34 @@
 </ion-header>
 
 <ion-content>
-  <ion-toolbar>
-    <ion-segment>
-      <ion-segment-button>
-        List
-      </ion-segment-button>
-      <ion-segment-button>
-        Map
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar>
+    <ion-segment color="primary" [(ngModel)]="type" (ionChange)="segmentChanged($event)" scrollable>
+        <ion-segment-button value="deposit" checked>
+          <ion-label>LIST</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="loan">
+          <ion-label>MAP</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+
+  <div [ngSwitch]="type">
+    <ion-list *ngSwitchCase="'deposit'">
+      <ion-item *ngFor="let item of [].constructor(20); let i = index">
+        <ion-thumbnail slot="start">
+          <img src="https://avatars.io/instagram/unknown">
+        </ion-thumbnail>
+        <h6>Deposit - {{ i }}</h6>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'loan'">
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img src="https://avatars.io/instagram/unknown">
+        </ion-thumbnail>
+        <h6>Loan 2</h6>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
 
 <ion-toolbar slot="fixed" vertical="bottom" expand="block" class="footer">
