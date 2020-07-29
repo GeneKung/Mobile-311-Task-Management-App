@@ -2,3 +2,183 @@
     width:35px;
     height:35px;
 }
+p.subtitle{
+    position: absolute;
+    width: 344px;
+    height: 22px;
+    left: 16px;
+    top: 10px;
+    /* ionic/ button/ small */
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    /* ionic / medium */
+    color: #7D849F;
+}
+p.subtitle2 {
+    position: absolute;
+    width: 344px;
+    height: 22px;
+    left: 16px;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+#subtitle3 {
+    position: static;
+    height: 28px;
+    left: 0px;
+    right: 0px;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height, or 117% */
+
+
+    /* ionic/ black */
+
+    color: #000000;
+}
+#camera {
+    width:300px;
+    height:75px;
+    align-items:center;
+}
+#gallery {
+    width:300px;
+    height:75px;
+    align-items:center
+}
+#iconLarge {
+    height:35px;
+    width:35px;
+}
+#addCommentBtn {
+    height:30px;
+    width:150px;
+}
+#btnSave {
+    margin-left:20px;
+    margin-right:20px;
+}
+
+
+#row1 {
+    position:relative;
+    top:40px;
+}
+#row2 {
+    position:relative;
+    top:50px;
+}
+#row3 {
+    position:relative;
+    top:40px;
+}
+#row4 {
+    position:relative;
+    top:40px
+}
+#row5 {
+    position:relative;
+    top:30px;
+}
+#row6 {
+    position: relative;
+    top:30px;
+}
+#row7 {
+    position: relative;
+    top:20px;
+}
+#row8{
+    position: relative;
+    top:30px;
+}
+#row9 {
+    position: relative;
+    top:20px;
+}
+#row10 {
+    position: relative;
+    top:30px;
+}
+#row11 {
+    position:relative;
+    top:20px;
+}
+#row12 {
+    position:relative;
+    top:30px;
+}
+#row13 {
+    position:relative;
+    top:20px;
+}
+#row14 {
+    position:relative;
+    top:20px;
+}
+#row15 {
+    position:relative;
+    top:10px;
+}
+#row16 {
+    position:relative;
+    top:10px;
+}
+#row17 {
+    position:relative;
+    top:20px;
+}
+#row18 {
+    position:relative;
+    top:40px;
+}
+#row19 {
+    position:relative;
+    top:50px;
+}
+#row20 {
+    position:relative;
+    top:60px
+}
+#row21 {
+    position:relative;
+    top:70px;
+}
+#row22 {
+    position:relative;
+    top:60px;
+}
+#row23 {
+    position:relative;
+    top:40px;
+}
+#row24 {
+    position: relative;
+    top:40px;
+    left:-10px;
+}
+#row25 {
+    position: relative;
+    top:50px;
+    left:-10px;
+}
+#row26 {
+    position: relative;
+    top:150px;
+}
