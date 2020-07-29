@@ -20,7 +20,9 @@ export class TasksPage implements OnInit {
   ngOnInit() {
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
   }
-
+  goSearch(){
+    this.router.navigate(['search'])
+  }
   goListSetup(){
     this.router.navigate(['listsetup'])
   }
@@ -36,5 +38,6 @@ export class TasksPage implements OnInit {
       this.lng = pos.coords.longitude;
     }).catch( err => console.log(err));
   }
-  
+
 }
+
