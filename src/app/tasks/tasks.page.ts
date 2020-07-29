@@ -11,10 +11,16 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 })
 export class TasksPage implements OnInit {
   public tasks: string;
-  type: string;
+  
+  selectTabs = 'listView';
   lat: any;
   lng: any;
   constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation) { }
+
+  ngOnInit() {
+    this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
+  }
+
   goListSetup(){
     this.router.navigate(['listsetup'])
   }
@@ -29,14 +35,6 @@ export class TasksPage implements OnInit {
       this.lat = pos.coords.latitude;
       this.lng = pos.coords.longitude;
     }).catch( err => console.log(err));
-  }
-
-  ngOnInit() {
-    this.type = 'deposit';
-  }
-
-  segmentChanged(ev: any) {
-    console.log('Segment changed', ev);
   }
 }
 
