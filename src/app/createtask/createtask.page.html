@@ -10,5 +10,207 @@
 </ion-header>
 
 <ion-content>
+  <p class="subtitle">Status</p>
+  <ion-item lines="none" id="row1">
+    <ion-label><ion-button color="secondary">Empty Request</ion-button></ion-label>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only">
+        <ion-icon name="arrow-down"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <p class="subtitle" id="row2">Work Group</p>
+  <ion-item id="row3">
+    <ion-label>Work Group</ion-label>
+    <ion-select ok-text="Select" cancel-text="Cancel">
+      <ion-select-option value="1">1</ion-select-option>
+      <ion-select-option value="2">2</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <p class="subtitle" id="row4">Work Type</p>
+  <ion-item id="row5">
+    <ion-label></ion-label>
+    <ion-select ok-text="Select" cancel-text="Cancel">
+      <ion-select-option value="Abandoned Hazardouz Waste">Abandoned Hazardouz Waste</ion-select-option>
+      <ion-select-option value="Abandoned Shopping Cart">Abandoned Shopping Cart</ion-select-option>
+      <ion-select-option value="Animal Control">Animal Control</ion-select-option>
+      <ion-select-option value="Asphalt Repair/Pothole">Asphalt Repair/Pothole</ion-select-option>
+      <ion-select-option value="Asphalt/Concrete Repair-Park">Asphalt/Concrete Repair-Park</ion-select-option>
+      <ion-select-option value="Asphalt/Concrete Repair-Park">Asphalt/Concrete Repair-Park</ion-select-option>
+      <ion-select-option value="City Trees">City Trees</ion-select-option>
+      <ion-select-option value="Dead Animal">Dead Animal</ion-select-option>
+      <ion-select-option value="Debris at Marina">Debris at Marina</ion-select-option>
+      <ion-select-option value="Debris in Public Right-of-Way">"Debris in Public Right-of-Way</ion-select-option>
+      <ion-select-option value="Debris in Public Right-of-Way">Debris in Public Right-of-Way</ion-select-option>
+      <ion-select-option value="Debris on Private Property">"Debris on Private Property</ion-select-option>
+      <ion-select-option value="Fiber Optic">Fiber Optic</ion-select-option>
+      <ion-select-option value="Garbage Collection">Garbage Collection</ion-select-option>
+      <ion-select-option value="Garbage/Recycling Cart Storage">Garbage/Recycling Cart Storage</ion-select-option>
+      <ion-select-option value="Graffiti">Graffiti</ion-select-option>
+      <ion-select-option value="Graffiti-Private Property">Graffiti-Private Property</ion-select-option>
+      <ion-select-option value="Graffiti-Public Property">Graffiti-Public Property</ion-select-option>
+      <ion-select-option value="Grate or Manhole Cover Issue">"Grate or Manhole Cover Issue</ion-select-option>
+      <ion-select-option value="Injured Animal">Injured Animal</ion-select-option>
+      <ion-select-option value="Junk and Debris">Junk and Debris</ion-select-option>
+      <ion-select-option value="Landscape Maintence">Landscape Maintence</ion-select-option>
+      <ion-select-option value="Lighted Crosswalks">Lighted Crosswalks</ion-select-option>
+      <ion-select-option value="Loose Animal">Loose Animal</ion-select-option>
+      <ion-select-option value=""></ion-select-option>
+      <ion-select-option value=""></ion-select-option>
+      <ion-select-option value=""></ion-select-option>
+      <ion-select-option value=""></ion-select-option>
+      <ion-select-option value=""></ion-select-option>
+      <ion-select-option value=""></ion-select-option>
+      <ion-select-option value=""></ion-select-option>
+      <ion-select-option value=""></ion-select-option>
+      <ion-select-option value=""></ion-select-option>
+      <ion-select-option value=""></ion-select-option>
+      <ion-select-option value=""></ion-select-option>
+      <ion-select-option value=""></ion-select-option>
+      <ion-select-option value=""></ion-select-option>
+      <ion-select-option value=""></ion-select-option>
+      <ion-select-option value=""></ion-select-option>
+      <ion-select-option value=""></ion-select-option>
+      <ion-select-option value=""></ion-select-option>
+      <ion-select-option value=""></ion-select-option>
+      <ion-select-option value=""></ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <p class="subtitle" id="row6">Asset Id</p>
+  <ion-item id="row7">
+    <ion-input required type="text"></ion-input>
+  </ion-item>
+
+  <p class="subtitle" id="row8">Department</p>
+  <ion-item id="row9">
+    <ion-label></ion-label>
+    <ion-select ok-text="Select" cancel-text="Cancel">
+      <ion-select-option value="City Manager's Office">City Manager's Office</ion-select-option>
+      <ion-select-option value="Community Development">Community Development</ion-select-option>
+      <ion-select-option value="Engineerign & Transportation">Engineerign & Transportation</ion-select-option>
+      <ion-select-option value="IT">IT</ion-select-option>
+      <ion-select-option value="Police Department">Police Department</ion-select-option>
+      <ion-select-option value="Public Works">Public Works</ion-select-option>
+      <ion-select-option value="Public Works-ES">Public Works-ES</ion-select-option>
+      <ion-select-option value="Public Works-Marina">Public Works-Marina</ion-select-option>
+      <ion-select-option value="Public Works WPCP">Public Works WPCP</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <p class="subtitle" id="row10">Location/Address?</p>
+  <ion-item id="row11">
+    <ion-input required type="text"></ion-input>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only">
+        <ion-icon name="pin"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <p class="subtitle" id="row12">Priority</p>
+  <ion-item id="row13">
+    <ion-label></ion-label>
+    <ion-select ok-text="Select" cancel-text="Cancel">
+      <ion-select-option value="1">1</ion-select-option>
+      <ion-select-option value="2">2</ion-select-option>
+      <ion-select-option value="3">3</ion-select-option>
+      <ion-select-option value="4">4</ion-select-option>
+      <ion-select-option value="5">5</ion-select-option>
+      <ion-select-option value="6">6</ion-select-option>
+      <ion-select-option value="7">7</ion-select-option>
+      <ion-select-option value="8">8</ion-select-option>
+      <ion-select-option value="9">9</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <p class="subtitle" id="row14">Description</p>
+  <ion-item id="row15">
+    <ion-input required type="text"></ion-input>
+  </ion-item>
+
+  <p class="subtitle2" id="row16">Attach photo</p>
+  <ion-item lines="none" id="row17">
+    <ion-button id="camera" color="secondary">
+      <ion-icon  id="iconLarge" name="camera" slot="start"></ion-icon> Camera
+    </ion-button>
+    <ion-button id="gallery" color="secondary">
+      <ion-icon id="iconLarge" name="image" slot="start"></ion-icon> Camera
+    </ion-button>
+  </ion-item>
+
+  <ion-item id="row18">
+    <ion-label id="subtitle3">Crew</ion-label>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <ion-item id="row19">
+    <ion-label id="subtitle3">Employees</ion-label>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <ion-item id="row20">
+    <ion-label id="subtitle3">Equipment</ion-label>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <ion-item id="row21">
+    <ion-label id="subtitle3">Materials</ion-label>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <p class="subtitle2" id="row22">Comment</p>
+
+  <ion-item lines="none" id="row23">
+    <ion-button id="addCommentBtn" color="secondary">ADD COMMENT</ion-button>
+  </ion-item>
+
+  <ion-item id="row24">
+    <ion-label>Task Form</ion-label>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only">
+        <ion-icon name="arrow-down"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <ion-item id="row25">
+    <ion-label>Cost Account Report</ion-label>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only">
+        <ion-icon name="arrow-down"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <ion-button id="btnSave" id="row26" expand="block" fill="solid" color="primary">Save</ion-button>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
 </ion-content>
