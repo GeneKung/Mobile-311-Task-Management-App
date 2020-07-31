@@ -36,6 +36,7 @@ ion-button.add {
     bottom: 40px;
     --border-radius: 28px;
     background-size: 200px;
+    z-index: 10;
 }
 
 ion-toolbar.footer {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {  MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import * as Leaflet from 'leaflet';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
   public login: string;
+  map: Leaflet.Map;
   constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router) { }
 
   ngOnInit() {
@@ -22,6 +24,7 @@ export class LoginPage implements OnInit {
    signIn(){
     this.router.navigate(['tasks'])
     this.menuCtrl.enable(true);
+    this.map.remove();
   }
    
 }
