@@ -40,7 +40,7 @@
                     "Add Material": {
                         "Material Group": "",
                         "Material": "",
-                        "Unit": "",
+                        "Unit": ""
                     }
                 }
             },
@@ -82,7 +82,7 @@
                         "Add Material": {
                             "Material Group": "",
                             "Material": "",
-                            "Unit": "",
+                            "Unit": ""
                         }
                     }
                 }
@@ -126,7 +126,7 @@
                     "Add Material": {
                         "Material Group": "",
                         "Material": "",
-                        "Unit": "",
+                        "Unit": ""
                     }
                 }
             },
@@ -169,7 +169,7 @@
                     "Add Material": {
                         "Material Group": "",
                         "Material": "",
-                        "Unit": "",
+                        "Unit": ""
                     }
                 }
             },
@@ -220,7 +220,7 @@
                     "Add Material": {
                         "Material Group": "",
                         "Material": "",
-                        "Unit": "",
+                        "Unit": ""
                     }
                 }
             }
@@ -367,7 +367,7 @@
                 "Class III": "",
                 "V Ditches Cleared (Linear Ft)": "",
                 "Barricades Delivered": "",
-                "SWI": "",
+                "SWI": ""
             },
             "Employees": {
                 "Add Crew": "",
@@ -376,7 +376,7 @@
                     "Crew": "",
                     "Employee": "",
                     "Hours": "",
-                    "Overtime": "",
+                    "Overtime": ""
             },
             "Equipment": {
                 "Add Crew Equipment": "",
@@ -393,9 +393,9 @@
                 "Add Material": {
                     "Material Group": "",
                     "Material": "",
-                    "Unit": "",
+                    "Unit": ""
                 }
-            },
+            }
         },
         "Other Assistance-Roads": {
             "Work Group": "Roads",
@@ -418,14 +418,14 @@
                 "Class III": "",
                 "V Ditches Cleared (Linear Ft)": "",
                 "Barricades Delivered": "",
-                "SWI": "",
+                "SWI": ""
             },
             "Cost Account Report": {
                 "Date of Incident": "",
                 "Police Report #": "",
                 "Reinbursement Account #": "",
                 "Responsible Party": "",
-                "Notes For Cost Report": "",
+                "Notes For Cost Report": ""
             },
             "Employees": {
                 "Add Crew": "",
@@ -434,7 +434,7 @@
                     "Crew": "",
                     "Employee": "",
                     "Hours": "",
-                    "Overtime": "",
+                    "Overtime": ""
             },
             "Equipment": {
                 "Add Crew Equipment": "",
@@ -451,9 +451,13 @@
                 "Add Material": {
                     "Material Group": "",
                     "Material": "",
-                    "Unit": "",
+                    "Unit": ""
                 }
             }
         }
     }
 }
+}
+}
+}
+        
