@@ -4,13 +4,14 @@ import { NavController ,Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
+import * as Leaflet from 'leaflet';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
-  
+  map: Leaflet.Map;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -42,6 +43,7 @@ export class AppComponent implements OnInit {
   }
   gotoTasks() {
     this.router.navigate(['tasks'])
+    this.map.remove();
   }
     ngOnInit() {
   }
