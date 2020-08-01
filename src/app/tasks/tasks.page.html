@@ -21,38 +21,26 @@
 <ion-content>
   <ion-toolbar>
     <ion-segment [(ngModel)]="selectTabs">
-      <ion-segment-button value="listView">
+      <ion-segment-button value="listView" (click)="closeMap()">
         <ion-label>List</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="mapView">
+      <ion-segment-button value="mapView" (click)="loadMap()">
         <ion-label>Map</ion-label>
       </ion-segment-button>
     </ion-segment>
 
     <div *ngIf="selectTabs == 'listView'">
-      <h3>List</h3>
-      <h1>Hello</h1>
     </div>
-    <div *ngIf="selectTabs == 'mapView'">
-      <h3>Map</h3>
-      <h1>Bye</h1>
-    </div>
-<<<<<<< HEAD
     <div *ngIf="selectTabs == 'mapView'"></div>
     <div id="mapId" style="height: 472px"></div>
-=======
->>>>>>> parent of b272a1b... map
   </ion-toolbar>
 </ion-content>
-
-<ion-toolbar slot="fixed" vertical="bottom" expand="block" class="footer">
-  <ion-label>LAT: {{ lat }} </ion-label>
-  <br/>
-  <ion-label>LONG: {{ lng }} </ion-label>
-</ion-toolbar>
 
 <ion-button slot="fixed" vertical="bottom" horizontal="end" class="add" (click)="goCreateTask()">
   <ion-icon name="add-outline" slot="start"></ion-icon> Add Task
 </ion-button>
+
+<ion-toolbar slot="fixed" vertical="bottom" expand="block" class="footer">
+</ion-toolbar>
 
 
