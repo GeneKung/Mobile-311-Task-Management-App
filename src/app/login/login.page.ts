@@ -24,7 +24,6 @@ export class LoginPage implements OnInit {
    signIn(){
     this.router.navigate(['tasks'])
     this.menuCtrl.enable(true);
-    this.map.remove();
   }
    
 }
