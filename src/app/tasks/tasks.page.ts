@@ -3,11 +3,17 @@ import { ActivatedRoute } from '@angular/router';
 import {  MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import * as Leaflet from 'leaflet';
 import { icon, Map, tileLayer, marker, polyline } from "leaflet";
+import { antPath } from 'leaflet-ant-path';
 import "leaflet/dist/images/marker-shadow.png";
 import "leaflet/dist/images/marker-icon-2x.png";
+<<<<<<< HEAD
 import { NativeGeocoder, NativeGeocoderOptions, NativeGeocoderResult } from '@ionic-native/native-geocoder/ngx';
 import { Platform } from '@ionic/angular';
+import {ApplicationRef } from '@angular/core';
+=======
+>>>>>>> parent of 9b5eeaa... Merge branch 'master' of https://github.com/GeneKung/Mobile-311-Task-Management-App
 
 @Component({
   selector: 'app-tasks',
@@ -20,17 +26,29 @@ export class TasksPage implements OnInit {
   map: Map;
   marker: any;
   latLong = [];
-  lat: number;
-  lng: number;
-  lName: string;
   selectTabs = 'listView';
+<<<<<<< HEAD
   forwardInfo: any;
-  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation, public geocoder: NativeGeocoder) { }
+  constructor(private ref: ApplicationRef, private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation, public geocoder: NativeGeocoder) { }
+=======
+  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation) { }
+>>>>>>> parent of 9b5eeaa... Merge branch 'master' of https://github.com/GeneKung/Mobile-311-Task-Management-App
 
   ngOnInit() {
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
   }
-
+  changeTabs(tab) {
+    console.log('hello');
+    if(tab === 'mapView'){
+      this.selectTabs = 'listView';
+    }else {
+      this.selectTabs = 'mapView';
+    }
+  
+    console.log(this.selectTabs);
+    this.ref.tick();
+    return this.selectTabs;
+  }
   goSearch(){
     this.router.navigate(['search'])
   }
@@ -62,11 +80,11 @@ export class TasksPage implements OnInit {
     });
   }
 
-
   showMarker(latLong) {
     this.marker = marker(latLong);
     this.marker.addTo(this.map)
     .bindPopup('San Leandro');
   }
+
 }
 
