@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ElementRef } from '@angular/core';
-import { NavController ,Platform } from '@ionic/angular';
+import { NavController ,Platform, MenuController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
@@ -23,7 +23,8 @@ export class AppComponent implements OnInit {
     private statusBar: StatusBar,
     public navCtrl: NavController,
     private router: Router,
-    private TasksPage: TasksPage
+    private TasksPage: TasksPage,
+    public menuCtrl: MenuController
   ) {
     this.initializeApp();
   }
@@ -62,6 +63,7 @@ export class AppComponent implements OnInit {
         }
         if (commandData.command === 'Login'){
           this.router.navigate(['tasks']);
+          this.menuCtrl.enable(true);
         }
         if (commandData.command === 'addTask'){
           this.router.navigate(['createtask']);
