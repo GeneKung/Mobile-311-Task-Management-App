@@ -4,7 +4,8 @@ import { NavController ,Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
-
+import { TasksPage } from "./tasks/tasks.page";
+import {  MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -19,6 +20,8 @@ export class AppComponent implements OnInit {
     private statusBar: StatusBar,
     public navCtrl: NavController,
     private router: Router,
+    public TasksPage: TasksPage,
+    public menuCtrl: MenuController,
   ) {
     this.initializeApp();
   }
@@ -57,6 +60,7 @@ export class AppComponent implements OnInit {
         }
         if (commandData.command === 'Login'){
           this.router.navigate(['tasks']);
+          this.menuCtrl.enable(true);
         }
         if (commandData.command === 'addTask'){
           this.router.navigate(['createtask']);
