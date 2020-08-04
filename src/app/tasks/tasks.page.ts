@@ -35,13 +35,14 @@ export class TasksPage implements OnInit {
     this.router.navigate(['createtask'])
   }
 
+  
+
 
   leafletMap() {
     this.map = Leaflet.map('mapId').setView([37.725685, -122.156830], 10);
     Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'edupala.com © Angular LeafLet',
     }).addTo(this.map);
-
     Leaflet.marker([37.725685, -122.156830]).addTo(this.map).bindPopup('San Leandro').openPopup();
   }
 

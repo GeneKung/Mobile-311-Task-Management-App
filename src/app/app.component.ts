@@ -43,7 +43,6 @@ export class AppComponent implements OnInit {
   }
   gotoTasks() {
     this.router.navigate(['tasks'])
-    this.map.remove();
   }
     ngOnInit() {
   }
