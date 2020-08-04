@@ -80,6 +80,9 @@ export class AppComponent implements OnInit {
         if (commandData.command === 'cachePage'){
           this.router.navigate(['cache']);
         }
+        if (commandData.command === 'listSetup'){
+          this.router.navigate(['listsetup'])
+        }
         if (commandData.command === 'taskPage'){
           this.router.navigate(['tasks']);
           this.TasksPage.changeTabs('mapView');
