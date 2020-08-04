@@ -3,11 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import {  MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import * as Leaflet from 'leaflet';
 import { icon, Map, tileLayer, marker, polyline } from "leaflet";
+import { antPath } from 'leaflet-ant-path';
 import "leaflet/dist/images/marker-shadow.png";
 import "leaflet/dist/images/marker-icon-2x.png";
-import { NativeGeocoder, NativeGeocoderOptions, NativeGeocoderResult } from '@ionic-native/native-geocoder/ngx';
-import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-tasks',
@@ -20,12 +20,8 @@ export class TasksPage implements OnInit {
   map: Map;
   marker: any;
   latLong = [];
-  lat: number;
-  lng: number;
-  lName: string;
   selectTabs = 'listView';
-  forwardInfo: any;
-  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation, public geocoder: NativeGeocoder) { }
+  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation) { }
 
   ngOnInit() {
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
@@ -62,11 +58,11 @@ export class TasksPage implements OnInit {
     });
   }
 
-
   showMarker(latLong) {
     this.marker = marker(latLong);
     this.marker.addTo(this.map)
     .bindPopup('San Leandro');
   }
+
 }
 
