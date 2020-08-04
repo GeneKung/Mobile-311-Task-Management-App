@@ -13,8 +13,9 @@ import { IonicStorageModule } from '@ionic/storage';
 import {Geolocation} from "@ionic-native/geolocation/ngx";
 
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 
-import { TasksPage } from "./tasks/tasks.page";
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,10 +29,10 @@ import { TasksPage } from "./tasks/tasks.page";
   providers: [
     StatusBar,
     SplashScreen,
-    TasksPage,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Geolocation,
-    
+    NativeGeocoder
+
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
