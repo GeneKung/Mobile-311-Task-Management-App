@@ -12,6 +12,8 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import {Geolocation} from "@ionic-native/geolocation/ngx";
 
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +30,7 @@ import {Geolocation} from "@ionic-native/geolocation/ngx";
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Geolocation
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}
