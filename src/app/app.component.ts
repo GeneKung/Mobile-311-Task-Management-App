@@ -56,25 +56,28 @@ export class AppComponent implements OnInit {
             //call client code that will react to the received command
         }
         if (commandData.command === 'Login'){
-          this.router.navigate(['tasks'])
+          this.router.navigate(['tasks']);
         }
         if (commandData.command === 'addTask'){
-          this.router.navigate(['createtask'])
+          this.router.navigate(['createtask']);
         }
         if (commandData.command === 'Logout'){
-          this.router.navigate(['logout'])
+          this.router.navigate(['logout']);
         }
         if (commandData.command === 'settingsPage'){
-          this.router.navigate(['settings'])
+          this.router.navigate(['settings']);
         }
         if (commandData.command === 'helpPage'){
-          this.router.navigate(['support'])
+          this.router.navigate(['support']);
         }
         if (commandData.command === 'cachePage'){
-          this.router.navigate(['cache'])
+          this.router.navigate(['cache']);
         }
         if (commandData.command === 'taskPage'){
-          this.router.navigate(['tasks'])
+          this.router.navigate(['tasks']);
+          this.TasksPage.changeTabs('mapView');
+          this.TasksPage.selectTabs = 'mapView';
+          console.log(this.TasksPage.selectTabs);
         }
     });
 }

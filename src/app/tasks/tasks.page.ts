@@ -8,6 +8,9 @@ import { icon, Map, tileLayer, marker, polyline } from "leaflet";
 import { antPath } from 'leaflet-ant-path';
 import "leaflet/dist/images/marker-shadow.png";
 import "leaflet/dist/images/marker-icon-2x.png";
+import { NativeGeocoder, NativeGeocoderOptions, NativeGeocoderResult } from '@ionic-native/native-geocoder/ngx';
+import { Platform } from '@ionic/angular';
+import {ApplicationRef } from '@angular/core';
 
 @Component({
   selector: 'app-tasks',
@@ -21,12 +24,24 @@ export class TasksPage implements OnInit {
   marker: any;
   latLong = [];
   selectTabs = 'listView';
-  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation) { }
+  forwardInfo: any;
+  constructor(private ref: ApplicationRef, private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation, public geocoder: NativeGeocoder) { }
 
   ngOnInit() {
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
   }
-
+  changeTabs(tab) {
+    console.log('hello');
+    if(tab === 'mapView'){
+      this.selectTabs = 'listView';
+    }else {
+      this.selectTabs = 'mapView';
+    }
+  
+    console.log(this.selectTabs);
+    this.ref.tick();
+    return this.selectTabs;
+  }
   goSearch(){
     this.router.navigate(['search'])
   }
