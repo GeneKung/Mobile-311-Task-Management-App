@@ -4,9 +4,7 @@ import { NavController ,Platform, MenuController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
-import * as Leaflet from 'leaflet';
 import { TasksPage } from "./tasks/tasks.page";
-
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -15,16 +13,14 @@ import { TasksPage } from "./tasks/tasks.page";
 export class AppComponent implements OnInit {
 
   @ViewChild('alanBtnEl', {static:false}) alanBtnComponent: ElementRef<HTMLAlanButtonElement>;
-  
-  map: Leaflet.Map;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public navCtrl: NavController,
     private router: Router,
-    private TasksPage: TasksPage,
-    public menuCtrl: MenuController
+    public TasksPage: TasksPage,
+    public menuCtrl: MenuController,
   ) {
     this.initializeApp();
   }
@@ -67,6 +63,7 @@ export class AppComponent implements OnInit {
         }
         if (commandData.command === 'addTask'){
           this.router.navigate(['createtask']);
+          this.menuCtrl.enable(true);
         }
         if (commandData.command === 'Logout'){
           this.router.navigate(['logout']);
@@ -77,12 +74,15 @@ export class AppComponent implements OnInit {
         }
         if (commandData.command === 'helpPage'){
           this.router.navigate(['support']);
+          this.menuCtrl.enable(true);
         }
         if (commandData.command === 'cachePage'){
           this.router.navigate(['cache']);
+          this.menuCtrl.enable(true);
         }
         if (commandData.command === 'listSetup'){
           this.router.navigate(['listsetup'])
+          this.menuCtrl.enable(true);
         }
         if (commandData.command === 'taskPage'){
           this.router.navigate(['tasks']);
