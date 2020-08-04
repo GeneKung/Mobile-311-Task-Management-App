@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-
+import { ElementRef } from '@angular/core';
 import { NavController ,Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -11,6 +11,9 @@ import * as Leaflet from 'leaflet';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+  @ViewChild('alanBtnEl', {static:false}) alanBtnComponent: ElementRef<HTMLAlanButtonElement>;
+
   map: Leaflet.Map;
   constructor(
     private platform: Platform,
@@ -46,4 +49,15 @@ export class AppComponent implements OnInit {
   }
     ngOnInit() {
   }
+
+  ngAfterViewInit() {
+    this.alanBtnComponent.nativeElement.addEventListener('command', (data) => {
+        const commandData = (<CustomEvent>data).detail;
+
+        if (commandData.command === 'navigation') {
+            //call client code that will react to the received command
+        }
+    });
+}
+
 }

@@ -11,7 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
 
 import {Geolocation} from "@ionic-native/geolocation/ngx";
-import { NativeGeocoder, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
+
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,8 +29,8 @@ import { NativeGeocoder, NativeGeocoderOptions } from '@ionic-native/native-geoc
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Geolocation,
-    NativeGeocoder,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}
