@@ -1,11 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ElementRef } from '@angular/core';
-import { NavController ,Platform } from '@ionic/angular';
+import { NavController ,Platform, MenuController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 import { TasksPage } from "./tasks/tasks.page";
-import {  MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -76,6 +75,9 @@ export class AppComponent implements OnInit {
         }
         if (commandData.command === 'cachePage'){
           this.router.navigate(['cache']);
+        }
+        if (commandData.command === 'listSetup'){
+          this.router.navigate(['listsetup'])
         }
         if (commandData.command === 'taskPage'){
           this.router.navigate(['tasks']);
