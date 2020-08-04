@@ -14,6 +14,7 @@ import {Geolocation} from "@ionic-native/geolocation/ngx";
 
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
+import { TasksPage } from "./tasks/tasks.page";
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,8 +28,10 @@ import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
   providers: [
     StatusBar,
     SplashScreen,
+    TasksPage,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    Geolocation
+    Geolocation,
+    
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

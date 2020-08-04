@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 import * as Leaflet from 'leaflet';
+import { TasksPage } from "./tasks/tasks.page";
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -13,7 +15,7 @@ import * as Leaflet from 'leaflet';
 export class AppComponent implements OnInit {
 
   @ViewChild('alanBtnEl', {static:false}) alanBtnComponent: ElementRef<HTMLAlanButtonElement>;
-
+  
   map: Leaflet.Map;
   constructor(
     private platform: Platform,
@@ -21,6 +23,7 @@ export class AppComponent implements OnInit {
     private statusBar: StatusBar,
     public navCtrl: NavController,
     private router: Router,
+    private TasksPage: TasksPage
   ) {
     this.initializeApp();
   }
@@ -56,6 +59,27 @@ export class AppComponent implements OnInit {
 
         if (commandData.command === 'navigation') {
             //call client code that will react to the received command
+        }
+        if (commandData.command === 'Login'){
+          this.router.navigate(['tasks'])
+        }
+        if (commandData.command === 'addTask'){
+          this.router.navigate(['createtask'])
+        }
+        if (commandData.command === 'Logout'){
+          this.router.navigate(['logout'])
+        }
+        if (commandData.command === 'settingsPage'){
+          this.router.navigate(['settings'])
+        }
+        if (commandData.command === 'helpPage'){
+          this.router.navigate(['support'])
+        }
+        if (commandData.command === 'cachePage'){
+          this.router.navigate(['cache'])
+        }
+        if (commandData.command === 'taskPage'){
+          this.router.navigate(['tasks'])
         }
     });
 }
