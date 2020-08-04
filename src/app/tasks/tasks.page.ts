@@ -8,12 +8,9 @@ import { icon, Map, tileLayer, marker, polyline } from "leaflet";
 import { antPath } from 'leaflet-ant-path';
 import "leaflet/dist/images/marker-shadow.png";
 import "leaflet/dist/images/marker-icon-2x.png";
-<<<<<<< HEAD
 import { NativeGeocoder, NativeGeocoderOptions, NativeGeocoderResult } from '@ionic-native/native-geocoder/ngx';
 import { Platform } from '@ionic/angular';
 import {ApplicationRef } from '@angular/core';
-=======
->>>>>>> parent of 9b5eeaa... Merge branch 'master' of https://github.com/GeneKung/Mobile-311-Task-Management-App
 
 @Component({
   selector: 'app-tasks',
@@ -27,12 +24,8 @@ export class TasksPage implements OnInit {
   marker: any;
   latLong = [];
   selectTabs = 'listView';
-<<<<<<< HEAD
   forwardInfo: any;
   constructor(private ref: ApplicationRef, private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation, public geocoder: NativeGeocoder) { }
-=======
-  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation) { }
->>>>>>> parent of 9b5eeaa... Merge branch 'master' of https://github.com/GeneKung/Mobile-311-Task-Management-App
 
   ngOnInit() {
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');

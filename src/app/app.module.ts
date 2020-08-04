@@ -13,9 +13,10 @@ import { IonicStorageModule } from '@ionic/storage';
 import {Geolocation} from "@ionic-native/geolocation/ngx";
 
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+
 
 import { TasksPage } from "./tasks/tasks.page";
-import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 
 @NgModule({
   declarations: [AppComponent],
