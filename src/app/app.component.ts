@@ -71,8 +71,9 @@ export class AppComponent implements OnInit {
         if (commandData.command === 'Logout'){
           this.router.navigate(['logout']);
         }
-        if (commandData.command === 'settingsPage'){
+        if (commandData.command === 'settingsPage' && this.router.url !== '/logout'){
           this.router.navigate(['settings']);
+          console.log(this.router.url);
         }
         if (commandData.command === 'helpPage'){
           this.router.navigate(['support']);
