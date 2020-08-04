@@ -4,8 +4,6 @@ import { NavController ,Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
-import * as Leaflet from 'leaflet';
-import { TasksPage } from "./tasks/tasks.page";
 
 @Component({
   selector: 'app-root',
@@ -15,15 +13,12 @@ import { TasksPage } from "./tasks/tasks.page";
 export class AppComponent implements OnInit {
 
   @ViewChild('alanBtnEl', {static:false}) alanBtnComponent: ElementRef<HTMLAlanButtonElement>;
-  
-  map: Leaflet.Map;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public navCtrl: NavController,
     private router: Router,
-    private TasksPage: TasksPage
   ) {
     this.initializeApp();
   }
