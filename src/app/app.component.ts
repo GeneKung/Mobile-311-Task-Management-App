@@ -67,21 +67,26 @@ export class AppComponent implements OnInit {
         }
         if (commandData.command === 'addTask'){
           this.router.navigate(['createtask']);
+          this.menuCtrl.enable(true);
         }
         if (commandData.command === 'Logout'){
           this.router.navigate(['logout']);
         }
         if (commandData.command === 'settingsPage'){
           this.router.navigate(['settings']);
+          this.menuCtrl.enable(true);
         }
         if (commandData.command === 'helpPage'){
           this.router.navigate(['support']);
+          this.menuCtrl.enable(true);
         }
         if (commandData.command === 'cachePage'){
           this.router.navigate(['cache']);
+          this.menuCtrl.enable(true);
         }
         if (commandData.command === 'listSetup'){
           this.router.navigate(['listsetup'])
+          this.menuCtrl.enable(true);
         }
         if (commandData.command === 'taskPage'){
           this.router.navigate(['tasks']);
