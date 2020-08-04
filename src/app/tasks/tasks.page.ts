@@ -4,7 +4,10 @@ import {  MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import * as Leaflet from 'leaflet';
+import { icon, Map, tileLayer, marker, polyline } from "leaflet";
 import { antPath } from 'leaflet-ant-path';
+import "leaflet/dist/images/marker-shadow.png";
+import "leaflet/dist/images/marker-icon-2x.png";
 
 @Component({
   selector: 'app-tasks',
@@ -14,7 +17,9 @@ import { antPath } from 'leaflet-ant-path';
 
 export class TasksPage implements OnInit {
   public tasks: string;
-  map: Leaflet.Map;
+  map: Map;
+  marker: any;
+  latLong = [];
   selectTabs = 'listView';
   constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation) { }
 
@@ -35,22 +40,29 @@ export class TasksPage implements OnInit {
     this.router.navigate(['createtask'])
   }
 
-  
-
-
-  leafletMap() {
-    this.map = Leaflet.map('mapId').setView([37.725685, -122.156830], 10);
-    Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: 'edupala.com © Angular LeafLet',
-    }).addTo(this.map);
-    Leaflet.marker([37.725685, -122.156830]).addTo(this.map).bindPopup('San Leandro').openPopup();
+  showMap() {
+    this.map = new Map('mapId').setView([37.725685, -122.156830], 10);
+    tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png').addTo(this.map);
   }
 
-  closeMap() {
-    this.map.remove();
+  getPositions(){
+    this.geolocation.getCurrentPosition({
+      enableHighAccuracy: true
+    }).then((res) => {
+      return this.latLong = [
+        res.coords.latitude,
+        res.coords.longitude
+      ]
+    }).then((latlng) => {
+      this.showMarker(latlng);
+    });
   }
-  loadMap() {
-    this.leafletMap();
+
+  showMarker(latLong) {
+    this.marker = marker(latLong);
+    this.marker.addTo(this.map)
+    .bindPopup('San Leandro');
   }
+
 }
 
