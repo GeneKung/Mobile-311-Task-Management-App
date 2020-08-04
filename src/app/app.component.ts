@@ -4,7 +4,6 @@ import { NavController ,Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
-import * as Leaflet from 'leaflet';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -14,7 +13,6 @@ export class AppComponent implements OnInit {
 
   @ViewChild('alanBtnEl', {static:false}) alanBtnComponent: ElementRef<HTMLAlanButtonElement>;
 
-  map: Leaflet.Map;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
