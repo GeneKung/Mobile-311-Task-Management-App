@@ -11,10 +11,12 @@ export class CreatetaskPage implements OnInit {
   public createtask: string;
   constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router) { }
 
+
   ngOnInit() {
     this.createtask = this.activatedRoute.snapshot.paramMap.get('id');
   }
   goTask(){
     this.router.navigate(['tasks'])
   }
+
 }

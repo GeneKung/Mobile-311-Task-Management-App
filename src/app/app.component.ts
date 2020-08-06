@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 import { TasksPage } from "./tasks/tasks.page";
+import { CreatetaskPage} from "./createtask/createtask.page"
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -21,6 +22,7 @@ export class AppComponent implements OnInit {
     private router: Router,
     public TasksPage: TasksPage,
     public menuCtrl: MenuController,
+    public CreatetaskPage: CreatetaskPage
   ) {
     this.initializeApp();
   }
@@ -58,37 +60,79 @@ export class AppComponent implements OnInit {
             //call client code that will react to the received command
         }
         if (commandData.command === 'Login'){
+          if(this.router.url === '/logout'){
+            this.alanBtnComponent.nativeElement.setVisualState({screen: "login"});
+            this.router.navigate(['createtask']);
+            this.menuCtrl.enable(true);
+          } else {
+            this.alanBtnComponent.nativeElement.setVisualState({screen: "page"});
+          }
           this.router.navigate(['tasks']);
           this.menuCtrl.enable(true);
         }
         if (commandData.command === 'addTask'){
-          this.router.navigate(['createtask']);
-          this.menuCtrl.enable(true);
+          if(this.router.url === '/logout'){
+            this.alanBtnComponent.nativeElement.setVisualState({screen: "login"});
+          } else {
+            this.alanBtnComponent.nativeElement.setVisualState({screen: "task"});
+            this.router.navigate(['createtask']);
+            this.menuCtrl.enable(true);
+          }
         }
         if (commandData.command === 'Logout'){
-          this.router.navigate(['logout']);
+          if(this.router.url === '/logout'){
+            this.alanBtnComponent.nativeElement.setVisualState({screen: "logout"});
+          } else {
+            this.alanBtnComponent.nativeElement.setVisualState({screen: "page"});
+            this.router.navigate(['logout']);
+            }
         }
-        if (commandData.command === 'settingsPage' && this.router.url !== '/logout'){
+        if (commandData.command === 'settingsPage'){
+          if(this.router.url === '/logout'){
+          this.alanBtnComponent.nativeElement.setVisualState({screen: "login"});
+        } else {
+          this.alanBtnComponent.nativeElement.setVisualState({screen: "settings"});
           this.router.navigate(['settings']);
-          console.log(this.router.url);
+          this.menuCtrl.enable(true);
+          }
         }
         if (commandData.command === 'helpPage'){
-          this.router.navigate(['support']);
-          this.menuCtrl.enable(true);
+          if(this.router.url === '/logout'){
+            this.alanBtnComponent.nativeElement.setVisualState({screen: "login"});
+          } else {
+            this.alanBtnComponent.nativeElement.setVisualState({screen: "support"});
+            this.router.navigate(['support']);
+            this.menuCtrl.enable(true);
+            }
         }
         if (commandData.command === 'cachePage'){
-          this.router.navigate(['cache']);
-          this.menuCtrl.enable(true);
+          if(this.router.url === '/logout'){
+            this.alanBtnComponent.nativeElement.setVisualState({screen: "login"});
+          } else {
+            this.alanBtnComponent.nativeElement.setVisualState({screen: "cache"});
+            this.router.navigate(['cache']);
+            this.menuCtrl.enable(true);
+            }
         }
         if (commandData.command === 'listSetup'){
-          this.router.navigate(['listsetup'])
-          this.menuCtrl.enable(true);
+          if(this.router.url === '/logout'){
+            this.alanBtnComponent.nativeElement.setVisualState({screen: "login"});
+          } else {
+            this.alanBtnComponent.nativeElement.setVisualState({screen: "listSetup"});
+            this.router.navigate(['listsetup']);
+            this.menuCtrl.enable(true);
+            }
         }
         if (commandData.command === 'taskPage'){
-          this.router.navigate(['tasks']);
-          this.TasksPage.changeTabs('mapView');
-          this.TasksPage.selectTabs = 'mapView';
-          console.log(this.TasksPage.selectTabs);
+          if(this.router.url === '/logout'){
+            this.alanBtnComponent.nativeElement.setVisualState({screen: "login"});
+          } else {
+            this.alanBtnComponent.nativeElement.setVisualState({screen: "mapView"});
+            this.router.navigate(['tasks']);
+            this.TasksPage.changeTabs('mapView');
+            this.TasksPage.selectTabs = 'mapView';
+            console.log(this.TasksPage.selectTabs);
+          }
         }
     });
 }
