@@ -1,5 +1,7 @@
 {
   "name": "Task-Management-App",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
