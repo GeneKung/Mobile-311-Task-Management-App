@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-comments',
@@ -9,7 +10,7 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./comments.page.scss'],
 })
 export class CommentsPage implements OnInit {
-
+  now = moment().format('MM/DD/YYYY HH:mm');
   public materials: string;
   postID = 1;
   displayPosts = [];
@@ -31,7 +32,7 @@ export class CommentsPage implements OnInit {
     }
   });  
   }
-
+  
   logForm() {
     this.post['name'] = "John Doe";
     console.log(this.post);
