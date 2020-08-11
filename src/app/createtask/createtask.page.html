@@ -12,9 +12,9 @@
 <ion-content>
   <p class="subtitle">Status</p>
   <ion-item lines="none" id="row1">
-    <ion-label><ion-button color="secondary">Empty Request</ion-button></ion-label>
+    <ion-label><ion-button color="secondary">New Request</ion-button></ion-label>
     <ion-buttons slot="end">
-      <ion-button slot="icon-only">
+      <ion-button slot="icon-only" (click)="goRequest()">
         <ion-icon name="arrow-down"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -164,27 +164,18 @@
   </ion-item>
 
   <ion-item id="row18">
-    <ion-label id="subtitle3">Crew</ion-label>
+    <ion-label id="subtitle3">Employees</ion-label>
     <ion-buttons slot="end">
-      <ion-button slot="icon-only">
+      <ion-button slot="icon-only" (click)="goEmployees()">
         <ion-icon name="add"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-item>
 
   <ion-item id="row19">
-    <ion-label id="subtitle3">Employees</ion-label>
-    <ion-buttons slot="end">
-      <ion-button slot="icon-only">
-        <ion-icon name="add"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-item>
-
-  <ion-item id="row20">
     <ion-label id="subtitle3">Equipment</ion-label>
     <ion-buttons slot="end">
-      <ion-button slot="icon-only">
+      <ion-button slot="icon-only" (click)='goEquipment()'>
         <ion-icon name="add"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -193,7 +184,7 @@
   <ion-item id="row21">
     <ion-label id="subtitle3">Materials</ion-label>
     <ion-buttons slot="end">
-      <ion-button slot="icon-only">
+      <ion-button slot="icon-only" (click)="goMaterials()">
         <ion-icon name="add"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -202,7 +193,7 @@
   <p class="subtitle2" id="row22">Comment</p>
 
   <ion-item lines="none" id="row23">
-    <ion-button id="addCommentBtn" color="secondary">ADD COMMENT</ion-button>
+    <ion-button  (click)="goComments()" id="addCommentBtn" color="secondary">ADD COMMENT</ion-button>
   </ion-item>
 
   <ion-item id="row24">

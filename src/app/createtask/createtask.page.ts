@@ -18,5 +18,20 @@ export class CreatetaskPage implements OnInit {
   goTask(){
     this.router.navigate(['tasks'])
   }
+  goRequest(){
+    this.router.navigate(['request'])
+  }
+  goEmployees(){
+    this.router.navigate(['employees'])
+  }
+  goEquipment(){
+    this.router.navigate(['equipment'])
+  }
+  goMaterials(){
+    this.router.navigate(['materials'])
+  }
+  goComments(){
+    this.router.navigate(['comments'])
+  }
 
 }
