@@ -46,6 +46,26 @@ const routes: Routes = [
     path: 'search',
     loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
   },
+  {
+    path: 'request',
+    loadChildren: () => import('./request/request.module').then( m => m.RequestPageModule)
+  },
+  {
+    path: 'employees',
+    loadChildren: () => import('./employees/employees.module').then( m => m.EmployeesPageModule)
+  },
+  {
+    path: 'equipment',
+    loadChildren: () => import('./equipment/equipment.module').then( m => m.EquipmentPageModule)
+  },
+  {
+    path: 'materials',
+    loadChildren: () => import('./materials/materials.module').then( m => m.MaterialsPageModule)
+  },
+  {
+    path: 'comments',
+    loadChildren: () => import('./comments/comments.module').then( m => m.CommentsPageModule)
+  },
 
 
 
