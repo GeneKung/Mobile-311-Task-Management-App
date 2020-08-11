@@ -72,8 +72,14 @@ export class AppComponent implements OnInit {
     this.alanBtnComponent.nativeElement.addEventListener('command', (data) => {
         const commandData = (<CustomEvent>data).detail;
 
-        if (commandData.command === 'navigation') {
-            //call client code that will react to the received command
+        if (commandData.command === 'searchTask'){
+          if(this.router.url === '/logout'){
+            this.alanBtnComponent.nativeElement.setVisualState({screen: "login"});
+          } else {
+            this.alanBtnComponent.nativeElement.setVisualState({screen: "search"});
+            this.router.navigate(['search']);
+            this.menuCtrl.enable(true);
+            }
         }
         if (commandData.command === 'Login'){
           if(this.router.url === '/logout'){
