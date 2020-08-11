@@ -160,17 +160,6 @@ export class AppComponent implements OnInit {
         if(commandData.command === 'toggle'){
           this.SettingsPage.toggle();
         }
-        if (commandData.command === "address") {
-          this.setAddress(commandData.address);
-          console.log(this.CreatetaskPage.address);
-          return this.CreatetaskPage.address;
-        }
-        if (commandData.command === "AssetID") {
-          this.setAssetID(commandData.AssetID);
-        }
-        if (commandData.command === "Description") {
-          this.setDescription(commandData.Description);
-        }
     });
 }
 

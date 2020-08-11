@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class SettingsPage implements OnInit {
   public settings: string;
   data:boolean;
-  constructor(private activateRoute: ActivatedRoute, private ref: ChangeDetectorRef) { 
+  constructor(private activateRoute: ActivatedRoute) { 
     this.data = true;
   }
 
@@ -17,7 +17,6 @@ export class SettingsPage implements OnInit {
     this.settings = this.activateRoute.snapshot.paramMap.get('id');
   }
   toggle(){
-    this.ref.detectChanges();
     this.data = !this.data;
     console.log(this.data);
   }
