@@ -5,7 +5,9 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 import { TasksPage } from "./tasks/tasks.page";
-import { CreatetaskPage} from "./createtask/createtask.page"
+import { CreatetaskPage} from "./createtask/createtask.page";
+import { SettingsPage } from "./settings/settings.page";
+ 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -22,7 +24,8 @@ export class AppComponent implements OnInit {
     private router: Router,
     public TasksPage: TasksPage,
     public menuCtrl: MenuController,
-    public CreatetaskPage: CreatetaskPage
+    public CreatetaskPage: CreatetaskPage,
+    public SettingsPage: SettingsPage,
   ) {
     this.initializeApp();
   }
@@ -139,6 +142,9 @@ export class AppComponent implements OnInit {
             this.TasksPage.selectTabs = 'mapView';
             console.log(this.TasksPage.selectTabs);
           }
+        }
+        if(commandData.command === 'toggle'){
+          this.SettingsPage.toggle();
         }
     });
 }
