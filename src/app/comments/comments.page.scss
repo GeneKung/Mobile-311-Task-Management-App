@@ -1,0 +1,34 @@
+ion-input{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    border: 1px solid black;
+    width: 75%;
+}
+
+.currentUserPic{
+    position: absolute;
+    left: 15px;
+    bottom: 12px;
+    width: 50px;
+    height: 50px;
+}
+
+.userPic{
+    position: relative; 
+    left: 6px;
+    width: 60px;
+    height: 60px;
+}
+
+.postName{
+    left: 30px;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.postBody{
+    margin-top: 40px;
+    left: 30px;
+    margin-bottom: 40px;
+}
