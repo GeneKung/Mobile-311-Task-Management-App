@@ -20,6 +20,9 @@ export class CreatetaskPage implements OnInit {
     this.setValue();
     this.getValue(); 
   }
+  ionViewWillEnter() {
+    this.menuCtrl.enable(false);
+   }
 
 
   setValue(){
