@@ -158,8 +158,8 @@
     <ion-button id="camera" color="secondary">
       <ion-icon  id="iconLarge" name="camera" slot="start"></ion-icon> Camera
     </ion-button>
-    <ion-button id="gallery" color="secondary">
-      <ion-icon id="iconLarge" name="image" slot="start"></ion-icon> Camera
+    <ion-button id="gallery" color="secondary" (click)="this.photoService.addNewToGallery()">
+      <ion-icon id="iconLarge" name="image" slot="start"></ion-icon> Photo Gallery
     </ion-button>
   </ion-item>
 
