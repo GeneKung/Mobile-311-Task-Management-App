@@ -5,8 +5,9 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 import { TasksPage } from "./tasks/tasks.page";
-import { CreatetaskPage} from "./createtask/createtask.page"
-import { SearchPage } from "./search/search.page"
+import { CreatetaskPage} from "./createtask/createtask.page";
+import { SettingsPage } from "./settings/settings.page";
+ 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -24,7 +25,7 @@ export class AppComponent implements OnInit {
     public TasksPage: TasksPage,
     public menuCtrl: MenuController,
     public CreatetaskPage: CreatetaskPage,
-    public SearchPage: SearchPage,
+    public SettingsPage: SettingsPage,
   ) {
     this.initializeApp();
   }
@@ -156,16 +157,8 @@ export class AppComponent implements OnInit {
             console.log(this.TasksPage.selectTabs);
           }
         }
-        if (commandData.command === "address") {
-          this.setAddress(commandData.address);
-          console.log(this.CreatetaskPage.address);
-          return this.CreatetaskPage.address;
-        }
-        if (commandData.command === "AssetID") {
-          this.setAssetID(commandData.AssetID);
-        }
-        if (commandData.command === "Description") {
-          this.setDescription(commandData.Description);
+        if(commandData.command === 'toggle'){
+          this.SettingsPage.toggle();
         }
     });
 }
