@@ -12,9 +12,9 @@
 <ion-content>
   <p class="subtitle">Status</p>
   <ion-item lines="none" id="row1">
-    <ion-label><ion-button color="secondary">Empty Request</ion-button></ion-label>
+    <ion-label><ion-button color="secondary">New Request</ion-button></ion-label>
     <ion-buttons slot="end">
-      <ion-button slot="icon-only">
+      <ion-button slot="icon-only" (click)="goRequest()">
         <ion-icon name="arrow-down"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -32,7 +32,7 @@
   <p class="subtitle" id="row4">Work Type</p>
   <ion-item id="row5">
     <ion-label></ion-label>
-    <ion-select ok-text="Select" cancel-text="Cancel" id="worktype" >
+    <ion-select ok-text="Select" cancel-text="Cancel" >
       <ion-select-option value="Abandoned Hazardouz Waste">Abandoned Hazardouz Waste</ion-select-option>
       <ion-select-option value="Abandoned Shopping Cart">Abandoned Shopping Cart</ion-select-option>
       <ion-select-option value="Animal Control">Animal Control</ion-select-option>
@@ -103,7 +103,7 @@
 
   <p class="subtitle" id="row6">Asset Id</p>
   <ion-item id="row7">
-    <ion-input required type="text"></ion-input>
+    <ion-input required type="text" id="AssetID"></ion-input>
   </ion-item>
 
   <p class="subtitle" id="row8">Department</p>
@@ -122,9 +122,9 @@
     </ion-select>
   </ion-item>
 
-  <p class="subtitle" id="row10">Location/Address?</p>
+  <p class="subtitle" id="row10">Location/Address</p>
   <ion-item id="row11">
-    <ion-input required type="text"></ion-input>
+    <ion-input required type="text" id = "address"> {{ address }} </ion-input>
     <ion-buttons slot="end">
       <ion-button slot="icon-only">
         <ion-icon name="pin"></ion-icon>
@@ -150,7 +150,7 @@
 
   <p class="subtitle" id="row14">Description</p>
   <ion-item id="row15">
-    <ion-input required type="text"></ion-input>
+    <ion-input required type="text" id="Description"></ion-input>
   </ion-item>
 
   <p class="subtitle2" id="row16">Attach photo</p>
@@ -164,27 +164,18 @@
   </ion-item>
 
   <ion-item id="row18">
-    <ion-label id="subtitle3">Crew</ion-label>
+    <ion-label id="subtitle3">Employees</ion-label>
     <ion-buttons slot="end">
-      <ion-button slot="icon-only">
+      <ion-button slot="icon-only" (click)="goEmployees()">
         <ion-icon name="add"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-item>
 
   <ion-item id="row19">
-    <ion-label id="subtitle3">Employees</ion-label>
-    <ion-buttons slot="end">
-      <ion-button slot="icon-only">
-        <ion-icon name="add"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-item>
-
-  <ion-item id="row20">
     <ion-label id="subtitle3">Equipment</ion-label>
     <ion-buttons slot="end">
-      <ion-button slot="icon-only">
+      <ion-button slot="icon-only" (click)='goEquipment()'>
         <ion-icon name="add"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -193,7 +184,7 @@
   <ion-item id="row21">
     <ion-label id="subtitle3">Materials</ion-label>
     <ion-buttons slot="end">
-      <ion-button slot="icon-only">
+      <ion-button slot="icon-only" (click)="goMaterials()">
         <ion-icon name="add"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -202,7 +193,7 @@
   <p class="subtitle2" id="row22">Comment</p>
 
   <ion-item lines="none" id="row23">
-    <ion-button id="addCommentBtn" color="secondary">ADD COMMENT</ion-button>
+    <ion-button  (click)="goComments()" id="addCommentBtn" color="secondary">ADD COMMENT</ion-button>
   </ion-item>
 
   <ion-item id="row24">

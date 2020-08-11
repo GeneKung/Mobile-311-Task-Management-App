@@ -29,7 +29,6 @@ export class AppComponent implements OnInit {
   ) {
     this.initializeApp();
   }
-
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
@@ -53,6 +52,21 @@ export class AppComponent implements OnInit {
     this.router.navigate(['tasks'])
   }
     ngOnInit() {
+  }
+
+  setAddress(deliveryAddress) {
+    this.CreatetaskPage.address = deliveryAddress;
+    document.getElementById("address").innerHTML = this.CreatetaskPage.address;
+  }
+
+  setAssetID(AssetIDs) {
+    this.CreatetaskPage.AssetID = AssetIDs;
+    document.getElementById("AssetID").innerHTML = this.CreatetaskPage.AssetID;
+  }
+
+  setDescription(Descriptions) {
+    this.CreatetaskPage.Description = Descriptions;
+    document.getElementById("Description").innerHTML = this.CreatetaskPage.Description;
   }
 
   ngAfterViewInit() {
