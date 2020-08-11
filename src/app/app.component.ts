@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 import { TasksPage } from "./tasks/tasks.page";
 import { CreatetaskPage} from "./createtask/createtask.page"
+import { SearchPage } from "./search/search.page"
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -22,11 +23,11 @@ export class AppComponent implements OnInit {
     private router: Router,
     public TasksPage: TasksPage,
     public menuCtrl: MenuController,
-    public CreatetaskPage: CreatetaskPage
+    public CreatetaskPage: CreatetaskPage,
+    public SearchPage: SearchPage,
   ) {
     this.initializeApp();
   }
-
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
@@ -50,6 +51,21 @@ export class AppComponent implements OnInit {
     this.router.navigate(['tasks'])
   }
     ngOnInit() {
+  }
+
+  setAddress(deliveryAddress) {
+    this.CreatetaskPage.address = deliveryAddress;
+    document.getElementById("address").innerHTML = this.CreatetaskPage.address;
+  }
+
+  setAssetID(AssetIDs) {
+    this.CreatetaskPage.AssetID = AssetIDs;
+    document.getElementById("AssetID").innerHTML = this.CreatetaskPage.AssetID;
+  }
+
+  setDescription(Descriptions) {
+    this.CreatetaskPage.Description = Descriptions;
+    document.getElementById("Description").innerHTML = this.CreatetaskPage.Description;
   }
 
   ngAfterViewInit() {
@@ -133,6 +149,17 @@ export class AppComponent implements OnInit {
             this.TasksPage.selectTabs = 'mapView';
             console.log(this.TasksPage.selectTabs);
           }
+        }
+        if (commandData.command === "address") {
+          this.setAddress(commandData.address);
+          console.log(this.CreatetaskPage.address);
+          return this.CreatetaskPage.address;
+        }
+        if (commandData.command === "AssetID") {
+          this.setAssetID(commandData.AssetID);
+        }
+        if (commandData.command === "Description") {
+          this.setDescription(commandData.Description);
         }
     });
 }

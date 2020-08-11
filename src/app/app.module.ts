@@ -17,7 +17,7 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 
 import { CreatetaskPage} from "./createtask/createtask.page"
 import { TasksPage } from "./tasks/tasks.page";
-
+import { SearchPage } from "./search/search.page"
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -34,7 +34,8 @@ import { TasksPage } from "./tasks/tasks.page";
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Geolocation,
     NativeGeocoder,
-    CreatetaskPage
+    CreatetaskPage,
+    SearchPage
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
