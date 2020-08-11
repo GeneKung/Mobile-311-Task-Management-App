@@ -18,7 +18,11 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import { CreatetaskPage} from "./createtask/createtask.page"
 import { TasksPage } from "./tasks/tasks.page";
 import { SettingsPage } from "./settings/settings.page";
+import { HttpClientModule } from '@angular/common/http';
 
+import { Camera } from '@ionic-native/Camera/ngx';
+import { File } from '@ionic-native/File/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -26,17 +30,21 @@ import { SettingsPage } from "./settings/settings.page";
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    HttpClientModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
     TasksPage,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
     Geolocation,
     NativeGeocoder,
     CreatetaskPage,
     SettingsPage,
+    Camera,
+    File,
+    WebView
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
