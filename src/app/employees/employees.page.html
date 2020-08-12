@@ -10,5 +10,81 @@
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-icon name="calendar"></ion-icon>
+    <p class = "date">{{ now }}</p>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only">
+        <ion-icon name="arrow-down"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+  <p class="subtitle">Crew</p>
+  <ion-item id="row1">
+    <ion-label></ion-label>
+    <ion-select  [(ngModel)]="getSelectedSubject"  (ionChange)="getSelectedSubjectValue(getSelectedSubject)" interface="dropdown" placeholder = "All"ok-text="Select" cancel-text="Cancel">
+      <ion-select-option value="1">1</ion-select-option>
+      <ion-select-option value="2">2</ion-select-option>
+      <ion-select-option value="3">3</ion-select-option>
+      <ion-select-option value="4">4</ion-select-option>
+      <ion-select-option value="5">5</ion-select-option>
+      <ion-select-option value="6">6</ion-select-option>
+      <ion-select-option value="7">7</ion-select-option>
+      <ion-select-option value="8">8</ion-select-option>
+      <ion-select-option value="9">9</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <p class="subtitle">Employee</p>
+  <ion-item id="row2">
+    <ion-label></ion-label>
+    <ion-select  [(ngModel)]="getEmployee"  (ionChange)="getByEmployee(getEmployee)" interface="dropdown" placeholder = "All"ok-text="Select" cancel-text="Cancel">
+      <ion-select-option value="Amos, Zachary">Amos, Zachary</ion-select-option>
+      <ion-select-option value="Bonds, Travis">Bonds, Travis</ion-select-option>
+      <ion-select-option value="Brazil, Jim">Brazil, Jim</ion-select-option>
+      <ion-select-option value="Carmona, Jerry">Carmona, Jerry</ion-select-option>
+      <ion-select-option value="Carvalho, Jorge">Carvalho, Jorge</ion-select-option>
+      <ion-select-option value="Clemens, Nate">Clemens, Nate</ion-select-option>
+      <ion-select-option value="Howe, Jerry">Howe, Jerry</ion-select-option>
+      <ion-select-option value="Lltvinchuck, Matt">Lltvinchuck, Matt</ion-select-option>
+      <ion-select-option value="O'Connor, Don">O'Connor, Don</ion-select-option>
+      <ion-select-option value="Quintero, Felipe">Quintero, Felipe</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <p class="subtitle">Hours</p>
+  <ion-item id="row3">
+    <ion-input type="number" [(ngModel)]="hours" (keyup.enter)="logHours()"></ion-input>
+  </ion-item>
+  <p class="subtitle">Overtime</p>
+  <ion-item id="row4">
+    <ion-input type="number"[(ngModel)]='overtime' (keyup.enter)="logOvertime()"></ion-input>
+  </ion-item>
 
+  <ion-item lines="none">
+    <ion-button color="secondary" (click)="inputData()">Add Another</ion-button>
+  </ion-item>
+
+  <div *ngFor="let data of displayPosts;let index = index;">
+    <ion-item lines = "none">
+      <h3>{{data.employee}}</h3>
+      <ion-buttons slot="end">
+        <ion-button slot="icon-only">
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <ion-item lines = "none">
+      <p  style="margin-right:125px;">HRS</p>
+      <p>Overtime</p>
+    </ion-item>
+
+    <ion-item>
+    <p style="margin-right:145px;">{{ data.hours}}</p>
+    <p>{{data.overtime}}</p>
+    <p>{{data.crew}}</p>
+    </ion-item>
+    <ion-item color="secondary">
+      <ion-icon   style="margin-right:20px;"name="calendar"></ion-icon>
+      <h3 >{{ now }}</h3>
+    </ion-item>
+  </div>
 </ion-content>
