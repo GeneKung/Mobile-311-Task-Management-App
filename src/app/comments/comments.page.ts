@@ -21,6 +21,7 @@ export class CommentsPage implements OnInit {
 
   ngOnInit() {
     this.materials = this.activateRoute.snapshot.paramMap.get('id');
+    this.storage.clear();
     this.updateScroll();
     this.storage.get('postID').then( (val) =>{
       console.log(val);
@@ -69,6 +70,7 @@ export class CommentsPage implements OnInit {
     console.log(this.post);
     this.storePost(this.post);
     this.comment = null;
+    this.post = {};
   }
 
   storePost(post){
