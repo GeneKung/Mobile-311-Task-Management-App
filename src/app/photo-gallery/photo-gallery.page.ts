@@ -4,6 +4,7 @@ import { ActionSheetController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import * as moment from 'moment';
+
 @Component({
   selector: 'app-photo-gallery',
   templateUrl: './photo-gallery.page.html',
@@ -12,28 +13,26 @@ import * as moment from 'moment';
 export class PhotoGalleryPage implements OnInit {
   displayPosts = [];
   allPosts = [];
-  comment
+  comment = '';
   post = {};
-  now = moment().format('MM/DD/YYYY HH:mm');
+  commentID = 1;
   public materials: string;
-  postID = 1;
   constructor(public photoService: PhotoService, public actionSheetController: ActionSheetController, public storage: Storage, public activateRoute: ActivatedRoute) {}
 
   ngOnInit() {
     this.photoService.loadSaved();
     this.materials = this.activateRoute.snapshot.paramMap.get('id');
-
-    this.storage.get('postID').then( (val) =>{
+    this.storage.get('commentID').then( (val) =>{
       console.log(val);
-      this.postID = val;  
-    for(let id = 1; id < this.postID; id++){
+      this.commentID = val;  
+    for(let id = 1; id < this.commentID; id++){
       this.storage.get(`${id}`).then( (val) =>{
         console.log(val);
         this.displayPosts.push(JSON.parse(val));
         console.log(this.displayPosts);
       });
     }
-  });  
+    });  
   }
 
   public async showActionSheet(photo, position) {
@@ -59,23 +58,24 @@ export class PhotoGalleryPage implements OnInit {
   }
 
   logForm() {
-    this.post['body'] = this.comment;
     this.post['name'] = "John Doe";
+    this.post['time'] = moment().format('MM/DD/YYYY HH:mm');
+    this.post['body'] = this.comment;
     console.log(this.post);
     this.storePost(this.post);
     this.comment = null;
+    this.post = {};
   }
 
   storePost(post){
-    this.storage.set(`${this.postID}`, JSON.stringify(post));
-    this.postID += 1;
-    this.storage.set('postID', this.postID);
+    this.storage.set(`${this.commentID}`, JSON.stringify(post));
+    this.commentID += 1;
+    this.storage.set('commentID', this.commentID);
     this.displayPosts.push(post);
-    this.comment = null;
   }
 
   deleteComment(post){
-    this.storage.remove('postID');
+    this.storage.remove('commentID');
     this.displayPosts.splice(post, 1);
   }
 }

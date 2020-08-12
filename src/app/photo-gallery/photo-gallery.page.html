@@ -22,7 +22,6 @@
     <ion-col size="8" *ngFor="let photo of photoService.photos; index as position">
       <ion-img class="img" src="{{ photo.base64 ? photo.base64 : photo.webviewPath }}" (click)="showActionSheet(photo, position)">
       </ion-img>
-      <p>{{ now }}</p>
       <div *ngFor="let post of displayPosts;let index = index;">
         <ion-item-sliding>
         <ion-item id="comment">
@@ -30,7 +29,7 @@
           <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200">
         </ion-avatar>
         <h5 class="postName">{{ post.name }}</h5>
-        <p class="date" slot="end">{{ now }}</p>
+        <p class="date" slot="end">{{ post.time }}</p>
         <ion-label class="postBody" style="margin-top:80px;">{{ post.body }}</ion-label>
         </ion-item>
         <ion-item-options side="end">
