@@ -9,21 +9,27 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content id="content">
   <div *ngFor="let post of displayPosts;let index = index;">
     <ion-item>
     <ion-avatar class="userPic">
       <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200">
     </ion-avatar>
-    <p>{{ now }}</p>
+    <div>
+    <p class="time">{{ post.time }}</p>
     <h5 class="postName">{{ post.name }}</h5>
-    <p class="postBody" style="margin-top:80px;">{{ post.body }}</p>
+    </div>
+    <div>
+    <p class="postBody">{{ post.body }}</p>
+    </div>
     </ion-item>
   </div>
+  <div style="display:inline-flex;" class=currentUserComment>
   <ion-avatar class="currentUserPic">
     <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200">
   </ion-avatar>
   <form (ngSubmit)="logForm()">
-  <ion-input type="text" [(ngModel)]="post.body" name="comment" placeholder="Add Comment"></ion-input>
+  <ion-input type="text" [(ngModel)]="comment" name="comment" placeholder="Add Comment"></ion-input>
   </form>
+  </div>
 </ion-content>
