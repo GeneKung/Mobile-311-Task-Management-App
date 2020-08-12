@@ -66,6 +66,35 @@ export class PhotoService {
     });
   }
 
+  public async addNewToGallerys() {
+    // Take a photo
+    const capturedPhoto = await Camera.getPhoto({
+      resultType: CameraResultType.Uri, // file-based data; provides best performance
+      source: CameraSource.Photos, // automatically take a new photo with the camera
+      quality: 100 // highest quality (0 to 100)
+    });
+    
+    const savedImageFile = await this.savePicture(capturedPhoto);
+
+    // Add new photo to Photos array
+    this.photos.unshift(savedImageFile);
+
+    // Cache all photo data for future retrieval
+    Storage.set({
+      key: this.PHOTO_STORAGE,
+      value: this.platform.is('hybrid')
+              ? JSON.stringify(this.photos)  
+              : JSON.stringify(this.photos.map(p => {
+                // Don't save the base64 representation of the photo data, 
+                // since it's already saved on the Filesystem
+                const photoCopy = { ...p };
+                delete photoCopy.base64;
+
+                return photoCopy;
+                }))
+    });
+  }
+
   // Save picture to file on device
   private async savePicture(cameraPhoto: CameraPhoto) {
     // Convert photo to base64 format, required by Filesystem API to save

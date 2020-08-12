@@ -1,0 +1,81 @@
+ion-icon {
+    height: 30px;
+    width: 30px;
+}
+
+ion-label {
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    /* identical to box height */
+
+
+    /* ionic/ black */
+
+    color: #000000;
+}
+
+ion-avatar.currentUserPic {
+    width: 33px;
+    height: 33px;
+}
+ion-avatar.userPic {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: -33px;
+    z-index: -1;
+}
+ion-img {
+    width: 342px;
+}
+h5 {
+    position: relative;
+    top: -43px;
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 22px;
+    overflow: visible;
+}
+p.date {
+    position: relative;
+    top: -40px;
+
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 22px;
+}
+ion-label.postBody{
+    position: relative;
+    top: -57px;
+    left: -53px;
+
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 22px;
+}
+ion-item-sliding {
+    height: 50px;
+    width: 320px;
+    margin-left: 5px;
+    margin-top: 0;
+}
+ion-searchbar {
+    margin-bottom: 0;
+}
+
+#input {
+    position: relative;
+    width: 342px;
+    top: 10 px;
+    --border-style: solid;
+    --border-width: 2px;
+}

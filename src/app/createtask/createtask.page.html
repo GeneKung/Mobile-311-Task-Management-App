@@ -155,10 +155,10 @@
 
   <p class="subtitle2" id="row16">Attach photo</p>
   <ion-item lines="none" id="row17">
-    <ion-button id="camera" color="secondary">
+    <ion-button id="camera" color="secondary" (click)="this.photoService.addNewToGallery()">
       <ion-icon  id="iconLarge" name="camera" slot="start"></ion-icon> Camera
     </ion-button>
-    <ion-button id="gallery" color="secondary" (click)="this.photoService.addNewToGallery()">
+    <ion-button id="gallery" color="secondary" (click)="this.photoService.addNewToGallerys()">
       <ion-icon id="iconLarge" name="image" slot="start"></ion-icon> Photo Gallery
     </ion-button>
   </ion-item>

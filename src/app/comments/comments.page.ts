@@ -15,7 +15,7 @@ export class CommentsPage implements OnInit {
   postID = 1;
   displayPosts = [];
   allPosts = [];
-  post = {};
+  post = {body: ''};
   constructor(private activateRoute: ActivatedRoute, private router: Router, public storage: Storage) { }
 
   ngOnInit() {
