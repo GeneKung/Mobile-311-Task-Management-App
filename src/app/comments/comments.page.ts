@@ -10,16 +10,18 @@ import * as moment from 'moment';
   styleUrls: ['./comments.page.scss'],
 })
 export class CommentsPage implements OnInit {
-  now = moment().format('MM/DD/YYYY HH:mm');
+  time = moment().format('HH:mm');
   public materials: string;
   postID = 1;
   displayPosts = [];
   allPosts = [];
-  post = {body: ''};
+  comment = '';
+  post = {};
   constructor(private activateRoute: ActivatedRoute, private router: Router, public storage: Storage) { }
 
   ngOnInit() {
     this.materials = this.activateRoute.snapshot.paramMap.get('id');
+    this.updateScroll();
     this.storage.get('postID').then( (val) =>{
       console.log(val);
       this.postID = val;  
@@ -32,18 +34,49 @@ export class CommentsPage implements OnInit {
     }
   });  
   }
-  
+
+  updateScroll(){
+    var element = document.getElementById("content");
+    element.scrollTop = element.scrollHeight;
+  }
+
+  TwelveHourFormat(time) {
+    var dtParts = time.split(":");
+
+    var hours = dtParts[0];
+    var minutes = dtParts[1];
+    var suffix = "AM";
+
+    if (hours > 12) {
+        hours = hours - 12;
+        suffix = "PM";
+    }
+    else if (hours == "00") {
+        hours = 12;
+        suffix = "AM";
+    }
+    else if (hours == "12") {
+        suffix = "PM";
+    }
+
+    let now = hours + ":" + minutes + " " + suffix;
+    return now;
+}
   logForm() {
     this.post['name'] = "John Doe";
+    this.post['time'] = this.TwelveHourFormat(moment().format('HH:mm'));
+    this.post['body'] = this.comment;
     console.log(this.post);
     this.storePost(this.post);
-    this.post['body'] = null;
+    this.comment = null;
   }
 
   storePost(post){
     this.storage.set(`${this.postID}`, JSON.stringify(post));
     this.postID += 1;
     this.storage.set('postID', this.postID);
+    this.displayPosts.push(post);
+    this.updateScroll();
   }
 
   goBack() {

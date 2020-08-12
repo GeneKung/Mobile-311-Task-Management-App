@@ -1,13 +1,17 @@
+html{
+    position: relative;
+    min-height: 100%;
+}
 ion-input{
-    position: absolute;
+    position: static;
     bottom: 15px;
-    right: 15px;
+    right: 0px;
     border: 1px solid black;
     width: 75%;
 }
 
 .currentUserPic{
-    position: absolute;
+    position: static;
     left: 15px;
     bottom: 12px;
     width: 50px;
@@ -15,20 +19,30 @@ ion-input{
 }
 
 .userPic{
-    position: relative; 
     left: 6px;
     width: 60px;
     height: 60px;
+    margin-bottom: 80px;
 }
 
 .postName{
-    left: 30px;
+    left: 20px;
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: 100px;
 }
 
 .postBody{
-    margin-top: 40px;
-    left: 30px;
-    margin-bottom: 40px;
+    position: absolute;
+    top: 45px;
+    left: 80px;
+}
+
+.time{
+    position: absolute;
+    right: 10px;
+    margin-bottom: 100px;
+}
+
+.currentUserComment{
+    z-index: 999;
 }
