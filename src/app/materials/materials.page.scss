@@ -1,0 +1,26 @@
+div {
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: bold;
+    line-height: 16px;
+    text-transform: uppercase;
+
+    /* ionic/ black */
+
+    color: #000000;
+}
+
+p.subtitle {
+    margin-left: 7px;
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    /* ionic / medium */
+    color: #7D849F;
+}

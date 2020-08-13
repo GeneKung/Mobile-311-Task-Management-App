@@ -5,7 +5,7 @@
       Photos
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="this.photoService.addNewToGallery()" slot="icon-only" color="primary">
+      <ion-button (click)="this.photoService.addNewToGallery(); add()" slot="icon-only" color="primary">
         <ion-icon name="camera"></ion-icon>
       </ion-button>
       <ion-button (click)="this.photoService.addNewToGallerys()" slot="icon-only" color="primary">

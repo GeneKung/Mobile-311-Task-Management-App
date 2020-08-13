@@ -170,6 +170,10 @@ export class AppComponent implements OnInit {
         if (commandData.command === "Description") {
           this.setDescription(commandData.Description);
         }
+        
+        if (commandData.command === 'photo'){
+          this.router.navigate(['photo-gallery']);
+        }
     });
 }
 
