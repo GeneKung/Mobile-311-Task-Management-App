@@ -10,5 +10,62 @@
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-icon name="calendar"></ion-icon>
+    <p class = "date">{{ now }}</p>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only">
+        <ion-icon name="arrow-down"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+  <p class="subtitle">Group</p>
+  <ion-item id="row1">
+    <ion-label></ion-label>
+    <ion-select  [(ngModel)]="getSelectedSubject"  (ionChange)="getSelectedSubjectValue(getSelectedSubject)" interface="dropdown" placeholder = "All"ok-text="Select" cancel-text="Cancel">
+      <ion-select-option value="CC">Community Compliance</ion-select-option>
+      <ion-select-option value="EaT">Engineering and Transportation</ion-select-option>
+      <ion-select-option value="PM">Pavement Markings</ion-select-option>
+      <ion-select-option value="light">Public Works - Lights & Signals</ion-select-option>
+      <ion-select-option value="paving">Public Works - Paving</ion-select-option>
+      <ion-select-option value="signs">Public Works - Signs</ion-select-option>
+      <ion-select-option value="services">Street Services</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <p class="subtitle">Employee</p>
+  <ion-item id="row2">
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only" (click)="Materials()">
+        <ion-icon name="caret-down-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-label>{{getMaterial}}</ion-label>
+  </ion-item>
+  <p class="subtitle">{{typeOfQuantity}}</p>
+  <ion-item id="row4">
+    <ion-input type="number"[(ngModel)]='quantity' (keyup.enter)="logQuantity()"></ion-input>
+  </ion-item>
 
+  <ion-item lines="none">
+    <ion-button color="secondary" (click)="inputData()">Add Another</ion-button>
+  </ion-item>
+
+  <div *ngFor="let data of displayPosts;let index = index;">
+    <ion-item lines = "none">
+      <h3>{{data.material}}</h3>
+      <ion-buttons slot="end">
+        <ion-button slot="icon-only">
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <ion-item lines = "none">
+      <h4  style="margin-right:125px;"> {{ data.type }}</h4>
+      <h4>{{ data.quantity }}</h4>
+    </ion-item>
+    <ion-item color="secondary">
+      <ion-icon   style="margin-right:20px;"name="calendar"></ion-icon>
+      <h3 >{{ now }}</h3>
+    </ion-item>
+  </div>
 </ion-content>
