@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import * as moment from 'moment';
 
+@Injectable()
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.page.html',
@@ -12,6 +13,7 @@ import * as moment from 'moment';
 export class CommentsPage implements OnInit {
   public materials: string;
   postID = 1;
+  id;
   displayPosts = [];
   allPosts = [];
   comment = '';
@@ -20,10 +22,11 @@ export class CommentsPage implements OnInit {
   response = {};
   replyPost = {};
   placeholder : string = "Add Comment";
+  colorCode = "gray";
+  clickedReply = false;
   constructor(private activateRoute: ActivatedRoute, private router: Router, public storage: Storage) { }
 
   ngOnInit() {
-    
     this.materials = this.activateRoute.snapshot.paramMap.get('id');
     this.updateScroll();
     this.storage.get('postID').then( (val) =>{
@@ -89,6 +92,7 @@ export class CommentsPage implements OnInit {
       this.storeReply();
       this.comment = null;
       this.replyPost = {};
+      this.msg = '';
       this.placeholder = 'Add Comment';
     }
   }
@@ -107,9 +111,16 @@ export class CommentsPage implements OnInit {
   }
 
   reply(post) {
-    this.placeholder = 'Replying to your comment';
-    this.msg = 'reply';
-    this.response = post;
+    this.clickedReply = !this.clickedReply;
+    if(!this.clickedReply) {
+      this.colorCode = "blue";
+      this.placeholder = 'Replying to your comment';
+      this.msg = 'reply';
+      this.response = post;
+    }else if(this.clickedReply) {
+      this.colorCode = "gray";
+      this.placeholder = "Add Comment";
+    }
   }
 
   goBack() {

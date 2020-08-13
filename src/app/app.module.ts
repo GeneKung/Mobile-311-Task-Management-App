@@ -8,7 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { IonicStorageModule } from '@ionic/storage';
+import { IonicStorageModule, Storage } from '@ionic/storage';
 
 import {Geolocation} from "@ionic-native/geolocation/ngx";
 
@@ -23,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { Camera } from '@ionic-native/Camera/ngx';
 import { File } from '@ionic-native/File/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { CommentsPage } from './comments/comments.page';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -34,6 +36,7 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
     HttpClientModule
   ],
   providers: [
+    CommentsPage,
     StatusBar,
     SplashScreen,
     TasksPage,

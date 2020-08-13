@@ -6,6 +6,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { icon, Map, tileLayer, marker, polyline } from "leaflet";
 import "leaflet/dist/images/marker-shadow.png";
 import "leaflet/dist/images/marker-icon-2x.png";
+import { CommentsPage } from '../comments/comments.page';
 
 @Component({
   selector: 'app-tasks',
@@ -14,16 +15,22 @@ import "leaflet/dist/images/marker-icon-2x.png";
 })
 
 export class TasksPage implements OnInit {
+  time;
   public tasks: string;
   map: Map;
   marker: any;
   latLong = [];
   selectTabs = 'listView';
-  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation) { }
+  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation,
+    public commentPage: CommentsPage) { }
 
   ngOnInit() {
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
-  }
+    this.commentPage.storage.get('1').then( (val) =>{
+      console.log(val);
+      val = JSON.parse(val);
+      this.time = val.time;
+    });  }
 
   goSearch(){
     this.router.navigate(['search'])

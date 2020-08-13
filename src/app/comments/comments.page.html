@@ -21,8 +21,9 @@
     </div>
     <div>
     <p class="postBody">{{ post.body }}</p>
-    <ion-icon style="position:absolute; right: 65px; bottom: 15px" name="return-down-back-outline"></ion-icon>
-    <p style="position: absolute; right:20px; bottom:0" id="index" (click)=reply(post)>Reply</p>
+    <ion-icon style="position:absolute; right: 65px; bottom: 15px;" 
+    [ngStyle]="{'color': colorCode}" name="return-down-back-outline"></ion-icon>
+    <p style="position: absolute; right:20px; bottom:0" (click)=reply(post)>Reply</p>
   </div>
     </ion-item>
     <div *ngFor="let reply of post.replies;let i = index;">
@@ -40,7 +41,8 @@
         </ion-item>
     </div>
   </div>
-  <div style="display:inline-flex; margin-top: 40px" class=currentUserComment>
+  <div style="margin-top: 100px"></div>
+  <div style="display:inline-flex;" class=currentUserComment>
   <ion-avatar class="currentUserPic">
     <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200">
   </ion-avatar>
