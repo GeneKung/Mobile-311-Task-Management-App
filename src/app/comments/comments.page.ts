@@ -14,7 +14,6 @@ export class CommentsPage implements OnInit {
   public materials: string;
   id;
   postID = 1;
-  id;
   displayPosts = [];
   allPosts = [];
   comment = '';

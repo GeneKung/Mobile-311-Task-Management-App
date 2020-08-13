@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { applySourceSpanToStatementIfNeeded } from '@angular/compiler/src/output/output_ast';
 import { Storage } from '@ionic/storage';
 import { PhotoService } from '../services/photo.service';
+
 @Component({
   selector: 'app-createtask',
   templateUrl: './createtask.page.html',
