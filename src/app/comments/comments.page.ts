@@ -10,13 +10,16 @@ import * as moment from 'moment';
   styleUrls: ['./comments.page.scss'],
 })
 export class CommentsPage implements OnInit {
-  time = moment().format('HH:mm');
   public materials: string;
   postID = 1;
   displayPosts = [];
   allPosts = [];
   comment = '';
+  msg = '';
   post = {};
+  response = {};
+  replyPost = {};
+  placeholder : string = "Add Comment";
   constructor(private activateRoute: ActivatedRoute, private router: Router, public storage: Storage) { }
 
   ngOnInit() {
@@ -64,21 +67,49 @@ export class CommentsPage implements OnInit {
     return now;
 }
   logForm() {
-    this.post['name'] = "John Doe";
-    this.post['time'] = this.TwelveHourFormat(moment().format('HH:mm'));
-    this.post['body'] = this.comment;
-    console.log(this.post);
-    this.storePost(this.post);
-    this.comment = null;
-    this.post = {};
+    if (this.msg == '') {
+      this.post['name'] = "John Doe";
+      this.post['time'] = this.TwelveHourFormat(moment().format('HH:mm'));
+      this.post['body'] = this.comment;
+      this.post['id'] = this.postID;
+      this.post['replies'] = [];
+      console.log(this.post);
+      this.storePost(this.post);
+      this.comment = null;
+      this.post = {};
+    }
+    else if (this.msg == 'reply') {
+      let index = this.displayPosts.indexOf(this.response);
+      console.log(index);
+      this.replyPost['name'] = "John Doe";
+      this.replyPost['time'] = this.TwelveHourFormat(moment().format('HH:mm'));
+      this.replyPost['body'] = this.comment;
+      console.log(this.displayPosts[index].replies);
+      this.displayPosts[index].replies.push(this.replyPost);
+      this.storeReply();
+      this.comment = null;
+      this.replyPost = {};
+      this.placeholder = 'Add Comment';
+    }
   }
 
-  storePost(post){
+  storePost(post) {
     this.storage.set(`${this.postID}`, JSON.stringify(post));
     this.postID += 1;
     this.storage.set('postID', this.postID);
     this.displayPosts.push(post);
     this.updateScroll();
+  }
+
+  storeReply() {
+    let id = this.response.id;
+    this.storage.set(`${id}`, JSON.stringify(this.displayPosts[id-1]));
+  }
+
+  reply(post) {
+    this.placeholder = 'Replying to your comment';
+    this.msg = 'reply';
+    this.response = post;
   }
 
   goBack() {

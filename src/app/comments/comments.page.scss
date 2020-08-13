@@ -35,7 +35,7 @@ ion-input{
 
 .postBody{
     position: absolute;
-    top: 45px;
+    top: 30px;
     left: 80px;
 }
 
@@ -45,3 +45,32 @@ ion-input{
     margin-bottom: 100px;
 }
 
+.reply{
+    max-width: 80% !important;
+    max-height: 25% !important;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.replyUserPic{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+}
+
+.replyTime{
+    position: absolute; 
+    right: 10px;
+}
+
+.replyPostBody{
+    position: absolute;
+    left: 50px;
+    top: 32px;
+}
+
+.replyPostName{
+    left: 10px;
+    position: relative;
+    margin-bottom: 100px;
+}

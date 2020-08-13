@@ -15,21 +15,37 @@
     <ion-avatar class="userPic">
       <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200">
     </ion-avatar>
-    <div>
+  <div>
     <p class="time">{{ post.time }}</p>
     <h5 class="postName">{{ post.name }}</h5>
     </div>
     <div>
     <p class="postBody">{{ post.body }}</p>
-    </div>
-    </ion-item>
+    <ion-icon style="position:absolute; right: 65px; bottom: 15px" name="return-down-back-outline"></ion-icon>
+    <p style="position: absolute; right:20px; bottom:0" id="index" (click)=reply(post)>Reply</p>
   </div>
-  <div style="display:inline-flex;" class=currentUserComment>
+    </ion-item>
+    <div *ngFor="let reply of post.replies;let i = index;">
+      <ion-item class="reply">
+        <ion-avatar class="replyuserPic">
+          <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200">
+        </ion-avatar>
+      <div>
+        <p class="replyTime">{{ reply.time }}</p>
+        <h5 class="replyPostName">{{ reply.name }}</h5>
+        </div>
+        <div>
+        <p class="replyPostBody">{{ reply.body }}</p>
+      </div>
+        </ion-item>
+    </div>
+  </div>
+  <div style="display:inline-flex; margin-top: 40px" class=currentUserComment>
   <ion-avatar class="currentUserPic">
     <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200">
   </ion-avatar>
   <form (ngSubmit)="logForm()">
-  <ion-input type="text" [(ngModel)]="comment" name="comment" placeholder="Add Comment"></ion-input>
+  <ion-input type="text" [(ngModel)]="comment" name="comment" placeholder={{placeholder}}></ion-input>
   </form>
   </div>
 </ion-content>

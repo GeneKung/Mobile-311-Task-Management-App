@@ -71,7 +71,6 @@ export class EmployeesPage implements OnInit {
     this.displayPosts.push(data)
   }
   
-  
 
   goBack() {
     this.router.navigate(['createtask'])
