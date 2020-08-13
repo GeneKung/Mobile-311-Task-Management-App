@@ -20,6 +20,7 @@ export class PhotoGalleryPage implements OnInit {
   constructor(public photoService: PhotoService, public actionSheetController: ActionSheetController, public storage: Storage, public activateRoute: ActivatedRoute) {}
 
   ngOnInit() {
+    console.log(this.commentID)
     this.photoService.loadSaved();
     this.materials = this.activateRoute.snapshot.paramMap.get('id');
     this.storage.get('commentID').then( (val) =>{
@@ -34,7 +35,10 @@ export class PhotoGalleryPage implements OnInit {
     }
     });  
   }
-
+  add() {
+    this.commentID++
+    console.log(this.commentID)
+  }
   public async showActionSheet(photo, position) {
     const actionSheet = await this.actionSheetController.create({
       header: 'Photos',
