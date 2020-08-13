@@ -10,5 +10,60 @@
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-icon name="calendar"></ion-icon>
+    <p class = "date">{{ now }}</p>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only">
+        <ion-icon name="arrow-down"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+  <p class="subtitle">Crew</p>
+  <ion-item id="row1">
+    <ion-label></ion-label>
+    <ion-select  [(ngModel)]="getByGroup"  (ionChange)="getGroupValue(getByGroup)" interface="dropdown" placeholder = "All"ok-text="Select" cancel-text="Cancel">
+      <ion-select-option value="Enviormental Services">Enviormental Services</ion-select-option>
+      <ion-select-option value="Park Maintenance">Park Maintenance</ion-select-option>
+      <ion-select-option value="Pavement Maintenance">Pavement Maintenance</ion-select-option>
+      <ion-select-option value="Street Services">Street Servces</ion-select-option>
+      <ion-select-option value="Traffic Control">Traffic Control</ion-select-option>
+      <ion-select-option value="WPCP">WPCP</ion-select-option>
+      <ion-select-option value="Ungrouped">Ungrouped</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <p class="subtitle">Equipment</p>
+  <ion-item id="row2">
+    <ion-label></ion-label>
+    <ion-select  [(ngModel)]="getEquipment"  (ionChange)="getByEquipment(getEquipment)" interface="dropdown" placeholder = "All"ok-text="Select" cancel-text="Cancel">
+      <ion-select-option value="758 - Chipper">758 - Chipper</ion-select-option>
+      <ion-select-option value="759 - WOOD CHIPPER">759 - WOOD CHIPPER</ion-select-option>
+      <ion-select-option value="760 - WHISPER CHIPPER">760 - WHISPER CHIPPER</ion-select-option>
+      <ion-select-option value="762 - CHIPPER TRUCK">762 - CHIPPER TRUCK</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <p class="subtitle">Hour</p>
+  <ion-item id="row3">
+    <ion-input type="number" [(ngModel)]="hours" (keyup.enter)="logHours()"></ion-input>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-button color="secondary" (click)="inputEquipmentData()">Add Another</ion-button>
+  </ion-item>
+
+  <div *ngFor="let dataequip of displayPosts;let index = index;">
+    <ion-item lines = "none">
+      <h3><h3>{{dataequip.equipment}}</h3></h3>
+      <ion-buttons slot="end">
+        <ion-button slot="icon-only">
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <ion-item color="secondary" id="calendar-item">
+      <ion-icon style="margin-right:20px;"name="calendar"></ion-icon>
+      <h3 >{{ now }}</h3>
+    </ion-item>
+    
+  </div>
 
 </ion-content>
