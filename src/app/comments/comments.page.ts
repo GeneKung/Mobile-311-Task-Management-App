@@ -11,6 +11,7 @@ import * as moment from 'moment';
 })
 export class CommentsPage implements OnInit {
   public materials: string;
+  id;
   postID = 1;
   displayPosts = [];
   allPosts = [];
