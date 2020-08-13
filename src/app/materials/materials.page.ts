@@ -63,6 +63,7 @@ export class MaterialsPage implements OnInit {
     this.storeData(this.data)
     this.getSelectedSubject = null
     this.getMaterial = null
+    this.quantity = null
     this.data = {};
   }
   storeData(data){
