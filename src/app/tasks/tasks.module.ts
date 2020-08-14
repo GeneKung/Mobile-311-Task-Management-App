@@ -19,7 +19,7 @@ import { CommentsPage } from '../comments/comments.page';
   declarations: [TasksPage],
   providers: [
     Geolocation,
-    CommentsPage
+    CommentsPage,
   ]
 })
 export class TasksPageModule {}

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {  MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -7,7 +7,7 @@ import { icon, Map, tileLayer, marker, polyline } from "leaflet";
 import "leaflet/dist/images/marker-shadow.png";
 import "leaflet/dist/images/marker-icon-2x.png";
 import { CommentsPage } from '../comments/comments.page';
-
+@Injectable()
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.page.html',
@@ -16,6 +16,7 @@ import { CommentsPage } from '../comments/comments.page';
 
 export class TasksPage implements OnInit {
   time;
+  displayPosts = {};
   public tasks: string;
   map: Map;
   marker: any;
@@ -26,11 +27,8 @@ export class TasksPage implements OnInit {
 
   ngOnInit() {
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
-    this.commentPage.storage.get('1').then( (val) =>{
-      console.log(val);
-      val = JSON.parse(val);
     
-    });  }
+    }
 
   goSearch(){
     this.router.navigate(['search'])
@@ -80,6 +78,8 @@ export class TasksPage implements OnInit {
     console.log(this.selectTabs);
     return this.selectTabs;
   }
+
+
 
 }
 

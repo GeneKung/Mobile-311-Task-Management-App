@@ -37,9 +37,10 @@ import { CommentsPage } from './comments/comments.page';
   ],
   providers: [
     CommentsPage,
+    CreatetaskPage,
+    TasksPage,
     StatusBar,
     SplashScreen,
-    TasksPage,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
     Geolocation,
     NativeGeocoder,
