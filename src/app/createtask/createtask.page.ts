@@ -28,7 +28,10 @@ export class CreatetaskPage implements OnInit {
   getAddress;
   getPriority;
   getDescription;
-
+  listInfo = {};
+  listInfoID = 1;
+  displayPosts = {}
+  allPosts = [];
 
   constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router,  public storage: Storage, public photoService: PhotoService, public employeesPage: EmployeesPage, public materialsPage: MaterialsPage, public equipmentPage: EquipmentPage) { 
     this.setValue();
@@ -86,6 +89,36 @@ export class CreatetaskPage implements OnInit {
     }
   }); 
   }
+
+  saveToList(){
+    this.listInfo['workGroup'] = this.getWorkGroup
+    this.listInfo['workType'] = this.getWorkType
+    this.listInfo['assetID'] = this.assetID
+    this.listInfo['department'] = this.getDepartment
+    this.listInfo['address'] = this.getAddress
+    this.listInfo['priority'] = this.getPriority
+    this.listInfo['description'] = this.getDescription
+    this.storeData(this.listInfo)
+    this.getWorkGroup = null
+    this.getWorkType = null
+    this.assetID = null
+    this.getDepartment = null
+    this.getAddress = null
+    this.getPriority = null
+    this.getDescription = null
+    this.router.navigate(['tasks']);
+    this.menuCtrl.enable(true);
+    this.listInfo = {};
+  }
+ 
+  storeData(listInfo){
+    this.storage.set(`${this.listInfoID}`, JSON.stringify(listInfo));
+    console.log(this.listInfoID);
+    this.listInfoID += 1;
+    this.storage.set('listInfoID', this.listInfoID);
+ 
+  }
+
   getByWorkGroup(getWorkGroup){
     console.log(getWorkGroup)
   }

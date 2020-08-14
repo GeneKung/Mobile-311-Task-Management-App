@@ -39,9 +39,10 @@ import { EquipmentPage } from './equipment/equipment.page'
   ],
   providers: [
     CommentsPage,
+    CreatetaskPage,
+    TasksPage,
     StatusBar,
     SplashScreen,
-    TasksPage,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
     Geolocation,
     NativeGeocoder,

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
+import { Component, OnInit, OnDestroy, Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {  MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -10,6 +10,8 @@ import { CommentsPage } from '../comments/comments.page'
 import { NativeGeocoder, NativeGeocoderOptions, NativeGeocoderResult } from '@ionic-native/native-geocoder/ngx';
 import { Platform } from '@ionic/angular';
 import { CreatetaskPage } from '../createtask/createtask.page'
+
+@Injectable()
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.page.html',
@@ -17,6 +19,8 @@ import { CreatetaskPage } from '../createtask/createtask.page'
 })
 
 export class TasksPage implements OnInit {
+  time;
+  displayPosts = {};
   public tasks: string;
   map: Map;
   marker: any;
@@ -27,12 +31,8 @@ export class TasksPage implements OnInit {
 
   ngOnInit() {
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
-    this.commentsPage.storage.get('1').then( (val) =>{
-      console.log(val);
-      val = JSON.parse(val);
     
-    });  
-  }
+    }
 
   goSearch(){
     this.router.navigate(['search'])
