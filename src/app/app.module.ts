@@ -24,7 +24,9 @@ import { Camera } from '@ionic-native/Camera/ngx';
 import { File } from '@ionic-native/File/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { CommentsPage } from './comments/comments.page';
-
+import { MaterialsPage } from './materials/materials.page'
+import { EmployeesPage } from './employees/employees.page'
+import { EquipmentPage } from './equipment/equipment.page'
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -48,7 +50,10 @@ import { CommentsPage } from './comments/comments.page';
     SettingsPage,
     Camera,
     File,
-    WebView
+    WebView,
+    MaterialsPage,
+    EmployeesPage,
+    EquipmentPage
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

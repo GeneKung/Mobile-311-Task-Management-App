@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import * as moment from 'moment';
-
+@Injectable()
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.page.html',

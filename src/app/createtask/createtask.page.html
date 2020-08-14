@@ -172,6 +172,31 @@
     </ion-buttons>
   </ion-item>
 
+  <div *ngFor="let data of this.employeesPage.displayPosts;let index = index;">
+    <ion-item lines = "none">
+      <h3>{{data.employee}}</h3>
+      <ion-buttons slot="end">
+        <ion-button slot="icon-only">
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <ion-item lines = "none">
+      <p  style="margin-right:125px;">HRS</p>
+      <p>Overtime</p>
+    </ion-item>
+
+    <ion-item>
+    <p style="margin-right:145px;">{{ data.hours}}</p>
+    <p>{{data.overtime}}</p>
+    <p>{{data.crew}}</p>
+    </ion-item>
+    <ion-item color="secondary">
+      <ion-icon   style="margin-right:20px;"name="calendar"></ion-icon>
+      <h3 >{{ employeesPage.now }}</h3>
+    </ion-item>
+  </div>
+
   <ion-item id="row19">
     <ion-label id="subtitle3">Equipment</ion-label>
     <ion-buttons slot="end">
@@ -181,6 +206,21 @@
     </ion-buttons>
   </ion-item>
 
+  <div *ngFor="let dataequip of this.equipmentPage.displayPosts;let index = index;">
+    <ion-item lines = "none">
+      <h3><h3>{{dataequip.equipment}}</h3></h3>
+      <ion-buttons slot="end">
+        <ion-button slot="icon-only">
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <ion-item color="secondary" id="calendar-item">
+      <ion-icon style="margin-right:20px;"name="calendar"></ion-icon>
+      <h3 >{{ equipmentPage.now }}</h3>
+    </ion-item>
+  </div>
+
   <ion-item id="row21">
     <ion-label id="subtitle3">Materials</ion-label>
     <ion-buttons slot="end">
@@ -189,6 +229,25 @@
       </ion-button>
     </ion-buttons>
   </ion-item>
+
+  <div *ngFor="let data of this.materialsPage.displayPosts;let index = index;" class="material">
+    <ion-item lines = "none">
+      <h3>{{data.material}}</h3>
+      <ion-buttons slot="end">
+        <ion-button slot="icon-only">
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <ion-item lines = "none">
+      <h4  style="margin-right:125px;"> {{ data.type }}</h4>
+      <h4>{{ data.quantity }}</h4>
+    </ion-item>
+    <ion-item color="secondary">
+      <ion-icon   style="margin-right:20px;"name="calendar"></ion-icon>
+      <h3 >{{ this.materialsPage.now }}</h3>
+    </ion-item>
+  </div>
 
   <p class="subtitle2" id="row22">Comment</p>
 
