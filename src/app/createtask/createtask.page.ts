@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {  MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { MaterialsPage } from '../materials/materials.page'
 import { EmployeesPage } from '../employees/employees.page'
 import { EquipmentPage } from '../equipment/equipment.page'
 
-
+@Injectable()
 @Component({
   selector: 'app-createtask',
   templateUrl: './createtask.page.html',

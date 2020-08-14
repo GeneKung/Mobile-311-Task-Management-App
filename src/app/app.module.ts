@@ -52,7 +52,7 @@ import { EquipmentPage } from './equipment/equipment.page'
     WebView,
     MaterialsPage,
     EmployeesPage,
-    EquipmentPage
+    EquipmentPage,
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

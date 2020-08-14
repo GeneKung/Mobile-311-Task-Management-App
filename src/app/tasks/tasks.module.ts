@@ -8,7 +8,7 @@ import { TasksPageRoutingModule } from './tasks-routing.module';
 
 import { TasksPage } from './tasks.page';
 import { CommentsPage } from '../comments/comments.page';
-
+import { CreatetaskPage } from '../createtask/createtask.page'
 @NgModule({
   imports: [
     CommonModule,
@@ -19,7 +19,8 @@ import { CommentsPage } from '../comments/comments.page';
   declarations: [TasksPage],
   providers: [
     Geolocation,
-    CommentsPage
+    CommentsPage,
+    CreatetaskPage
   ]
 })
 export class TasksPageModule {}
