@@ -14,7 +14,6 @@ export class CommentsPage implements OnInit {
   public materials: string;
   id;
   postID = 1;
-  id;
   displayPosts = [];
   allPosts = [];
   comment = '';
@@ -22,7 +21,6 @@ export class CommentsPage implements OnInit {
   post = {};
   response = {};
   replyPost = {};
-  id;
   placeholder : string = "Add Comment";
   colorCode = "gray";
   clickedReply = false;

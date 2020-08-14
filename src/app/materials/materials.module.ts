@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { MaterialsPageRoutingModule } from './materials-routing.module';
-
 import { MaterialsPage } from './materials.page';
 
 @NgModule({
@@ -15,6 +14,6 @@ import { MaterialsPage } from './materials.page';
     IonicModule,
     MaterialsPageRoutingModule
   ],
-  declarations: [MaterialsPage]
+  declarations: [MaterialsPage],
 })
 export class MaterialsPageModule {}

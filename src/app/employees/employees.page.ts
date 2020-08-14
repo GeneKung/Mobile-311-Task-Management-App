@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import * as moment from 'moment';
-
+@Injectable()
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.page.html',
@@ -17,7 +17,7 @@ export class EmployeesPage implements OnInit {
   hours
   overtime
   data = {};
-  dataID = 100;
+  dataID = 1;
   displayPosts = [];
   allPosts = [];
 
@@ -25,12 +25,11 @@ export class EmployeesPage implements OnInit {
   constructor(private activateRoute: ActivatedRoute, private router: Router, public storage: Storage) { }
 
   ngOnInit() {
-    this.storage.clear();
     this.employees = this.activateRoute.snapshot.paramMap.get('id');
     this.storage.get('dataID').then( (val) =>{
       console.log(val);
       this.dataID = val;  
-    for(let id = 100; id < this.dataID; id++){
+    for(let id = 1; id < this.dataID; id++){
       this.storage.get(`${id}`).then( (val) =>{
         console.log(val);
         this.displayPosts.push(JSON.parse(val));
