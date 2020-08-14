@@ -29,7 +29,7 @@ export class TasksPage implements OnInit {
     this.commentPage.storage.get('1').then( (val) =>{
       console.log(val);
       val = JSON.parse(val);
-      this.time = val.time;
+    
     });  }
 
   goSearch(){

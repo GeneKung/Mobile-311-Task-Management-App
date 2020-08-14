@@ -6,6 +6,7 @@ import { applySourceSpanToStatementIfNeeded } from '@angular/compiler/src/output
 import { Storage } from '@ionic/storage';
 import { PhotoService } from '../services/photo.service';
 
+
 @Component({
   selector: 'app-createtask',
   templateUrl: './createtask.page.html',
@@ -17,10 +18,24 @@ export class CreatetaskPage implements OnInit {
   public AssetID: any;
   public Description: any;
   public workgroup: any;
+  getWorkGroup;
+  getWorkType;
+  assetID;
+  getDepartment;
+  getAddress;
+  getPriority;
+  getDescription;
+
+
   constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router,  public storage: Storage, public photoService: PhotoService,) { 
     this.setValue();
     this.getValue(); 
   }
+
+  ngOnInit() {
+    this.createtask = this.activatedRoute.snapshot.paramMap.get('id');
+  }
+  
   ionViewWillEnter() {
     this.menuCtrl.enable(false);
    }
@@ -36,9 +51,34 @@ export class CreatetaskPage implements OnInit {
     })
   }
 
-  ngOnInit() {
-    this.createtask = this.activatedRoute.snapshot.paramMap.get('id');
+  getByWorkGroup(getWorkGroup){
+    console.log(getWorkGroup)
   }
+
+  getByWorkType(getWorkType){
+    console.log(getWorkType)
+  }
+
+  logAssetID(){
+    console.log(this.assetID)
+  }
+
+  getByDepartment(getDepartment){
+    console.log(getDepartment)
+  }
+
+  logAddress(){
+    console.log(this.getAddress)
+  }
+
+  getByPriority(getPriority){
+    console.log(getPriority)
+  }
+  
+  logDescription(){
+    console.log(this.getDescription)
+  }
+
   goTask(){
     this.router.navigate(['tasks']);
     this.menuCtrl.enable(true);
