@@ -8,6 +8,8 @@ import { PhotoService } from '../services/photo.service';
 import { MaterialsPage } from '../materials/materials.page'
 import { EmployeesPage } from '../employees/employees.page'
 import { EquipmentPage } from '../equipment/equipment.page'
+
+
 @Component({
   selector: 'app-createtask',
   templateUrl: './createtask.page.html',
@@ -19,11 +21,21 @@ export class CreatetaskPage implements OnInit {
   public AssetID: any;
   public Description: any;
   public workgroup: any;
-  data = {};
-  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router,  public storage: Storage, public photoService: PhotoService, public materialsPage: MaterialsPage, public employeesPage: EmployeesPage, public equipmentPage: EquipmentPage) { 
+  getWorkGroup;
+  getWorkType;
+  assetID;
+  getDepartment;
+  getAddress;
+  getPriority;
+  getDescription;
+
+
+  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router,  public storage: Storage, public photoService: PhotoService, public employeesPage: EmployeesPage, public materialsPage: MaterialsPage, public equipmentPage: EquipmentPage) { 
     this.setValue();
     this.getValue(); 
   }
+
+  
   ionViewWillEnter() {
     this.menuCtrl.enable(false);
    }
@@ -74,6 +86,34 @@ export class CreatetaskPage implements OnInit {
     }
   }); 
   }
+  getByWorkGroup(getWorkGroup){
+    console.log(getWorkGroup)
+  }
+
+  getByWorkType(getWorkType){
+    console.log(getWorkType)
+  }
+
+  logAssetID(){
+    console.log(this.assetID)
+  }
+
+  getByDepartment(getDepartment){
+    console.log(getDepartment)
+  }
+
+  logAddress(){
+    console.log(this.getAddress)
+  }
+
+  getByPriority(getPriority){
+    console.log(getPriority)
+  }
+  
+  logDescription(){
+    console.log(this.getDescription)
+  }
+
   goTask(){
     this.router.navigate(['tasks']);
     this.menuCtrl.enable(true);

@@ -6,6 +6,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { icon, Map, tileLayer, marker, polyline, } from "leaflet";
 import 'leaflet/dist/leaflet';
 import * as L from 'leaflet'
+import { CommentsPage } from '../comments/comments.page'
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.page.html',
@@ -19,11 +20,15 @@ export class TasksPage implements OnInit {
   latLong = [];
   selectTabs = 'listView';
   AwesomeMarkers
-  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation) { }
+  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation, public commentsPage: CommentsPage) { }
 
   ngOnInit() {
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
-  }
+    this.commentsPage.storage.get('1').then( (val) =>{
+      console.log(val);
+      val = JSON.parse(val);
+    
+    });  }
 
   goSearch(){
     this.router.navigate(['search'])
