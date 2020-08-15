@@ -24,9 +24,11 @@ import { Camera } from '@ionic-native/Camera/ngx';
 import { File } from '@ionic-native/File/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { CommentsPage } from './comments/comments.page';
-import { MaterialsPage } from './materials/materials.page'
-import { EmployeesPage } from './employees/employees.page'
-import { EquipmentPage } from './equipment/equipment.page'
+import { EmployeesPage } from './employees/employees.page';
+import { MaterialsPage } from './materials/materials.page';
+import { EquipmentPage } from './equipment/equipment.page';
+import { PhotoGalleryPage } from './photo-gallery/photo-gallery.page';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -38,6 +40,10 @@ import { EquipmentPage } from './equipment/equipment.page'
     HttpClientModule
   ],
   providers: [
+    EmployeesPage,
+    MaterialsPage,
+    EquipmentPage,
+    PhotoGalleryPage,
     CommentsPage,
     CreatetaskPage,
     TasksPage,
