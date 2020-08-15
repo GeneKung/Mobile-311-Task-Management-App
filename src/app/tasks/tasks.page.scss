@@ -62,3 +62,12 @@ color: #000000;
 ion-label {
     margin-left: 8px;
 }
+
+ion-card {
+    height: 174px;
+    width: 332px;
+}
+ion-card-header {
+    height: 8px;
+    --background: green;
+}

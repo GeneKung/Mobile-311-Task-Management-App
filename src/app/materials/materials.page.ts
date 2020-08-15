@@ -24,7 +24,7 @@ export class MaterialsPage implements OnInit {
   displayPosts = [];
   allPosts = [];
 
-  constructor(private activateRoute: ActivatedRoute, private router: Router, public storage: Storage, public alertController: AlertController) { }
+  constructor(private activateRoute: ActivatedRoute, private router: Router, public storage: Storage, public alertController: AlertController,) { }
 
   ngOnInit() {
     this.employees = this.activateRoute.snapshot.paramMap.get('id');
@@ -81,6 +81,23 @@ export class MaterialsPage implements OnInit {
     this.router.navigate(['createtask'])
   }
 
+  alanMaterials(getSelectedSubject) {
+    if(getSelectedSubject === 'CC'){
+      this.CommunityCompliances();
+    } else if(getSelectedSubject === 'EaT'){
+      this.EngTransportation();
+    } else if(getSelectedSubject === 'PM') {
+      this.PaveMarkings();
+    } else if(getSelectedSubject === 'light'){
+      this.Light();
+    } else if(getSelectedSubject === 'paving'){
+      this.Paving();
+    } else if(getSelectedSubject === 'signs'){
+      this.Signs();
+    } else if(getSelectedSubject === 'services'){
+      this.Services();
+    }
+  }
   Materials() {
     if(this.getSelectedSubject === 'CC'){
       this.CommunityCompliances();

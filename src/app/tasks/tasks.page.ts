@@ -86,9 +86,11 @@ export class TasksPage implements OnInit {
       popupAnchor:  [-30, -30] // point from which the popup should open relative to the iconAnchor
     });
     L.marker([37.705318450927734, -122.12457275390625], {icon: greenIcon}).addTo(mymap);
-    L.marker([37.7023, -122.111], {icon: brownIcon}).addTo(mymap);
+    L.marker([37.701895,-122.129308], {icon: brownIcon}).addTo(mymap);
     L.marker([37.7021, -122.114], {icon: orangeIcon}).addTo(mymap);
     L.marker([37.68151092529297, -122.13874053955078], {icon: blueIcon}).addTo(mymap);
+    L.marker([37.704158782958984,-122.14347839355469], {icon: blueIcon}).addTo(mymap);
+    L.marker([37.40696334838867,-121.98856353759766], {icon: blueIcon}).addTo(mymap);
   }
 
   getPositions(){

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Injectable } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { NavController ,Platform, MenuController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -7,7 +7,9 @@ import { Router } from '@angular/router';
 import { TasksPage } from "./tasks/tasks.page";
 import { CreatetaskPage} from "./createtask/createtask.page";
 import { SettingsPage } from "./settings/settings.page";
- 
+import { MaterialsPage } from "./materials/materials.page"
+import { AlertController } from '@ionic/angular';
+@Injectable()
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -26,6 +28,8 @@ export class AppComponent implements OnInit {
     public menuCtrl: MenuController,
     public CreatetaskPage: CreatetaskPage,
     public SettingsPage: SettingsPage,
+    public materialsPage: MaterialsPage,
+    public alertCtrl: AlertController
   ) {
     this.initializeApp();
   }
@@ -67,7 +71,10 @@ export class AppComponent implements OnInit {
     this.CreatetaskPage.Description = Descriptions;
     document.getElementById("Description").innerHTML = this.CreatetaskPage.Description;
   }
-
+  setMaterial(Material) {
+    this.materialsPage.getMaterial = Material;
+    document.getElementById("material").innerHTML = this.materialsPage.getMaterial;
+  }
   ngAfterViewInit() {
     this.alanBtnComponent.nativeElement.addEventListener('command', (data) => {
         const commandData = (<CustomEvent>data).detail;
@@ -173,6 +180,19 @@ export class AppComponent implements OnInit {
         
         if (commandData.command === 'photo'){
           this.router.navigate(['photo-gallery']);
+        }
+
+        if (commandData.command === 'mGroup'){
+          this.materialsPage.alanMaterials(commandData.mGroup)
+          console.log(commandData.mGroup)
+          this.materialsPage.getSelectedSubject = commandData.mGroup
+          console.log(this.materialsPage.getSelectedSubject)
+          this.materialsPage.group();
+        }
+
+        if (commandData.command === 'material') {
+          this.alertCtrl.dismiss();
+          this.setMaterial(commandData.material);
         }
     });
 }

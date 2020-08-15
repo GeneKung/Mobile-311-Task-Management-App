@@ -22,7 +22,7 @@ export class CreatetaskPage implements OnInit {
   public Description: any;
   public workgroup: any;
   getWorkGroup;
-  getWorkType;
+  getWorkType
   assetID;
   getDepartment;
   getAddress;
@@ -35,7 +35,7 @@ export class CreatetaskPage implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router,  public storage: Storage, public photoService: PhotoService, public employeesPage: EmployeesPage, public materialsPage: MaterialsPage, public equipmentPage: EquipmentPage) { 
     this.setValue();
-    this.getValue(); 
+    this.getValue();
   }
 
   
@@ -166,6 +166,8 @@ export class CreatetaskPage implements OnInit {
   goComments(){
     this.router.navigate(['comments'])
   }
-
+  goGallery(){
+    this.router.navigate(['photo-gallery'])
+  }
 }
 

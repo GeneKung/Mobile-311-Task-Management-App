@@ -6,13 +6,12 @@ import { IonicModule } from '@ionic/angular';
 
 import { MaterialsPageRoutingModule } from './materials-routing.module';
 import { MaterialsPage } from './materials.page';
-
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MaterialsPageRoutingModule
+    MaterialsPageRoutingModule,
   ],
   declarations: [MaterialsPage],
 })

@@ -23,8 +23,8 @@
   <p class="subtitle" id="row2">Work Group</p>
   <ion-item id="row3">
     <ion-label></ion-label>
-    <ion-select [(ngModel)]="getWorkGroup"  (ionChange)="getByWorkGroup(getWorkGroup)" interface="dropdown" ok-text="Select" cancel-text="Cancel">
-      <ion-select-option value="1">1</ion-select-option>
+    <ion-select [(ngModel)]="getWorkGroup"  (ionChange)="getByWorkGroup(getWorkGroup)"  value="hi" interface="dropdown" ok-text="Select" cancel-text="Cancel">
+      <ion-select-option value="hi">1</ion-select-option>
       <ion-select-option value="2">2</ion-select-option>
     </ion-select>
   </ion-item>
@@ -158,7 +158,7 @@
     <ion-button id="camera" color="secondary" (click)="this.photoService.addNewToGallery()">
       <ion-icon  id="iconLarge" name="camera" slot="start"></ion-icon> Camera
     </ion-button>
-    <ion-button id="gallery" color="secondary" (click)="this.photoService.addNewToGallerys()">
+    <ion-button id="gallery" color="secondary" (click)="goGallery()">
       <ion-icon id="iconLarge" name="image" slot="start"></ion-icon> Photo Gallery
     </ion-button>
   </ion-item>
