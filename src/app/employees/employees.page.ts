@@ -17,20 +17,17 @@ export class EmployeesPage implements OnInit {
   hours
   overtime
   data = {};
-  dataID = 1;
   displayPosts = [];
   allPosts = [];
-
+  dataID = 100; 
 
   constructor(private activateRoute: ActivatedRoute, private router: Router, public storage: Storage) { }
 
   ngOnInit() {
-
     this.employees = this.activateRoute.snapshot.paramMap.get('id');
-    this.storage.get('dataID').then( (val) =>{
-      console.log(val);
-      this.dataID = val;  
-    for(let id = 1; id < this.dataID; id++){
+    this.storage.get('data').then( (val) =>{
+    console.log(val);
+    for(let id = 100; id < val; id++){
       this.storage.get(`${id}`).then( (val) =>{
         console.log(val);
         this.displayPosts.push(JSON.parse(val));
@@ -41,10 +38,8 @@ export class EmployeesPage implements OnInit {
   }
   
   getSelectedSubjectValue(getSelectedSubject){
-    console.log(getSelectedSubject)
   }
   getByEmployee(getEmployee){
-    console.log(getEmployee)
   }
   logHours(){
     console.log(this.hours);
@@ -65,11 +60,11 @@ export class EmployeesPage implements OnInit {
     this.data = {};
   }
   storeData(data){
-    this.storage.set(`${this.dataID}`, JSON.stringify(data));
     console.log(this.dataID);
-    this.dataID += 1;
-    this.storage.set('dataID', this.dataID);
-    this.displayPosts.push(data)
+    this.storage.set(`${this.dataID}`, JSON.stringify(data));
+    this.dataID++;
+    this.storage.set('data', `${this.dataID}`);
+    this.displayPosts.push(data);
   }
   
 

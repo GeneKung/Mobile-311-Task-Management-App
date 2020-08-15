@@ -13,6 +13,7 @@ import * as moment from 'moment';
 export class CommentsPage implements OnInit {
   public materials: string;
   id;
+  totalComments;
   postID = 1;
   displayPosts = [];
   allPosts = [];
@@ -27,13 +28,11 @@ export class CommentsPage implements OnInit {
   constructor(private activateRoute: ActivatedRoute, private router: Router, public storage: Storage) { }
 
   ngOnInit() {
-    this.storage.clear()
     this.materials = this.activateRoute.snapshot.paramMap.get('id');
     this.updateScroll();
     this.storage.get('postID').then( (val) =>{
       console.log(val);
-      this.postID = val;  
-    for(let id = 1; id < this.postID; id++){
+    for(let id = 1; id < val; id++){
       this.storage.get(`${id}`).then( (val) =>{
         console.log(val);
         this.displayPosts.push(JSON.parse(val));
@@ -100,7 +99,7 @@ export class CommentsPage implements OnInit {
 
   storePost(post) {
     this.storage.set(`${this.postID}`, JSON.stringify(post));
-    this.postID += 1;
+    this.postID++;
     this.storage.set('postID', this.postID);
     this.displayPosts.push(post);
     this.updateScroll();

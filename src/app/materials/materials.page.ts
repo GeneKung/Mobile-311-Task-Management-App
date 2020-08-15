@@ -20,7 +20,7 @@ export class MaterialsPage implements OnInit {
   quantity
   typeOfQuantity
   data = {};
-  materialID = 1;
+  materialID = 300;
   displayPosts = [];
   allPosts = [];
 
@@ -30,8 +30,7 @@ export class MaterialsPage implements OnInit {
     this.employees = this.activateRoute.snapshot.paramMap.get('id');
     this.storage.get('materialID').then( (val) =>{
       console.log(val);
-      this.materialID = val;  
-    for(let id = 1; id < this.materialID; id++){
+    for(let id = 300; id < this.materialID; id++){
       this.storage.get(`${id}`).then( (val) =>{
         console.log(val);
         this.displayPosts.push(JSON.parse(val));
@@ -41,11 +40,9 @@ export class MaterialsPage implements OnInit {
   }
   
   getSelectedSubjectValue(getSelectedSubject){
-    console.log(getSelectedSubject)
     this.group();
   }
   getByMaterial(value){
-    console.log(value);
     this.getMaterial = value;
     this.data['material'] = this.getMaterial
   }

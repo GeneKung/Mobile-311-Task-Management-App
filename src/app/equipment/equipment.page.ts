@@ -16,7 +16,7 @@ export class EquipmentPage implements OnInit {
   getEquipment
   hours
   dataequip = {};
-  dataequipID = 1;
+  dataequipID = 200;
   displayPosts = [];
   allPosts = [];
 
@@ -26,8 +26,7 @@ export class EquipmentPage implements OnInit {
     this.equipment = this.activateRoute.snapshot.paramMap.get('id');
     this.storage.get('dataequipID').then( (val) =>{
       console.log(val);
-      this.dataequipID = val;  
-    for(let id = 1; id < this.dataequipID; id++){
+    for(let id = 200; id < val; id++){
       this.storage.get(`${id}`).then( (val) =>{
         console.log(val);
         this.displayPosts.push(JSON.parse(val));
@@ -38,10 +37,8 @@ export class EquipmentPage implements OnInit {
   }
 
   getGroupValue(getByGroup){
-    console.log(getByGroup)
   }
   getByEquipment(getby){
-    console.log(this.getEquipment)
   }
   logHours(){
     console.log(this.hours);
@@ -59,7 +56,7 @@ export class EquipmentPage implements OnInit {
 
   storeData(dataequip){
     this.storage.set(`${this.dataequipID}`, JSON.stringify(dataequip));
-    this.dataequipID += 1;
+    this.dataequipID++;
     this.storage.set('dataequipID', this.dataequipID);
     this.displayPosts.push(dataequip)
   }

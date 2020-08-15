@@ -3,13 +3,17 @@ import { ActivatedRoute } from '@angular/router';
 import {  MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import { icon, Map, tileLayer, marker, polyline, } from "leaflet";
-import 'leaflet/dist/leaflet';
-import * as L from 'leaflet'
-import { CommentsPage } from '../comments/comments.page'
-import { NativeGeocoder, NativeGeocoderOptions, NativeGeocoderResult } from '@ionic-native/native-geocoder/ngx';
-import { Platform } from '@ionic/angular';
-import { CreatetaskPage } from '../createtask/createtask.page'
+import { icon, Map, tileLayer, marker, polyline } from "leaflet";
+import "leaflet/dist/images/marker-shadow.png";
+import "leaflet/dist/images/marker-icon-2x.png";
+import { CommentsPage } from '../comments/comments.page';
+import { EmployeesPage } from '../employees/employees.page';
+import { MaterialsPage } from '../materials/materials.page';
+import { EquipmentPage } from '../equipment/equipment.page';
+import { PhotoGalleryPage } from '../photo-gallery/photo-gallery.page';
+import { Storage } from '@ionic/storage';
+import * as L from 'leaflet';
+import * as moment from 'moment';
 
 @Injectable()
 @Component({
@@ -20,18 +24,110 @@ import { CreatetaskPage } from '../createtask/createtask.page'
 
 export class TasksPage implements OnInit {
   time;
-  displayPosts = {};
+  date;
+  now = moment().format('MM/DD/YYYY');
+  numComments;
+  workGroup;
+  address;
+  priority;
+  commentArr = [];
+  employeeArr = [];
+  materialArr = [];
+  equipArr = [];
+  photoArr = [];
+  cardID = 500;
+  cardInfo = {};
+  cards = [];
   public tasks: string;
   map: Map;
   marker: any;
   latLong = [];
   selectTabs = 'listView';
-
-  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation, public commentsPage: CommentsPage, private nativeGeocoder: NativeGeocoder, public platform: Platform, public createtaskPage: CreatetaskPage) { }
+  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation,
+    public commentPage: CommentsPage, public employeesPage: EmployeesPage,
+    public materialsPage: MaterialsPage, public equipmentPage: EquipmentPage,
+    public photoGalleryPage: PhotoGalleryPage, public storage: Storage) { }
 
   ngOnInit() {
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
-    
+    this.commentPage.storage.get('1').then( (val) =>{
+      console.log(val);
+      val = JSON.parse(val);
+      this.time = val.time;
+    });  
+    this.storage.get('cardID').then( (val) =>{
+      console.log(val);
+    for(let id = 500; id < val; id++){
+      this.storage.get(`${id}`).then( (val) =>{
+        this.cards.push(JSON.parse(val));
+        console.log(this.cards);
+        this.workGroup = JSON.stringify(this.cards['workGroup']);
+        this.address = JSON.stringify(this.cards['address']);
+        this.priority = JSON.stringify(this.cards['priority']);
+        this.date = JSON.stringify(this.cards['time']);
+        this.numComments = JSON.stringify(this.cards['numComments']);
+      });
+    }
+  });
+  }
+  createCard(listInfo){
+    this.commentPage.storage.get('postID').then( (val) =>{
+      for(let i = 1; i < val; i++){
+      this.commentPage.storage.get(`${i}`).then( (val) =>{
+        this.commentArr = val;
+        console.log(val);
+      });
+    }
+          });
+      this.cardInfo['comment'] = this.commentArr;
+      this.employeesPage.storage.get('data').then( (val) =>{
+      for(let i = 100; i < val; i++){
+        this.employeesPage.storage.get(`${i}`).then( (val) =>{
+          this.employeeArr.push(val);
+        });
+      }
+    });
+        this.cardInfo['employee'] = this.employeeArr;
+
+      this.materialsPage.storage.get('materialID').then( (val) =>{
+      for(let i = 300; i < val; i++){
+        this.materialsPage.storage.get(`${i}`).then( (val) =>{
+          this.materialArr.push(val);
+        });
+      }
+    });
+        this.cardInfo['material'] = this.materialArr;
+
+      this.equipmentPage.storage.get('dataequipID').then( (val) =>{
+      for(let i = 200; i < val; i++){
+        this.equipmentPage.storage.get(`${i}`).then( (val) =>{
+          this.equipArr.push(val);
+        });
+      }
+    });
+        this.cardInfo['equipment'] = this.equipArr;
+
+
+      this.photoGalleryPage.storage.get('commentID').then( (val) =>{
+      for(let i = 400; i < val; i++){
+        this.photoGalleryPage.storage.get(`${i}`).then( (val) =>{
+          this.photoArr.push(val);
+        });
+      }
+    });
+        this.cardInfo['photoGallery'] = this.photoArr;
+        this.cardInfo['listInfo'] = listInfo;
+        this.cardInfo['time'] = this.now;
+        console.log(this.cardInfo);
+        this.saveCard(this.cardInfo);
+        this.cards.push(this.cardInfo);
+    }
+    saveCard(cardInfo){
+      this.storage.set(`${this.cardID}`, JSON.stringify(cardInfo));
+      this.cardID++;
+      console.log(this.cardID);
+      this.storage.set('cardID', this.cardID);
+      this.cardInfo = {};
     }
 
   goSearch(){
