@@ -13,6 +13,7 @@ import { EquipmentPage } from '../equipment/equipment.page';
 import { PhotoGalleryPage } from '../photo-gallery/photo-gallery.page';
 import { Storage } from '@ionic/storage';
 import * as L from 'leaflet';
+import * as moment from 'moment';
 
 @Injectable()
 @Component({
@@ -23,6 +24,12 @@ import * as L from 'leaflet';
 
 export class TasksPage implements OnInit {
   time;
+  date;
+  now = moment().format('MM/DD/YYYY');
+  numComments;
+  workGroup;
+  address;
+  priority;
   commentArr = [];
   employeeArr = [];
   materialArr = [];
@@ -30,7 +37,7 @@ export class TasksPage implements OnInit {
   photoArr = [];
   cardID = 500;
   cardInfo = {};
-  card = {};
+  cards = [];
   public tasks: string;
   map: Map;
   marker: any;
@@ -48,27 +55,35 @@ export class TasksPage implements OnInit {
       val = JSON.parse(val);
       this.time = val.time;
     });  
-      this.storage.get('500').then( (val) =>{
-        console.log(val);
-        this.card = JSON.parse(val);
-        console.log(this.card);
-        console.log(this.card.comment);
+    this.storage.get('cardID').then( (val) =>{
+      console.log(val);
+    for(let id = 500; id < val; id++){
+      this.storage.get(`${id}`).then( (val) =>{
+        this.cards.push(JSON.parse(val));
+        console.log(this.cards);
+        this.workGroup = JSON.stringify(this.cards['workGroup']);
+        this.address = JSON.stringify(this.cards['address']);
+        this.priority = JSON.stringify(this.cards['priority']);
+        this.date = JSON.stringify(this.cards['time']);
+        this.numComments = JSON.stringify(this.cards['numComments']);
       });
+    }
+  });
   }
   createCard(listInfo){
     this.commentPage.storage.get('postID').then( (val) =>{
       for(let i = 1; i < val; i++){
       this.commentPage.storage.get(`${i}`).then( (val) =>{
-        this.commentArr = JSON.parse(val);
+        this.commentArr = val;
+        console.log(val);
       });
     }
           });
-      this.cardInfo['comment'] = JSON.stringify(this.commentArr);
-      
+      this.cardInfo['comment'] = this.commentArr;
       this.employeesPage.storage.get('data').then( (val) =>{
       for(let i = 100; i < val; i++){
         this.employeesPage.storage.get(`${i}`).then( (val) =>{
-          this.employeeArr = JSON.parse(val);
+          this.employeeArr.push(val);
         });
       }
     });
@@ -77,7 +92,7 @@ export class TasksPage implements OnInit {
       this.materialsPage.storage.get('materialID').then( (val) =>{
       for(let i = 300; i < val; i++){
         this.materialsPage.storage.get(`${i}`).then( (val) =>{
-          this.materialArr = JSON.parse(val);
+          this.materialArr.push(val);
         });
       }
     });
@@ -86,7 +101,7 @@ export class TasksPage implements OnInit {
       this.equipmentPage.storage.get('dataequipID').then( (val) =>{
       for(let i = 200; i < val; i++){
         this.equipmentPage.storage.get(`${i}`).then( (val) =>{
-          this.equipArr = JSON.parse(val);
+          this.equipArr.push(val);
         });
       }
     });
@@ -96,18 +111,22 @@ export class TasksPage implements OnInit {
       this.photoGalleryPage.storage.get('commentID').then( (val) =>{
       for(let i = 400; i < val; i++){
         this.photoGalleryPage.storage.get(`${i}`).then( (val) =>{
-          this.photoArr = JSON.parse(val);
+          this.photoArr.push(val);
         });
       }
     });
         this.cardInfo['photoGallery'] = this.photoArr;
         this.cardInfo['listInfo'] = listInfo;
+        this.cardInfo['time'] = this.now;
         console.log(this.cardInfo);
         this.saveCard(this.cardInfo);
-        this.card = this.cardInfo;
+        this.cards.push(this.cardInfo);
     }
     saveCard(cardInfo){
       this.storage.set(`${this.cardID}`, JSON.stringify(cardInfo));
+      this.cardID++;
+      console.log(this.cardID);
+      this.storage.set('cardID', this.cardID);
       this.cardInfo = {};
     }
 

@@ -29,10 +29,16 @@
       </ion-segment-button>
     </ion-segment>
 
-    <div *ngIf="selectTabs == 'listView'">     
-       <h1>{{time}}</h1>
-       <h2>{{card}}</h2>
-       <h2>{{card.comment}}</h2>
+    <div *ngIf="selectTabs == 'listView'">   
+      <div *ngFor="let card of cards;let index = index;">
+        <ion-card>
+          <ion-card-subtitle>{{ card.time }}</ion-card-subtitle>
+          <ion-card-subtitle>Priority {{ card.listInfo.priority }}</ion-card-subtitle>
+          <ion-card-title id="workGroup">{{ card.listInfo.workGroup }}</ion-card-title>
+          <ion-card-subtitle>{{ card.listInfo.address }}</ion-card-subtitle>
+          <ion-icon name="chatbox-outline"><span>{{ card.numComments }}</span></ion-icon>        
+        </ion-card>
+        </div>
     </div>
 
     <div *ngIf="selectTabs == 'mapView'">

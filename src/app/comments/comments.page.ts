@@ -13,6 +13,7 @@ import * as moment from 'moment';
 export class CommentsPage implements OnInit {
   public materials: string;
   id;
+  totalComments;
   postID = 1;
   displayPosts = [];
   allPosts = [];
@@ -27,7 +28,6 @@ export class CommentsPage implements OnInit {
   constructor(private activateRoute: ActivatedRoute, private router: Router, public storage: Storage) { }
 
   ngOnInit() {
-    this.storage.clear()
     this.materials = this.activateRoute.snapshot.paramMap.get('id');
     this.updateScroll();
     this.storage.get('postID').then( (val) =>{
