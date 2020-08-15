@@ -31,8 +31,7 @@ export class CommentsPage implements OnInit {
     this.updateScroll();
     this.storage.get('postID').then( (val) =>{
       console.log(val);
-      this.postID = val;  
-    for(let id = 1; id < this.postID; id++){
+    for(let id = 1; id < val; id++){
       this.storage.get(`${id}`).then( (val) =>{
         console.log(val);
         this.displayPosts.push(JSON.parse(val));
@@ -99,7 +98,7 @@ export class CommentsPage implements OnInit {
 
   storePost(post) {
     this.storage.set(`${this.postID}`, JSON.stringify(post));
-    this.postID += 1;
+    this.postID++;
     this.storage.set('postID', this.postID);
     this.displayPosts.push(post);
     this.updateScroll();

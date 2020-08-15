@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { applySourceSpanToStatementIfNeeded } from '@angular/compiler/src/output/output_ast';
 import { Storage } from '@ionic/storage';
 import { PhotoService } from '../services/photo.service';
+import { TasksPage } from '../tasks/tasks.page';
 
 @Component({
   selector: 'app-createtask',
@@ -17,7 +18,8 @@ export class CreatetaskPage implements OnInit {
   public AssetID: any;
   public Description: any;
   public workgroup: any;
-  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router,  public storage: Storage, public photoService: PhotoService,) { 
+  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router,  public storage: Storage, public photoService: PhotoService,
+    public tasksPage: TasksPage) { 
     this.setValue();
     this.getValue(); 
   }
@@ -34,6 +36,10 @@ export class CreatetaskPage implements OnInit {
     this.storage.get('name').then( (val) =>{
       console.log(val);
     })
+  }
+  
+  createTask(){
+    this.tasksPage.createCard();
   }
 
   ngOnInit() {

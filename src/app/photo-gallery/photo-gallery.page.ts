@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { PhotoService } from '../services/photo.service';
 import { ActionSheetController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import * as moment from 'moment';
 
+@Injectable()
 @Component({
   selector: 'app-photo-gallery',
   templateUrl: './photo-gallery.page.html',
@@ -15,18 +16,16 @@ export class PhotoGalleryPage implements OnInit {
   allPosts = [];
   comment = '';
   post = {};
-  commentID = 1;
+  commentID = 400;
   public materials: string;
   constructor(public photoService: PhotoService, public actionSheetController: ActionSheetController, public storage: Storage, public activateRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    console.log(this.commentID)
     this.photoService.loadSaved();
     this.materials = this.activateRoute.snapshot.paramMap.get('id');
     this.storage.get('commentID').then( (val) =>{
       console.log(val);
-      this.commentID = val;  
-    for(let id = 1; id < this.commentID; id++){
+    for(let id = 400; id < val; id++){
       this.storage.get(`${id}`).then( (val) =>{
         console.log(val);
         this.displayPosts.push(JSON.parse(val));
@@ -73,7 +72,7 @@ export class PhotoGalleryPage implements OnInit {
 
   storePost(post){
     this.storage.set(`${this.commentID}`, JSON.stringify(post));
-    this.commentID += 1;
+    this.commentID++;
     this.storage.set('commentID', this.commentID);
     this.displayPosts.push(post);
   }

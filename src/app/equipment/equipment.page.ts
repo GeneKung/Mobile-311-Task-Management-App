@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { Storage } from '@ionic/storage';
+
+@Injectable()
 @Component({
   selector: 'app-equipment',
   templateUrl: './equipment.page.html',
@@ -15,19 +17,17 @@ export class EquipmentPage implements OnInit {
   getEquipment
   hours
   dataequip = {};
-  dataequipID = 1;
+  dataequipID = 200;
   displayPosts = [];
   allPosts = [];
 
   constructor(private activateRoute: ActivatedRoute, private router: Router, public storage: Storage) { }
 
   ngOnInit() {
-
     this.equipment = this.activateRoute.snapshot.paramMap.get('id');
     this.storage.get('dataequipID').then( (val) =>{
       console.log(val);
-      this.dataequipID = val;  
-    for(let id = 1; id < this.dataequipID; id++){
+    for(let id = 200; id < val; id++){
       this.storage.get(`${id}`).then( (val) =>{
         console.log(val);
         this.displayPosts.push(JSON.parse(val));
@@ -38,10 +38,8 @@ export class EquipmentPage implements OnInit {
   }
 
   getGroupValue(getByGroup){
-    console.log(getByGroup)
   }
   getByEquipment(getby){
-    console.log(this.getEquipment)
   }
   logHours(){
     console.log(this.hours);
@@ -59,7 +57,7 @@ export class EquipmentPage implements OnInit {
 
   storeData(dataequip){
     this.storage.set(`${this.dataequipID}`, JSON.stringify(dataequip));
-    this.dataequipID += 1;
+    this.dataequipID++;
     this.storage.set('dataequipID', this.dataequipID);
     this.displayPosts.push(dataequip)
   }
