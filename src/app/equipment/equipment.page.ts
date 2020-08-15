@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { Storage } from '@ionic/storage';
-
 @Injectable()
 @Component({
   selector: 'app-equipment',

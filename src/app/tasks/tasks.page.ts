@@ -124,8 +124,47 @@ export class TasksPage implements OnInit {
   }
 
   showMap() {
-    this.map = new Map('mapId').setView([37.725685, -122.156830], 10);
-    tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png').addTo(this.map);
+    var mymap = L.map('mapid').setView([37.702, -122.11], 13);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'sk.eyJ1Ijoiam9obm55cGhhbTEyMzczIiwiYSI6ImNrZHNpczhiZjBpYjQyeHIxaHIwemp4OGUifQ.Vewhq2l_JEbLg90GBgw_VA'
+    }).addTo(mymap);
+    var greenIcon = L.icon({
+      iconUrl: '../assets/icon/marker-icon-green.png',
+  
+      iconSize:     [30, 30], // size of the icon
+      iconAnchor:   [30, 30], // point of the icon which will correspond to marker's location
+      popupAnchor:  [-30, -30] // point from which the popup should open relative to the iconAnchor
+    });
+    var brownIcon = L.icon({
+      iconUrl: '../assets/icon/marker-icon-brown.png',
+  
+      iconSize:     [30, 30], // size of the icon
+      iconAnchor:   [30, 30], // point of the icon which will correspond to marker's location
+      popupAnchor:  [-30, -30] // point from which the popup should open relative to the iconAnchor
+    });
+        var orangeIcon = L.icon({
+      iconUrl: '../assets/icon/marker-icon-orange.png',
+  
+      iconSize:     [30, 30], // size of the icon
+      iconAnchor:   [30, 30], // point of the icon which will correspond to marker's location
+      popupAnchor:  [-30, -30] // point from which the popup should open relative to the iconAnchor
+    });
+        var blueIcon = L.icon({
+      iconUrl: '../assets/icon/marker-icon-blue.png',
+  
+      iconSize:     [30, 30], // size of the icon
+      iconAnchor:   [30, 30], // point of the icon which will correspond to marker's location
+      popupAnchor:  [-30, -30] // point from which the popup should open relative to the iconAnchor
+    });
+    L.marker([37.705318450927734, -122.12457275390625], {icon: greenIcon}).addTo(mymap);
+    L.marker([37.7023, -122.111], {icon: brownIcon}).addTo(mymap);
+    L.marker([37.7021, -122.114], {icon: orangeIcon}).addTo(mymap);
+    L.marker([37.68151092529297, -122.13874053955078], {icon: blueIcon}).addTo(mymap);
   }
 
   getPositions(){
@@ -141,10 +180,8 @@ export class TasksPage implements OnInit {
     });
   }
 
+  
   showMarker(latLong) {
-    this.marker = marker(latLong);
-    this.marker.addTo(this.map)
-    .bindPopup('San Leandro');
   }
 
   changeTabs(tab) {
@@ -158,6 +195,4 @@ export class TasksPage implements OnInit {
     console.log(this.selectTabs);
     return this.selectTabs;
   }
-
 }
-

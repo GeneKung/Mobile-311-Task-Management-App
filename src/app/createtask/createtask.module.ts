@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { CreatetaskPageRoutingModule } from './createtask-routing.module';
-
+import { MaterialsPage } from '../materials/materials.page'
 import { CreatetaskPage } from './createtask.page';
 import { TasksPage } from '../tasks/tasks.page';
 
@@ -14,7 +14,7 @@ import { TasksPage } from '../tasks/tasks.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    CreatetaskPageRoutingModule
+    CreatetaskPageRoutingModule,
   ],
   declarations: [CreatetaskPage],
   providers: [
