@@ -12,6 +12,7 @@ import { MaterialsPage } from '../materials/materials.page';
 import { EquipmentPage } from '../equipment/equipment.page';
 import { PhotoGalleryPage } from '../photo-gallery/photo-gallery.page';
 import { Storage } from '@ionic/storage';
+import * as L from 'leaflet';
 
 @Injectable()
 @Component({
@@ -54,7 +55,7 @@ export class TasksPage implements OnInit {
         console.log(this.card.comment);
       });
   }
-  createCard(){
+  createCard(listInfo){
     this.commentPage.storage.get('postID').then( (val) =>{
       for(let i = 1; i < val; i++){
       this.commentPage.storage.get(`${i}`).then( (val) =>{
@@ -100,11 +101,11 @@ export class TasksPage implements OnInit {
       }
     });
         this.cardInfo['photoGallery'] = this.photoArr;
+        this.cardInfo['listInfo'] = listInfo;
         console.log(this.cardInfo);
         this.saveCard(this.cardInfo);
         this.card = this.cardInfo;
     }
-
     saveCard(cardInfo){
       this.storage.set(`${this.cardID}`, JSON.stringify(cardInfo));
       this.cardInfo = {};

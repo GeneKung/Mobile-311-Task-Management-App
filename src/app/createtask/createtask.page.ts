@@ -8,7 +8,7 @@ import { PhotoService } from '../services/photo.service';
 import { MaterialsPage } from '../materials/materials.page'
 import { EmployeesPage } from '../employees/employees.page'
 import { EquipmentPage } from '../equipment/equipment.page'
-
+import { TasksPage } from '../tasks/tasks.page';
 @Injectable()
 @Component({
   selector: 'app-createtask',
@@ -33,7 +33,8 @@ export class CreatetaskPage implements OnInit {
   displayPosts = {}
   allPosts = [];
 
-  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router,  public storage: Storage, public photoService: PhotoService, public employeesPage: EmployeesPage, public materialsPage: MaterialsPage, public equipmentPage: EquipmentPage) { 
+  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router,  public storage: Storage, public photoService: PhotoService, public employeesPage: EmployeesPage, public materialsPage: MaterialsPage, public equipmentPage: EquipmentPage,
+    public tasksPage: TasksPage) { 
     this.setValue();
     this.getValue(); 
   }
@@ -54,45 +55,19 @@ export class CreatetaskPage implements OnInit {
   }
   
   createTask(){
-    this.tasksPage.createCard();
+    this.listInfo['workGroup'] = this.getWorkGroup;
+    this.listInfo['workType'] = this.getWorkType;
+    this.listInfo['assetID'] = this.assetID;
+    this.listInfo['department'] = this.getDepartment;
+    this.listInfo['address'] = this.getAddress;
+    this.listInfo['priority'] = this.getPriority;
+    this.listInfo['description'] = this.getDescription;
+    this.tasksPage.createCard(this.listInfo);
   }
 
   ngOnInit() {
     this.createtask = this.activatedRoute.snapshot.paramMap.get('id'); 
-    this.materialsPage.storage.get('materialID').then( (val) =>{
-      console.log(val);
-      this.materialsPage.materialID = val;  
-    for(let id = 1; id < this.materialsPage.materialID; id++){
-      this.storage.get(`${id}`).then( (val) =>{
-        console.log(val);
-        this.materialsPage.displayPosts.push(JSON.parse(val));
-        console.log(this.materialsPage.displayPosts);
-      });
-    }
-  }); 
-    this.employeesPage.storage.get('dataID').then( (val) =>{
-      console.log(val);
-      this.employeesPage.dataID = val;  
-    for(let id = 1; id < this.employeesPage.dataID; id++){
-      this.employeesPage.storage.get(`${id}`).then( (val) =>{
-        console.log(val);
-        this.employeesPage.displayPosts.push(JSON.parse(val));
-        console.log(this.employeesPage.displayPosts);
-      });
-    }
-  });
-    this.equipmentPage.storage.get('dataequipID').then( (val) =>{
-      console.log(val);
-      this.equipmentPage.dataequipID = val;  
-    for(let id = 1; id < this.equipmentPage.dataequipID; id++){
-      this.storage.get(`${id}`).then( (val) =>{
-        console.log(val);
-        this.equipmentPage.displayPosts.push(JSON.parse(val));
-        console.log(this.equipmentPage.displayPosts);
-      });
-    }
-  }); 
-  }
+}
 
   getByWorkGroup(getWorkGroup){
     console.log(getWorkGroup)
