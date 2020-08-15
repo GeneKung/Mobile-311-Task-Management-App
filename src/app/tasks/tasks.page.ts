@@ -30,6 +30,7 @@ export class TasksPage implements OnInit {
   workGroup;
   address;
   priority;
+  assetID;
   commentArr = [];
   employeeArr = [];
   materialArr = [];
@@ -66,6 +67,7 @@ export class TasksPage implements OnInit {
         this.priority = JSON.stringify(this.cards['priority']);
         this.date = JSON.stringify(this.cards['time']);
         this.numComments = JSON.stringify(this.cards['numComments']);
+        this.assetID = JSON.stringify(this.cards['assetID']);
       });
     }
   });

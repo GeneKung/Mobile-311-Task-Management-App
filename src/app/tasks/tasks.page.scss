@@ -63,11 +63,84 @@ ion-label {
     margin-left: 8px;
 }
 
-ion-card {
-    height: 174px;
-    width: 332px;
-}
 ion-card-header {
     height: 8px;
-    --background: green;
+
+}
+#subTitle1{
+    position: static;
+    height: 16px;
+    left: 71px;
+    right: 63px;
+    top: calc(50% - 16px/2 - 0px);
+
+    /* ionic / tabs */
+
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.4px;
+
+    /* ionic / medium */
+
+    color: #7D849F;
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 1;
+    align-self: center;
+    margin: 10px 0px
+}
+#subTitle2{
+    position: static;
+    height: 19px;
+    left: 0px;
+    right: 50px;
+    top: calc(50% - 19px/2);
+
+    /* ionic/ card/ subtitle */
+
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    /* ionic / medium */
+
+    color: #7D849F;
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 0;
+    align-self: center;
+    margin: 10px 0px;
+}
+#subIcon {
+    height:25px;
+    width:25px;
+}
+#cardHeader {
+    --background:#1BBE35;
+}
+#cardItem {
+    width:120%;
+}
+#listView{
+    background-color: rgba(61, 130, 255, 0.1);
+}
+#card{
+    
+    height: 174px;
+    width: 342px;
 }
