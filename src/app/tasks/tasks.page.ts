@@ -26,6 +26,7 @@ export class TasksPage implements OnInit {
   time;
   date;
   now = moment().format('MM/DD/YYYY');
+  category;
   numComments;
   workGroup;
   address;
@@ -66,8 +67,9 @@ export class TasksPage implements OnInit {
         this.address = JSON.stringify(this.cards['address']);
         this.priority = JSON.stringify(this.cards['priority']);
         this.date = JSON.stringify(this.cards['time']);
-        this.numComments = JSON.stringify(this.cards['numComments']);
         this.assetID = JSON.stringify(this.cards['assetID']);
+        this.category = JSON.stringify(this.cards['category']);
+        this.numComments = JSON.stringify(this.cards['numComments']);
       });
     }
   });
