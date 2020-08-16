@@ -14,6 +14,7 @@ import { PhotoGalleryPage } from '../photo-gallery/photo-gallery.page';
 import { Storage } from '@ionic/storage';
 import * as L from 'leaflet';
 import * as moment from 'moment';
+import 'leaflet-control-geocoder';
 
 @Injectable()
 @Component({
@@ -51,10 +52,11 @@ export class TasksPage implements OnInit {
     public photoGalleryPage: PhotoGalleryPage, public storage: Storage) { }
 
   ngOnInit() {
+
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
+
     this.storage.get('cardID').then( (val) =>{
-      this.cardID = val;
-      console.log(this.cardID);
+      console.log(val);
     for(let id = 500; id < val; id++){
       this.storage.get(`${id}`).then( (val) =>{
         this.cards.push(JSON.parse(val));
@@ -71,8 +73,6 @@ export class TasksPage implements OnInit {
     }
   });
   }
-
-
   createCard(listInfo){
     this.commentPage.storage.get('postID').then( (val) =>{
       for(let i = 1; i < val; i++){
@@ -123,24 +123,14 @@ export class TasksPage implements OnInit {
         this.cardInfo['time'] = this.now;
         console.log(this.cardInfo);
         this.saveCard(this.cardInfo);
+        this.cards.push(this.cardInfo);
     }
-
     saveCard(cardInfo){
-      this.storage.get('cardID').then( (val) =>{
-        console.log(val);
-      if(val == 1 || val == null){
-        this.cardID = 500;
-      }else{
-        this.cardID = val;
-      }
       this.storage.set(`${this.cardID}`, JSON.stringify(cardInfo));
       this.cardID++;
       console.log(this.cardID);
       this.storage.set('cardID', this.cardID);
-      this.cards.push(this.cardInfo);
-      console.log(this.cards);
       this.cardInfo = {};
-      });
     }
 
   goSearch(){
@@ -155,7 +145,7 @@ export class TasksPage implements OnInit {
   goCreateTask(){
     this.router.navigate(['createtask'])
   }
-
+  
   showMap() {
     var mymap = L.map('mapid').setView([37.702, -122.11], 13);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -166,6 +156,16 @@ export class TasksPage implements OnInit {
     zoomOffset: -1,
     accessToken: 'sk.eyJ1Ijoiam9obm55cGhhbTEyMzczIiwiYSI6ImNrZHNpczhiZjBpYjQyeHIxaHIwemp4OGUifQ.Vewhq2l_JEbLg90GBgw_VA'
     }).addTo(mymap);
+    var _geocoderType = L.Control.Geocoder.nominatim();
+    var geocoder = L.Control.geocoder({
+       geocoder: _geocoderType
+    }).addTo(mymap);
+    
+    geocoder.on('markgeocode', function(event) {
+         var center = event.geocode.center;
+         L.marker(center, {icon: greenIcon}).addTo(mymap);
+         mymap.setView(center, mymap.getZoom());
+    });
     var greenIcon = L.icon({
       iconUrl: '../assets/icon/marker-icon-green.png',
   
