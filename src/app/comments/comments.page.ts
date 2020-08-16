@@ -103,11 +103,15 @@ export class CommentsPage implements OnInit {
 
 
   storePost(post) {
+    this.storage.get('postID').then( (val) =>{
+      this.postID = val;
     this.storage.set(`${this.postID}`, JSON.stringify(post));
     this.postID++;
     this.storage.set('postID', this.postID);
     this.displayPosts.push(post);
+    console.log(this.displayPosts);
     this.updateScroll();
+    });
   }
 
   storeReply() {

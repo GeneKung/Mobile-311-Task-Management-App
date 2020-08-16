@@ -25,7 +25,6 @@ export class EquipmentPage implements OnInit {
   ngOnInit() {
     this.equipment = this.activateRoute.snapshot.paramMap.get('id');
     this.storage.get('dataequipID').then( (val) =>{
-      console.log(val);
     for(let id = 200; id < val; id++){
       this.storage.get(`${id}`).then( (val) =>{
         console.log(val);
@@ -55,10 +54,14 @@ export class EquipmentPage implements OnInit {
   }
 
   storeData(dataequip){
+    this.storage.get('dataequipID').then( (val) =>{
+      this.dataequipID = val;
+      console.log(val);
     this.storage.set(`${this.dataequipID}`, JSON.stringify(dataequip));
     this.dataequipID++;
     this.storage.set('dataequipID', this.dataequipID);
     this.displayPosts.push(dataequip)
+    });
   }
 
   
