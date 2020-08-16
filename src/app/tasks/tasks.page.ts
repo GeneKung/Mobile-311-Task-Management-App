@@ -122,7 +122,6 @@ export class TasksPage implements OnInit {
         this.cardInfo['time'] = this.now;
         console.log(this.cardInfo);
         this.saveCard(this.cardInfo);
-        this.cards.push(this.cardInfo);
     }
 
     saveCard(cardInfo){
@@ -137,7 +136,10 @@ export class TasksPage implements OnInit {
       this.cardID++;
       console.log(this.cardID);
       this.storage.set('cardID', this.cardID);
+      this.cards.push(this.cardInfo);
+      console.log(this.cards);
       this.cardInfo = {};
+      window.location.reload(false); 
       });
     }
 

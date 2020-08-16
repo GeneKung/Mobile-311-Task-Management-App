@@ -108,6 +108,7 @@ export class CommentsPage implements OnInit {
     this.postID++;
     this.storage.set('postID', this.postID);
     this.displayPosts.push(post);
+    console.log(this.displayPosts);
     this.updateScroll();
     });
   }
