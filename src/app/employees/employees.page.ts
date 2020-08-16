@@ -60,11 +60,14 @@ export class EmployeesPage implements OnInit {
     this.data = {};
   }
   storeData(data){
+    this.storage.get('data').then( (val) =>{
+    this.dataID = val;
     console.log(this.dataID);
     this.storage.set(`${this.dataID}`, JSON.stringify(data));
     this.dataID++;
     this.storage.set('data', `${this.dataID}`);
     this.displayPosts.push(data);
+    });
   }
   
 

@@ -20,12 +20,40 @@
     </ion-buttons>
   </ion-item>
 
+  <p class="subtitle" id="pCategory">Category</p>
+  <ion-item id="categorySelect">
+    <ion-label></ion-label>
+    <ion-select [(ngModel)]="getCategory"  (ionChange)="getByCategory(getCategory)"  value="hi" interface="dropdown" ok-text="Select" cancel-text="Cancel">
+      <ion-select-option value="Asphalt Repair/Pothole">Asphalt Repair/Pothole</ion-select-option>
+      <ion-select-option value="Other Assistance-Roads">Other Assistance-Roads</ion-select-option>
+      <ion-select-option value="Sidewalk Grind|Patch">Sidewalk Grind|Patch</ion-select-option>
+      <ion-select-option value="Sidewalk Grind (Only)">Sidewalk Grind (Only)</ion-select-option>
+      <ion-select-option value="Sidewalk AC Patch (Only)">Sidewalk AC Patch (Only)</ion-select-option>
+      <ion-select-option value="Sidewalks-Other">Sidewalks-Other</ion-select-option>
+      <ion-select-option value="Sidewalk Inspection">Sidewalk Inspection</ion-select-option>
+      <ion-select-option value="Asphalt/Concrete Repair-Marina">Asphalt/Concrete Repair-Marina</ion-select-option>
+      <ion-select-option value="Asphalt/Concrete Repair-Park">Asphalt/Concrete Repair-Park</ion-select-option>
+      <ion-select-option value="Storm Drain Tops">Storm Drain Tops</ion-select-option>
+    </ion-select>
+  </ion-item>
+
   <p class="subtitle" id="row2">Work Group</p>
   <ion-item id="row3">
     <ion-label></ion-label>
     <ion-select [(ngModel)]="getWorkGroup"  (ionChange)="getByWorkGroup(getWorkGroup)"  value="hi" interface="dropdown" ok-text="Select" cancel-text="Cancel">
-      <ion-select-option value="hi">1</ion-select-option>
-      <ion-select-option value="2">2</ion-select-option>
+      <ion-select-option value="Citizen Request">Citizen Request</ion-select-option>
+      <ion-select-option value="City Trees">City Trees</ion-select-option>
+      <ion-select-option value="Code Enforcement">Code Enforcement</ion-select-option>
+      <ion-select-option value="Garbage Collection">Garbage Collection</ion-select-option>
+      <ion-select-option value="Graffiti">Graffiti</ion-select-option>
+      <ion-select-option value="Junk and Debris">Junk and Debris</ion-select-option>
+      <ion-select-option value="Non-Emergency PD Requests">Non-Emergency PD Requests</ion-select-option>
+      <ion-select-option value="Park or Marina Maintenance">Park or Marina Maintenance</ion-select-option>
+      <ion-select-option value="Roads">Roads</ion-select-option>
+      <ion-select-option value="Sidewalks">Sidewalks</ion-select-option>
+      <ion-select-option value="Storm Drain or Sewer">Storm Drain or Sewer</ion-select-option>
+      <ion-select-option value="Street Lights & Signals">Street Lights & Signals</ion-select-option>
+      <ion-select-option value="Street Signs">Street Signs</ion-select-option>
     </ion-select>
   </ion-item>
 
@@ -284,6 +312,4 @@
   <br>
   <br>
   <br>
-
-  <h1>Heello</h1>
 </ion-content>

@@ -30,6 +30,7 @@ export class MaterialsPage implements OnInit {
     this.employees = this.activateRoute.snapshot.paramMap.get('id');
     this.storage.get('materialID').then( (val) =>{
       console.log(val);
+      this.materialID = val;
     for(let id = 300; id < this.materialID; id++){
       this.storage.get(`${id}`).then( (val) =>{
         console.log(val);
