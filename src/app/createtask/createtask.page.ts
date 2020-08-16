@@ -21,6 +21,7 @@ export class CreatetaskPage implements OnInit {
   public AssetID: any;
   public Description: any;
   public workgroup: any;
+  getCategory;
   getWorkGroup;
   getWorkType
   assetID;
@@ -55,6 +56,7 @@ export class CreatetaskPage implements OnInit {
   }
   
   createTask(){
+    this.listInfo['category'] = this.getCategory;
     this.listInfo['workGroup'] = this.getWorkGroup;
     this.listInfo['workType'] = this.getWorkType;
     this.listInfo['assetID'] = this.assetID;
@@ -67,9 +69,12 @@ export class CreatetaskPage implements OnInit {
   }
 
   ngOnInit() {
-
     this.createtask = this.activatedRoute.snapshot.paramMap.get('id'); 
-}
+  }
+
+  getByCategory(getCategory){
+    console.log(getCategory)
+  }
 
   getByWorkGroup(getWorkGroup){
     console.log(getWorkGroup)

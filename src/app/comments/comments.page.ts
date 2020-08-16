@@ -25,6 +25,7 @@ export class CommentsPage implements OnInit {
   placeholder : string = "Add Comment";
   colorCode = "gray";
   clickedReply = false;
+
   constructor(private activateRoute: ActivatedRoute, private router: Router, public storage: Storage) { }
 
   ngOnInit() {
@@ -75,8 +76,10 @@ export class CommentsPage implements OnInit {
       this.post['time'] = this.TwelveHourFormat(moment().format('HH:mm'));
       this.post['body'] = this.comment;
       this.post['id'] = this.postID;
+
       this.post['replies'] = [];
       console.log(this.post);
+
       this.storePost(this.post);
       this.comment = null;
       this.post = {};
@@ -96,6 +99,7 @@ export class CommentsPage implements OnInit {
       this.placeholder = 'Add Comment';
     }
   }
+
 
   storePost(post) {
     this.storage.get('postID').then( (val) =>{
