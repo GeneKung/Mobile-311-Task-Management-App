@@ -40,7 +40,8 @@
             </ion-item>
             <ion-card-subtitle id="category">{{ card.listInfo.category }}</ion-card-subtitle>
             <ion-card-subtitle id="subTitle2">{{ card.listInfo.address }}</ion-card-subtitle>
-            <ion-icon id="subIcon" color="primary" name="chatbox"><span>{{ card.numComments }}</span></ion-icon>        
+           <span><ion-icon id="subIcon" color="primary" name="chatbox"></ion-icon>
+            <h5>{{ card.listInfo.totalComments }}</h5></span>
           </ion-card-header>
         </ion-card>
         </div>
