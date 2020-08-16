@@ -51,10 +51,11 @@ export class TasksPage implements OnInit {
     public photoGalleryPage: PhotoGalleryPage, public storage: Storage) { }
 
   ngOnInit() {
+
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
+
     this.storage.get('cardID').then( (val) =>{
-      this.cardID = val;
-      console.log(this.cardID);
+      console.log(val);
     for(let id = 500; id < val; id++){
       this.storage.get(`${id}`).then( (val) =>{
         this.cards.push(JSON.parse(val));
@@ -70,8 +71,6 @@ export class TasksPage implements OnInit {
     }
   });
   }
-
-
   createCard(listInfo){
     this.commentPage.storage.get('postID').then( (val) =>{
       for(let i = 1; i < val; i++){
@@ -122,25 +121,18 @@ export class TasksPage implements OnInit {
         this.cardInfo['time'] = this.now;
         console.log(this.cardInfo);
         this.saveCard(this.cardInfo);
+        this.cards.push(this.cardInfo);
     }
-
     saveCard(cardInfo){
-      this.storage.get('cardID').then( (val) =>{
-        console.log(val);
-      if(val == 1 || val == null){
-        this.cardID = 500;
-      }else{
-        this.cardID = val;
-      }
       this.storage.set(`${this.cardID}`, JSON.stringify(cardInfo));
       this.cardID++;
       console.log(this.cardID);
       this.storage.set('cardID', this.cardID);
-      this.cards.push(this.cardInfo);
-      console.log(this.cards);
       this.cardInfo = {};
-      window.location.reload(false); 
-      });
+    }
+  
+    getColor(category){
+
     }
 
   goSearch(){
