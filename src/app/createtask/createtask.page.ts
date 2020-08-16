@@ -8,7 +8,7 @@ import { PhotoService } from '../services/photo.service';
 import { MaterialsPage } from '../materials/materials.page'
 import { EmployeesPage } from '../employees/employees.page'
 import { EquipmentPage } from '../equipment/equipment.page'
-import { TasksPage } from '../tasks/tasks.page';
+
 @Injectable()
 @Component({
   selector: 'app-createtask',
@@ -64,6 +64,7 @@ export class CreatetaskPage implements OnInit {
     this.listInfo['address'] = this.getAddress;
     this.listInfo['priority'] = this.getPriority;
     this.listInfo['description'] = this.getDescription;
+    console.log(this.listInfo['totalComments']);
     this.tasksPage.createCard(this.listInfo);
     this.goTask();
   }

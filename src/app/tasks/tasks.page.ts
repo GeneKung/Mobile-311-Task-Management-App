@@ -67,7 +67,8 @@ export class TasksPage implements OnInit {
         this.date = JSON.stringify(this.cards['time']);
         this.assetID = JSON.stringify(this.cards['assetID']);
         this.category = JSON.stringify(this.cards['category']);
-        this.numComments = JSON.stringify(this.cards['numComments']);
+        this.numComments = this.cards['comments'].length;
+        console.log(this.numComments);
       });
     }
   });
@@ -130,10 +131,6 @@ export class TasksPage implements OnInit {
       console.log(this.cardID);
       this.storage.set('cardID', this.cardID);
       this.cardInfo = {};
-    }
-  
-    getColor(category){
-
     }
 
   goSearch(){

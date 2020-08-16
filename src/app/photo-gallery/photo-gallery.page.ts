@@ -71,13 +71,10 @@ export class PhotoGalleryPage implements OnInit {
   }
 
   storePost(post){
-    this.storage.get('commentID').then( (val) =>{
-    this.commentID = val;
     this.storage.set(`${this.commentID}`, JSON.stringify(post));
     this.commentID++;
     this.storage.set('commentID', this.commentID);
     this.displayPosts.push(post);
-    });
   }
 
   deleteComment(post){
