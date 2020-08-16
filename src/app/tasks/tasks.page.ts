@@ -51,13 +51,9 @@ export class TasksPage implements OnInit {
 
   ngOnInit() {
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
-    this.commentPage.storage.get('1').then( (val) =>{
-      console.log(val);
-      val = JSON.parse(val);
-      this.time = val.time;
-    });  
     this.storage.get('cardID').then( (val) =>{
-      console.log(val);
+      this.cardID = val;
+      console.log(this.cardID);
     for(let id = 500; id < val; id++){
       this.storage.get(`${id}`).then( (val) =>{
         this.cards.push(JSON.parse(val));
@@ -72,6 +68,8 @@ export class TasksPage implements OnInit {
     }
   });
   }
+
+
   createCard(listInfo){
     this.commentPage.storage.get('postID').then( (val) =>{
       for(let i = 1; i < val; i++){
@@ -124,12 +122,21 @@ export class TasksPage implements OnInit {
         this.saveCard(this.cardInfo);
         this.cards.push(this.cardInfo);
     }
+
     saveCard(cardInfo){
+      this.storage.get('cardID').then( (val) =>{
+        console.log(val);
+      if(val == 1 || val == null){
+        this.cardID = 500;
+      }else{
+        this.cardID = val;
+      }
       this.storage.set(`${this.cardID}`, JSON.stringify(cardInfo));
       this.cardID++;
       console.log(this.cardID);
       this.storage.set('cardID', this.cardID);
       this.cardInfo = {};
+      });
     }
 
   goSearch(){
