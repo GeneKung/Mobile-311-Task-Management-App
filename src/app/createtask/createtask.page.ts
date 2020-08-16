@@ -63,6 +63,7 @@ export class CreatetaskPage implements OnInit {
     this.listInfo['priority'] = this.getPriority;
     this.listInfo['description'] = this.getDescription;
     this.tasksPage.createCard(this.listInfo);
+    this.goTask();
   }
 
   ngOnInit() {

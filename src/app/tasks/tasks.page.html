@@ -32,6 +32,7 @@
     <div *ngIf="selectTabs == 'listView'">   
       <div *ngFor="let card of cards;let index = index;">
         <ion-card>
+          <ion-card-header></ion-card-header>
           <ion-card-subtitle>{{ card.time }}</ion-card-subtitle>
           <ion-card-subtitle>Priority {{ card.listInfo.priority }}</ion-card-subtitle>
           <ion-card-title id="workGroup">{{ card.listInfo.workGroup }}</ion-card-title>
