@@ -67,8 +67,7 @@ export class TasksPage implements OnInit {
         this.date = JSON.stringify(this.cards['time']);
         this.assetID = JSON.stringify(this.cards['assetID']);
         this.category = JSON.stringify(this.cards['category']);
-        this.numComments = this.cards['comments'].length;
-        console.log(this.numComments);
+        this.numComments = JSON.stringify(this.cards[id%100]['comment'].length);
       });
     }
   });
@@ -77,12 +76,13 @@ export class TasksPage implements OnInit {
     this.commentPage.storage.get('postID').then( (val) =>{
       for(let i = 1; i < val; i++){
       this.commentPage.storage.get(`${i}`).then( (val) =>{
-        this.commentArr = val;
+        this.commentArr.push(val);
         console.log(val);
       });
     }
           });
       this.cardInfo['comment'] = this.commentArr;
+
       this.employeesPage.storage.get('data').then( (val) =>{
       for(let i = 100; i < val; i++){
         this.employeesPage.storage.get(`${i}`).then( (val) =>{
@@ -125,12 +125,20 @@ export class TasksPage implements OnInit {
         this.saveCard(this.cardInfo);
         this.cards.push(this.cardInfo);
     }
+
     saveCard(cardInfo){
+      this.storage.get('cardID').then( (val) =>{
+      if(val == 1 || val == null){
+        this.cardID = 500;
+      }else{
+        this.cardID = val;
+      }
       this.storage.set(`${this.cardID}`, JSON.stringify(cardInfo));
       this.cardID++;
       console.log(this.cardID);
       this.storage.set('cardID', this.cardID);
       this.cardInfo = {};
+      });
     }
 
   goSearch(){

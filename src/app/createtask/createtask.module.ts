@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
+import { TasksPage } from '../tasks/tasks.page';
 
 import { CreatetaskPageRoutingModule } from './createtask-routing.module';
 import { MaterialsPage } from '../materials/materials.page'
 import { CreatetaskPage } from './createtask.page';
-import { TasksPage } from '../tasks/tasks.page';
 
 @NgModule({
   imports: [
@@ -17,8 +17,6 @@ import { TasksPage } from '../tasks/tasks.page';
     CreatetaskPageRoutingModule,
   ],
   declarations: [CreatetaskPage],
-  providers: [
-    TasksPage,
-  ]
+  providers: [TasksPage]
 })
 export class CreatetaskPageModule {}
