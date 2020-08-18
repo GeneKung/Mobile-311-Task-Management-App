@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
-import { ViewTaskPage } from './view-task.page';
+import { ViewTaskPage } from '../view-task/view-task.page';
 
 describe('ViewTaskPage', () => {
   let component: ViewTaskPage;

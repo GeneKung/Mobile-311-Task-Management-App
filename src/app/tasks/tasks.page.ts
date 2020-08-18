@@ -15,6 +15,7 @@ import { Storage } from '@ionic/storage';
 import * as L from 'leaflet';
 import * as moment from 'moment';
 import 'leaflet-control-geocoder';
+import { ViewTaskPage } from '../view-task/view-task.page';
 
 @Injectable()
 @Component({
@@ -49,7 +50,7 @@ export class TasksPage implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation,
     public commentPage: CommentsPage, public employeesPage: EmployeesPage,
     public materialsPage: MaterialsPage, public equipmentPage: EquipmentPage,
-    public photoGalleryPage: PhotoGalleryPage, public storage: Storage) { }
+    public photoGalleryPage: PhotoGalleryPage, public viewTaskPage: ViewTaskPage, public storage: Storage) { }
 
   ngOnInit() {
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
@@ -165,6 +166,9 @@ export class TasksPage implements OnInit {
   goCreateTask(){
     this.router.navigate(['createtask'])
   }
+  toViewtask(card){
+    this.router.navigate(['view-task'])
+  }
   
   showMap() {
     var mymap = L.map('mapid').setView([37.702, -122.11], 13);
@@ -191,7 +195,7 @@ export class TasksPage implements OnInit {
       }
 
       var control = L.Control.geocoder({
-        query: this.address,
+        query: '',
         geocoder: false,
       }).addTo(mymap);
       var marker;

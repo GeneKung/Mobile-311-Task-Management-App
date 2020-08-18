@@ -9,6 +9,7 @@ import { CreatetaskPage} from "./createtask/createtask.page";
 import { SettingsPage } from "./settings/settings.page";
 import { MaterialsPage } from "./materials/materials.page"
 import { AlertController } from '@ionic/angular';
+import { ViewTaskPage } from './view-task/view-task.page';
 @Injectable()
 @Component({
   selector: 'app-root',
@@ -29,7 +30,8 @@ export class AppComponent implements OnInit {
     public CreatetaskPage: CreatetaskPage,
     public SettingsPage: SettingsPage,
     public materialsPage: MaterialsPage,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    public viewTaskPage: ViewTaskPage
   ) {
     this.initializeApp();
   }
