@@ -74,6 +74,10 @@ const routes: Routes = [
     path: 'view-task',
     loadChildren: () => import('./view-task/view-task.module').then( m => m.ViewTaskPageModule)
   },
+  {
+    path: 'view-task',
+    loadChildren: () => import('./view-task/view-task.module').then( m => m.ViewTaskPageModule)
+  },
 
 
 

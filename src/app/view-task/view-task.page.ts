@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-view-task',
   templateUrl: './view-task.page.html',
@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewTaskPage implements OnInit {
 
-  constructor() { }
+  public viewtask: string;
+
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.viewtask = this.activatedRoute.snapshot.paramMap.get('id');
   }
 
 }
