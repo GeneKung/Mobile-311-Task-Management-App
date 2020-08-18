@@ -167,6 +167,7 @@ export class TasksPage implements OnInit {
   }
   
   showMap() {
+    var markersList= [];
     var mymap = L.map('mapid').setView([37.702, -122.11], 13);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -176,15 +177,15 @@ export class TasksPage implements OnInit {
     zoomOffset: -1,
     accessToken: 'sk.eyJ1Ijoiam9obm55cGhhbTEyMzczIiwiYSI6ImNrZHNpczhiZjBpYjQyeHIxaHIwemp4OGUifQ.Vewhq2l_JEbLg90GBgw_VA'
     }).addTo(mymap);
-    var _geocoderType = L.Control.Geocoder.nominatim();
     var geocoder = L.Control.geocoder({
-       geocoder: _geocoderType
+      defaultMarkGeocode: false
     }).addTo(mymap);
     
     geocoder.on('markgeocode', function(event) {
          var center = event.geocode.center;
-         L.marker(center, {icon: greenIcon}).addTo(mymap);
+         markersList.push(L.marker(center, {icon: greenIcon}).addTo(mymap))
          mymap.setView(center, mymap.getZoom());
+         console.log(markersList);
     });
     var greenIcon = L.icon({
       iconUrl: '../assets/icon/marker-icon-green.png',
