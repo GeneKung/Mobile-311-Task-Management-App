@@ -176,16 +176,28 @@ export class TasksPage implements OnInit {
     zoomOffset: -1,
     accessToken: 'sk.eyJ1Ijoiam9obm55cGhhbTEyMzczIiwiYSI6ImNrZHNpczhiZjBpYjQyeHIxaHIwemp4OGUifQ.Vewhq2l_JEbLg90GBgw_VA'
     }).addTo(mymap);
-    var _geocoderType = L.Control.Geocoder.nominatim();
-    var geocoder = L.Control.geocoder({
-       geocoder: _geocoderType
-    }).addTo(mymap);
     
-    geocoder.on('markgeocode', function(event) {
-         var center = event.geocode.center;
-         L.marker(center, {icon: greenIcon}).addTo(mymap);
-         mymap.setView(center, mymap.getZoom());
-    });
+    var geocoder = L.Control.Geocoder.nominatim();
+      if (URLSearchParams && location.search) {
+        // parse /?geocoder=nominatim from URL
+        var params = new URLSearchParams(location.search);
+        var geocoderString = params.get('geocoder');
+        if (geocoderString && L.Control.Geocoder[geocoderString]) {
+          console.log('Using geocoder', geocoderString);
+          geocoder = L.Control.Geocoder[geocoderString]();
+        } else if (geocoderString) {
+          console.warn('Unsupported geocoder', geocoderString);
+        }
+      }
+
+      var control = L.Control.geocoder({
+        query: this.address,
+        geocoder: false,
+      }).addTo(mymap);
+      var marker;
+
+    
+    
     var greenIcon = L.icon({
       iconUrl: '../assets/icon/marker-icon-green.png',
   
