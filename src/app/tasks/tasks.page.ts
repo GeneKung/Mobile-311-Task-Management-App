@@ -55,7 +55,7 @@ export class TasksPage implements OnInit {
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
     this.storage.get('cardID').then( (val) =>{
       console.log(val);
-    for(let id = 501; id < val; id+=2){
+    for(let id = 500; id < val; id++){
       this.storage.get(`${id}`).then( (val) =>{
         this.cards[id%100] = (JSON.parse(val));
         console.log(this.cards);
@@ -167,7 +167,6 @@ export class TasksPage implements OnInit {
   }
   
   showMap() {
-    var markersList= [];
     var mymap = L.map('mapid').setView([37.702, -122.11], 13);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -177,15 +176,15 @@ export class TasksPage implements OnInit {
     zoomOffset: -1,
     accessToken: 'sk.eyJ1Ijoiam9obm55cGhhbTEyMzczIiwiYSI6ImNrZHNpczhiZjBpYjQyeHIxaHIwemp4OGUifQ.Vewhq2l_JEbLg90GBgw_VA'
     }).addTo(mymap);
+    var _geocoderType = L.Control.Geocoder.nominatim();
     var geocoder = L.Control.geocoder({
-      defaultMarkGeocode: false
+       geocoder: _geocoderType
     }).addTo(mymap);
     
     geocoder.on('markgeocode', function(event) {
          var center = event.geocode.center;
-         markersList.push(L.marker(center, {icon: greenIcon}).addTo(mymap))
+         L.marker(center, {icon: greenIcon}).addTo(mymap);
          mymap.setView(center, mymap.getZoom());
-         console.log(markersList);
     });
     var greenIcon = L.icon({
       iconUrl: '../assets/icon/marker-icon-green.png',
