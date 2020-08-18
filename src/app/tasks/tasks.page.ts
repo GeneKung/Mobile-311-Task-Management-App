@@ -52,14 +52,12 @@ export class TasksPage implements OnInit {
     public photoGalleryPage: PhotoGalleryPage, public storage: Storage) { }
 
   ngOnInit() {
-
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
-
     this.storage.get('cardID').then( (val) =>{
       console.log(val);
-    for(let id = 500; id < val; id++){
+    for(let id = 501; id < val; id+=2){
       this.storage.get(`${id}`).then( (val) =>{
-        this.cards.push(JSON.parse(val));
+        this.cards[id%100] = (JSON.parse(val));
         console.log(this.cards);
         this.workGroup = JSON.stringify(this.cards['workGroup']);
         this.address = JSON.stringify(this.cards['address']);
@@ -67,7 +65,7 @@ export class TasksPage implements OnInit {
         this.date = JSON.stringify(this.cards['time']);
         this.assetID = JSON.stringify(this.cards['assetID']);
         this.category = JSON.stringify(this.cards['category']);
-        this.numComments = JSON.stringify(this.cards[id%100]['comment'].length);
+        this.numComments = JSON.stringify(this.cards['totalComments']);
       });
     }
   });
@@ -77,11 +75,19 @@ export class TasksPage implements OnInit {
       for(let i = 1; i < val; i++){
       this.commentPage.storage.get(`${i}`).then( (val) =>{
         this.commentArr.push(val);
-        console.log(val);
       });
     }
           });
+          var count = 0;
+      for (var k in this.commentArr) {
+        if (this.commentArr.hasOwnProperty(k)) {
+          count++;
+        }
+      }
       this.cardInfo['comment'] = this.commentArr;
+      this.cardInfo['totalComments'] = count;
+      console.log(count);
+      console.log(this.cardInfo['totalComments']);
 
       this.employeesPage.storage.get('data').then( (val) =>{
       for(let i = 100; i < val; i++){
@@ -124,6 +130,12 @@ export class TasksPage implements OnInit {
         console.log(this.cardInfo);
         this.saveCard(this.cardInfo);
         this.cards.push(this.cardInfo);
+        console.log(this.cards);
+        this.commentArr = [];
+        this.employeeArr = [];
+        this.equipArr = [];
+        this.materialArr = [];
+        this.photoArr = [];
     }
 
     saveCard(cardInfo){
