@@ -47,7 +47,7 @@ export class TasksPage implements OnInit {
   marker: any;
   latLong = [];
   selectTabs = 'listView';
-  showCard: boolean = false;
+  showCard: boolean
   
   constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation,
     public commentPage: CommentsPage, public employeesPage: EmployeesPage,

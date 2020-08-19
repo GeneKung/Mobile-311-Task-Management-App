@@ -289,6 +289,11 @@ export class AppComponent implements OnInit {
           this.CommentsPage.msg = '';
           this.CommentsPage.placeholder = 'Add Comment';
         }
+
+        if (commandData.command === 'cardTask'){
+          this.TasksPage.showCard = true;
+          console.log(this.TasksPage.showCard);
+        }
     });
 }
 
