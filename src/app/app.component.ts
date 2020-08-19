@@ -11,7 +11,6 @@ import { MaterialsPage } from "./materials/materials.page"
 import { AlertController } from '@ionic/angular';
 import { CommentsPage } from './comments/comments.page'
 import * as moment from 'moment';
-import { ViewTaskPage } from './view-task/view-task.page';
 @Injectable()
 @Component({
   selector: 'app-root',
@@ -33,8 +32,7 @@ export class AppComponent implements OnInit {
     public SettingsPage: SettingsPage,
     public materialsPage: MaterialsPage,
     public alertCtrl: AlertController,
-    public CommentsPage: CommentsPage,
-    public viewTaskPage: ViewTaskPage
+    public CommentsPage: CommentsPage
   ) {
     this.initializeApp();
   }
@@ -270,7 +268,7 @@ export class AppComponent implements OnInit {
           this.CommentsPage.comment = null;
           this.CommentsPage.post = {};
         }
-
+        
         if (commandData.command === 'reply'){
           var post = {name: 'John Doe'};
           this.CommentsPage.reply(post);
