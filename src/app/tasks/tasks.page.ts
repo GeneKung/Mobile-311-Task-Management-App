@@ -55,9 +55,9 @@ export class TasksPage implements OnInit {
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
     this.storage.get('cardID').then( (val) =>{
       console.log(val);
-    for(let id = 500; id < val; id++){
-      this.storage.get(`${id}`).then( (val) =>{
-        this.cards[id%100] = (JSON.parse(val));
+    for(let id = 502; id < val; id+=2){
+      this.storage.get(`${id-1}`).then( (val) =>{
+        this.cards.push(JSON.parse(val));
         console.log(this.cards);
         this.workGroup = JSON.stringify(this.cards['workGroup']);
         this.address = JSON.stringify(this.cards['address']);
@@ -183,9 +183,11 @@ export class TasksPage implements OnInit {
     
     geocoder.on('markgeocode', function(event) {
          var center = event.geocode.center;
+         console.log(event);
          L.marker(center, {icon: greenIcon}).addTo(mymap);
          mymap.setView(center, mymap.getZoom());
     });
+
     var greenIcon = L.icon({
       iconUrl: '../assets/icon/marker-icon-green.png',
   
