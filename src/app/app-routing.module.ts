@@ -70,6 +70,14 @@ const routes: Routes = [
     path: 'photo-gallery',
     loadChildren: () => import('./photo-gallery/photo-gallery.module').then( m => m.PhotoGalleryPageModule)
   },
+  {
+    path: 'view-task',
+    loadChildren: () => import('./view-task/view-task.module').then( m => m.ViewTaskPageModule)
+  },
+  {
+    path: 'view-task',
+    loadChildren: () => import('./view-task/view-task.module').then( m => m.ViewTaskPageModule)
+  },
 
 
 

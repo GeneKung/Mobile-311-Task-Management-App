@@ -15,7 +15,7 @@ import { Storage } from '@ionic/storage';
 import * as L from 'leaflet';
 import * as moment from 'moment';
 import 'leaflet-control-geocoder';
-import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
+import { ViewTaskPage } from '../view-task/view-task.page';
 
 @Injectable()
 @Component({
@@ -47,24 +47,19 @@ export class TasksPage implements OnInit {
   marker: any;
   latLong = [];
   selectTabs = 'listView';
-  options : NativeGeocoderOptions = {
-    useLocale: true,
-    maxResults: 5
-  };
   showCard: boolean = false;
   
   constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation,
     public commentPage: CommentsPage, public employeesPage: EmployeesPage,
     public materialsPage: MaterialsPage, public equipmentPage: EquipmentPage,
-    public photoGalleryPage: PhotoGalleryPage, public storage: Storage, private nativeGeocoder: NativeGeocoder) { 
-    }
+    public photoGalleryPage: PhotoGalleryPage, public viewTaskPage: ViewTaskPage, public storage: Storage) { }
 
   ngOnInit() {
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
     this.storage.get('cardID').then( (val) =>{
       console.log(val);
-    for(let id = 500; id < val; id++){
-      this.storage.get(`${id}`).then( (val) =>{
+    for(let id = 502; id < val; id+=2){
+      this.storage.get(`${id-1}`).then( (val) =>{
         this.cards.push(JSON.parse(val));
         console.log(this.cards);
         this.workGroup = JSON.stringify(this.cards['workGroup']);
@@ -73,7 +68,7 @@ export class TasksPage implements OnInit {
         this.date = JSON.stringify(this.cards['time']);
         this.assetID = JSON.stringify(this.cards['assetID']);
         this.category = JSON.stringify(this.cards['category']);
-        this.numComments = JSON.stringify(this.cards[id%100]['comment'].length);
+        this.numComments = JSON.stringify(this.cards['totalComments']);
       });
     }
   });
@@ -84,11 +79,19 @@ export class TasksPage implements OnInit {
       for(let i = 1; i < val; i++){
       this.commentPage.storage.get(`${i}`).then( (val) =>{
         this.commentArr.push(val);
-        console.log(val);
       });
     }
           });
+          var count = 0;
+      for (var k in this.commentArr) {
+        if (this.commentArr.hasOwnProperty(k)) {
+          count++;
+        }
+      }
       this.cardInfo['comment'] = this.commentArr;
+      this.cardInfo['totalComments'] = count;
+      console.log(count);
+      console.log(this.cardInfo['totalComments']);
 
       this.employeesPage.storage.get('data').then( (val) =>{
       for(let i = 100; i < val; i++){
@@ -131,6 +134,12 @@ export class TasksPage implements OnInit {
         console.log(this.cardInfo);
         this.saveCard(this.cardInfo);
         this.cards.push(this.cardInfo);
+        console.log(this.cards);
+        this.commentArr = [];
+        this.employeeArr = [];
+        this.equipArr = [];
+        this.materialArr = [];
+        this.photoArr = [];
     }
 
     saveCard(cardInfo){
@@ -166,9 +175,11 @@ export class TasksPage implements OnInit {
       this.showCard = false;
     }, 5000);
   }
+  toViewtask(card){
+    this.router.navigate(['view-task'])
+  }
   
   showMap() {
-    var markersList= [];
     var mymap = L.map('mapid').setView([37.702, -122.11], 13);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -179,16 +190,27 @@ export class TasksPage implements OnInit {
     accessToken: 'sk.eyJ1Ijoiam9obm55cGhhbTEyMzczIiwiYSI6ImNrZHNpczhiZjBpYjQyeHIxaHIwemp4OGUifQ.Vewhq2l_JEbLg90GBgw_VA'
     }).addTo(mymap);
     
-    var geocoder = L.Control.geocoder('San Leandro',{
-      defaultMarkGeocode: false,
-      setQuery:''
-    }).addTo(mymap);
-    geocoder.on('markgeocode', function(event) {
-      var center = event.geocode.center;
-      markersList.push(L.marker(center, {icon: greenIcon}).addTo(mymap))
-      mymap.setView(center, mymap.getZoom());
-      console.log(markersList);
-  });
+    var geocoder = L.Control.Geocoder.nominatim();
+      if (URLSearchParams && location.search) {
+        // parse /?geocoder=nominatim from URL
+        var params = new URLSearchParams(location.search);
+        var geocoderString = params.get('geocoder');
+        if (geocoderString && L.Control.Geocoder[geocoderString]) {
+          console.log('Using geocoder', geocoderString);
+          geocoder = L.Control.Geocoder[geocoderString]();
+        } else if (geocoderString) {
+          console.warn('Unsupported geocoder', geocoderString);
+        }
+      }
+
+      var control = L.Control.geocoder({
+        query: '',
+        geocoder: false,
+      }).addTo(mymap);
+      var marker;
+
+    
+    
     var greenIcon = L.icon({
       iconUrl: '../assets/icon/marker-icon-green.png',
   
