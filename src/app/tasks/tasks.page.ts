@@ -15,6 +15,7 @@ import { Storage } from '@ionic/storage';
 import * as L from 'leaflet';
 import * as moment from 'moment';
 import 'leaflet-control-geocoder';
+import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 
 @Injectable()
 @Component({
@@ -46,15 +47,20 @@ export class TasksPage implements OnInit {
   marker: any;
   latLong = [];
   selectTabs = 'listView';
+  options : NativeGeocoderOptions = {
+    useLocale: true,
+    maxResults: 5
+  };
+  showCard: boolean = false;
+  
   constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation,
     public commentPage: CommentsPage, public employeesPage: EmployeesPage,
     public materialsPage: MaterialsPage, public equipmentPage: EquipmentPage,
-    public photoGalleryPage: PhotoGalleryPage, public storage: Storage) { }
+    public photoGalleryPage: PhotoGalleryPage, public storage: Storage, private nativeGeocoder: NativeGeocoder) { 
+    }
 
   ngOnInit() {
-
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
-
     this.storage.get('cardID').then( (val) =>{
       console.log(val);
     for(let id = 500; id < val; id++){
@@ -72,6 +78,7 @@ export class TasksPage implements OnInit {
     }
   });
   }
+
   createCard(listInfo){
     this.commentPage.storage.get('postID').then( (val) =>{
       for(let i = 1; i < val; i++){
@@ -153,6 +160,12 @@ export class TasksPage implements OnInit {
   goCreateTask(){
     this.router.navigate(['createtask'])
   }
+  showCards(){
+    this.showCard = true;
+    setTimeout(() => {
+      this.showCard = false;
+    }, 5000);
+  }
   
   showMap() {
     var markersList= [];
@@ -165,16 +178,17 @@ export class TasksPage implements OnInit {
     zoomOffset: -1,
     accessToken: 'sk.eyJ1Ijoiam9obm55cGhhbTEyMzczIiwiYSI6ImNrZHNpczhiZjBpYjQyeHIxaHIwemp4OGUifQ.Vewhq2l_JEbLg90GBgw_VA'
     }).addTo(mymap);
-    var geocoder = L.Control.geocoder({
-      defaultMarkGeocode: false
-    }).addTo(mymap);
     
+    var geocoder = L.Control.geocoder('San Leandro',{
+      defaultMarkGeocode: false,
+      setQuery:''
+    }).addTo(mymap);
     geocoder.on('markgeocode', function(event) {
-         var center = event.geocode.center;
-         markersList.push(L.marker(center, {icon: greenIcon}).addTo(mymap))
-         mymap.setView(center, mymap.getZoom());
-         console.log(markersList);
-    });
+      var center = event.geocode.center;
+      markersList.push(L.marker(center, {icon: greenIcon}).addTo(mymap))
+      mymap.setView(center, mymap.getZoom());
+      console.log(markersList);
+  });
     var greenIcon = L.icon({
       iconUrl: '../assets/icon/marker-icon-green.png',
   
@@ -206,7 +220,9 @@ export class TasksPage implements OnInit {
     L.marker([37.705318450927734, -122.12457275390625], {icon: greenIcon}).addTo(mymap);
     L.marker([37.701895,-122.129308], {icon: brownIcon}).addTo(mymap);
     L.marker([37.7021, -122.114], {icon: orangeIcon}).addTo(mymap);
-    L.marker([37.68151092529297, -122.13874053955078], {icon: blueIcon}).addTo(mymap);
+    L.marker([37.68151092529297, -122.13874053955078], {icon: blueIcon}).addTo(mymap).on('click', function() {
+      this.showCard = true;
+  });;
     L.marker([37.704158782958984,-122.14347839355469], {icon: blueIcon}).addTo(mymap);
     L.marker([37.40696334838867,-121.98856353759766], {icon: blueIcon}).addTo(mymap);
   }
@@ -237,6 +253,6 @@ export class TasksPage implements OnInit {
     }
   
     console.log(this.selectTabs);
-    return this.selectTabs;
   }
+
 }

@@ -27,7 +27,7 @@ export class CreatetaskPage implements OnInit {
   getWorkType
   assetID;
   getDepartment;
-  getAddress;
+  getAddress
   getPriority;
   getDescription;
   listInfo = {};
@@ -41,7 +41,11 @@ export class CreatetaskPage implements OnInit {
     this.getValue();
   }
 
-  
+  changeCategory(){
+    this.getCategory = "Asphalt/Concrete Repair-Park";
+    console.log(this.getCategory);
+    return this.getCategory;
+  }
   ionViewWillEnter() {
     this.menuCtrl.enable(false);
    }
