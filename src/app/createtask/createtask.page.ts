@@ -39,11 +39,17 @@ export class CreatetaskPage implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router,  public storage: Storage, public photoService: PhotoService, public employeesPage: EmployeesPage, public materialsPage: MaterialsPage, public equipmentPage: EquipmentPage,
     public tasksPage: TasksPage) { 
+    this.getWorkGroup = "";
     this.setValue();
     this.getValue();
   }
-
   
+
+  setCategory(){
+    this.getCategory = 'Asphalt Repair/Pothole';
+    console.log(this.getCategory)
+    return this.getCategory
+  }
   ionViewWillEnter() {
     this.menuCtrl.enable(false);
    }

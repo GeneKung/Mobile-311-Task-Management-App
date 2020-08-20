@@ -10,9 +10,119 @@
 </ion-header>
 
 <ion-content>
-  <h3>{{object.assetID}}</h3>
-  <h3>{{ object.priority }}</h3>
-  <h3>{{ object.priority }}</h3>
-  <h3>{{ object.category }}</h3>
-  <h3>{{ object.address }}</h3>
+  <p class="subtitle">Task Name</p>
+  <ion-item id="row1">
+    <ion-input [(ngModel)]="taskName" (keyup.enter)="logtaskName()" required type="text"></ion-input>
+  </ion-item>
+
+  <p  id="row2" class="subtitle">Status</p>
+  <ion-item lines="none" id="row3">
+    <ion-label><ion-button color="secondary">New Request</ion-button></ion-label>
+      <ion-button slot="end"><ion-button slot="icon-only">1</ion-button></ion-button>
+  </ion-item>
+
+  <p id="row4" class="subtitle">Work Group</p>
+  <ion-item id="row5">
+    <ion-input [(ngModel)]="workGroup" (keyup.enter)="logworkGroup()" required type="text"></ion-input>
+  </ion-item>
+
+  <p id="row6" class="subtitle">WorkType</p>
+  <ion-item id="row7">
+    <ion-input [(ngModel)]="workType" (keyup.enter)="logworkType()" required type="text"></ion-input>
+  </ion-item>
+
+  <p id="row8" class="subtitle">Asset ID</p>
+  <ion-item id="row9">
+    <ion-input [(ngModel)]="assetID" (keyup.enter)="logworkassetID()" required type="text"></ion-input>
+  </ion-item>
+
+  <p id="row10" class="subtitle">Department</p>
+  <ion-item id="row11">
+    <ion-input [(ngModel)]="department" (keyup.enter)="logDepartment()" required type="text"></ion-input>
+  </ion-item>
+
+  <p id="row11" class="subtitle">Location/Address</p>
+  <ion-item id="row12">
+    <ion-input [(ngModel)]="address" (keyup.enter)="logAddress()" required type="text"></ion-input>
+  </ion-item>
+
+  <p id="row12" class="subtitle">Description</p>
+  <ion-item id="row13">
+    <ion-input [(ngModel)]="description" (keyup.enter)="logDescription()" required type="text"></ion-input>
+  </ion-item>
+
+  <p id="row14" class="subtitle">Photo</p>
+  <ion-item lines="none" id="row14">
+    <img src="https://www.inquirer.com/resizer/ppLDsrXzQXY3oxz10YVHzh7wmUQ=/1400x932/smart/arc-anglerfish-arc2-prod-pmn.s3.amazonaws.com/public/MRJTWS5C4FC75BJZA4QNZSSBI4.jpg">
+  </ion-item>
+
+  <p id="row15" class="subtitle">{{now}}</p>
+  <ion-item lines="none" id="row16">
+    <ion-button id="camera" color="secondary">
+      <ion-icon  id="iconLarge" name="camera" slot="start"></ion-icon> Camera
+    </ion-button>
+    <ion-button id="gallery" color="secondary">
+      <ion-icon id="iconLarge" name="image" slot="start"></ion-icon> Photo Gallery
+    </ion-button>
+  </ion-item>
+
+  <p id="row17" class="subtitle">Equipment</p>
+  <ion-item id="row18">
+    <ion-input [(ngModel)]="equipment" (keyup.enter)="logEquipment()" required type="text"></ion-input>
+  </ion-item>
+
+  <p id="row19" class="subtitle">Materials</p>
+  <ion-item id="row20">
+    <ion-input [(ngModel)]="materials" (keyup.enter)="logMaterials()" required type="text"></ion-input>
+  </ion-item>
+
+  <p id="row21" class="subtitle">Comments</p>
+  <ion-item lines="none" id="row22">
+    <ion-item lines="none" class="reply">
+      <ion-avatar class="replyuserPic">
+        <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200">
+      </ion-avatar>
+    <div>
+      <p class="replyTime"></p>
+      <h5 class="replyPostName">John Doe</h5>
+      </div>
+    <div>
+      <p class="replyPostBody"></p>
+    </div>
+      </ion-item>
+  </ion-item>
+  <ion-item lines="none" id="row23">
+    <ion-item lines="none" class="reply">
+      <ion-avatar class="replyuserPic">
+        <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200">
+      </ion-avatar>
+    <div>
+      <p class="replyTime"></p>
+      <h5 class="replyPostName">John Doe</h5>
+      </div>
+    <div>
+      <p class="replyPostBody"></p>
+    </div>
+      </ion-item>
+  </ion-item>
+
+  <ion-item id="row24">
+    <ion-label>Task Form</ion-label>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only">
+        <ion-icon name="arrow-down"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+ 
+  <ion-item id="row25">
+    <ion-label>Cost Account Report</ion-label>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only">
+        <ion-icon name="arrow-down"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+
 </ion-content>

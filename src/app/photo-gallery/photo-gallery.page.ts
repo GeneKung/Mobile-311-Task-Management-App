@@ -4,7 +4,7 @@ import { ActionSheetController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import * as moment from 'moment';
-
+import { Router } from '@angular/router';
 @Injectable()
 @Component({
   selector: 'app-photo-gallery',
@@ -18,6 +18,7 @@ export class PhotoGalleryPage implements OnInit {
   post = {};
   commentID = 400;
   public materials: string;
+  router: any;
   constructor(public photoService: PhotoService, public actionSheetController: ActionSheetController, public storage: Storage, public activateRoute: ActivatedRoute) {}
 
   ngOnInit() {
@@ -81,4 +82,8 @@ export class PhotoGalleryPage implements OnInit {
     this.storage.remove('commentID');
     this.displayPosts.splice(post, 1);
   }
+
+  goBack(){
+  }
+  
 }
