@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 
 
-
+@Injectable()
 @Component({
   selector: 'app-view-task',
   templateUrl: './view-task.page.html',
@@ -21,21 +21,25 @@ export class ViewTaskPage implements OnInit {
   address;
   priority;
   assetID;
-
-  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, public storage: Storage) { }
+  name;
+  constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, public storage: Storage,
+    ) { 
+    }
 
 
   ngOnInit() {
     this.viewtask = this.activatedRoute.snapshot.paramMap.get('id');
-    this.category = JSON.stringify(this.object['category']);
   }
   goTask(){
     this.router.navigate(['tasks']) 
   }
-
-  collectData(card){
-    this.object = card
+  button(){
+    this.name = "bye";
+    console.log(this.name);
+    return this.name;
   }
-
-
+  collectData(card){
+    this.object = card;
+    this.name = JSON.stringify(this.object.listInfo['category']);
+  }
 }

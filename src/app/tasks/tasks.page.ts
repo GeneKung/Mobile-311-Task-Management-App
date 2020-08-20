@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Injectable } from '@angular/core';
+import { Component, OnInit, OnDestroy, Injectable, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {  MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -17,7 +17,6 @@ import * as moment from 'moment';
 import 'leaflet-control-geocoder';
 import { ViewTaskPage } from '../view-task/view-task.page';
 
-@Injectable()
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.page.html',
@@ -41,16 +40,20 @@ export class TasksPage implements OnInit {
   photoArr = [];
   cardID = 500;
   cardInfo = {};
+  anotherCard = {};
+  anotherCards = [];
   cards = [];
   public tasks: string;
   map: Map;
   marker: any;
   latLong = [];
+  showCard: boolean = true;
   selectTabs = 'listView';
   constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation,
     public commentPage: CommentsPage, public employeesPage: EmployeesPage,
     public materialsPage: MaterialsPage, public equipmentPage: EquipmentPage,
-    public photoGalleryPage: PhotoGalleryPage, public viewTaskPage: ViewTaskPage, public storage: Storage) { }
+    public photoGalleryPage: PhotoGalleryPage, public viewTaskPage: ViewTaskPage, public storage: Storage, public ref: ChangeDetectorRef,
+    ) { }
 
   ngOnInit() {
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
@@ -167,7 +170,9 @@ export class TasksPage implements OnInit {
     this.router.navigate(['createtask'])
   }
   toViewtask(card){
-    this.router.navigate(['view-task'])
+    this.router.navigate(['view-task']);
+    this.viewTaskPage.collectData(card);
+    card['totalComments'] = '5';
   }
   
   showMap() {
@@ -200,7 +205,6 @@ export class TasksPage implements OnInit {
       }).addTo(mymap);
       var marker;
 
-    
     
     var greenIcon = L.icon({
       iconUrl: '../assets/icon/marker-icon-green.png',
@@ -235,9 +239,11 @@ export class TasksPage implements OnInit {
     L.marker([37.7021, -122.114], {icon: orangeIcon}).addTo(mymap);
     L.marker([37.68151092529297, -122.13874053955078], {icon: blueIcon}).addTo(mymap);
     L.marker([37.704158782958984,-122.14347839355469], {icon: blueIcon}).addTo(mymap);
-    L.marker([37.40696334838867,-121.98856353759766], {icon: blueIcon}).addTo(mymap);
+    L.marker([37.68151092529297, -122.13874053955078], {icon: blueIcon}).addTo(mymap).on('click', function(){
+      
+    });
   }
-
+  
   getPositions(){
     this.geolocation.getCurrentPosition({
       enableHighAccuracy: true

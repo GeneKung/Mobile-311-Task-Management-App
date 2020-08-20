@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ViewTaskPageRoutingModule } from './view-task-routing.module';
 
 import { ViewTaskPage } from '../view-task/view-task.page';
+import { TasksPage } from '../tasks/tasks.page';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { ViewTaskPage } from '../view-task/view-task.page';
     IonicModule,
     ViewTaskPageRoutingModule
   ],
-  declarations: [ViewTaskPage]
+  declarations: [ViewTaskPage],
+  providers: [TasksPage]
 })
 export class ViewTaskPageModule {}

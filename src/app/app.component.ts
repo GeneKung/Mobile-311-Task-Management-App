@@ -196,6 +196,36 @@ export class AppComponent implements OnInit {
           this.alertCtrl.dismiss();
           this.setMaterial(commandData.material);
         }
+
+        if(commandData.command === 'readNextCategory'){
+          this.TasksPage.storage.get(`${501}`).then( (val) =>{
+            console.log(val);
+            val = JSON.parse(val);
+            console.log(val.listInfo);
+            this.alanBtnComponent.nativeElement.setVisualState({category: val.listInfo['category']});
+          });
+        }
+
+        if(commandData.command === 'readNextDescription'){
+          this.TasksPage.storage.get(`${501}`).then( (val) =>{
+            console.log(val);
+            val = JSON.parse(val);
+            console.log(val['totalComments']);
+            this.alanBtnComponent.nativeElement.setVisualState({totalComments: val['totalComments'], description: val.listInfo['description']});
+          });
+        }
+        
+        if(commandData.command === 'readComments'){
+          this.TasksPage.storage.get(`${501}`).then( (val) =>{
+            console.log(val);
+            val = JSON.parse(val);
+            console.log(JSON.stringify(val.comment['body']));
+            console.log(JSON.stringify(val.comment[0]['body']));
+            console.log(JSON.stringify(val.comment));
+            console.log(JSON.stringify(val.comment['name']));
+            this.alanBtnComponent.nativeElement.setVisualState({totalComments: val['totalComments'], description: val.listInfo['description']});
+          });
+        }
     });
 }
 
