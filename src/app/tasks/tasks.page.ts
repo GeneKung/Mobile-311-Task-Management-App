@@ -157,10 +157,8 @@ export class TasksPage implements OnInit {
   goCreateTask(){
     this.router.navigate(['createtask'])
   }
-  toViewtask(card){
+  toViewtask(){
     this.router.navigate(['view-task']);
-    this.viewTaskPage.collectData(card);
-    card['totalComments'] = '5';
   }
   
   showMap() {
