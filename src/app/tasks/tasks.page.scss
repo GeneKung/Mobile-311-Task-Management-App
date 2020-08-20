@@ -137,6 +137,7 @@ ion-card-header {
 #card{
     height: 174px;
     width: 342px;
+    text-transform:capitalize;
 }
 #category{
     top:-15px;
@@ -151,4 +152,17 @@ ion-card-header {
     align-items: center;
     /* ionic/ black */
     color: #000000;
+}
+
+#mapcard {
+    height: 174px;
+    width: 342px;
+    position: absolute;
+    top: 310px;
+    z-index: 10;
+}
+
+
+#mapid {
+    z-index: 0;
 }

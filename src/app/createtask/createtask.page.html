@@ -12,7 +12,7 @@
 <ion-content>
   <p class="subtitle">Status</p>
   <ion-item lines="none" id="row1">
-    <ion-label><ion-button color="secondary">New Request</ion-button></ion-label>
+    <ion-label><ion-button color="secondary" (click)="changeCategory()">New Request</ion-button></ion-label>
     <ion-buttons slot="end">
       <ion-button slot="icon-only" (click)="goRequest()">
         <ion-icon name="arrow-down"></ion-icon>
@@ -152,7 +152,7 @@
  
   <p class="subtitle" id="row10">Location/Address</p>
   <ion-item id="row11">
-    <ion-input [(ngModel)]="getAddress" (keyup.enter)="logAddress()" required type="text" id = "address"> {{ address }} </ion-input>
+    <ion-input [(ngModel)]="getAddress" (keyup.enter)="logAddress()" required type="text" id = "address"> {{ getAddress }} </ion-input>
     <ion-buttons slot="end">
       <ion-button slot="icon-only">
         <ion-icon name="pin"></ion-icon>

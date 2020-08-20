@@ -24,7 +24,7 @@
       <ion-segment-button value="listView">
         <ion-label>List</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="mapView" (click)="showMap(); getPositions()">
+      <ion-segment-button value="mapView" (click)="showMap(); getPositions();">
         <ion-label>Map</ion-label>
       </ion-segment-button>
     </ion-segment>
@@ -33,13 +33,15 @@
       <div *ngFor="let card of cards;let index = index;">
         <ion-card id="card">
           <ion-card-header [ngStyle]="{'background-color':card.listInfo.category === 'Asphalt Repair/Pothole' ? '#FFA949' :card.listInfo.category === 'Other Assistance-Roads' ? '#FFA949':card.listInfo.category === 'Sidewalk Grind|Patch' ? '#744545':card.listInfo.category === 'Sidewalk Grind (Only)' ? '#744545': card.listInfo.category === 'Sidewalk AC Patch (Only)' ? '#744545': card.listInfo.category ==='Sidewalks-Other' ? '#744545': card.listInfo.category ==='Sidewalk Inspection' ? '#FFA949': card.listInfo.category ==='Asphalt/Concrete Repair-Marina' ? '#1BBE35': card.listInfo.category ==='Asphalt/Concrete Repair-Park'? '#1BBE35': card.listInfo.category ==='Storm Drain Tops'? '#408595':card }" id="cardHeader">
-            <ion-item (click)="toViewtask(card)" id="cardItem" style="margin-left:-17px" lines="none">
+            <ion-item id="cardItem" style="margin-left:-17px" lines="none">
               <ion-card-subtitle style="margin-right:10px" id="subTitle1">{{card.listInfo.assetID}} </ion-card-subtitle>
               <ion-card-subtitle style="margin-right:10px" id="subTitle1">{{ card.time }}</ion-card-subtitle>
-              <ion-card-subtitle id="subTitle1">Priority{{ card.listInfo.priority }}</ion-card-subtitle>
+              <ion-card-subtitle id="subTitle1">Priority {{ card.listInfo.priority }}</ion-card-subtitle>
             </ion-item>
             <ion-card-subtitle id="category">{{ card.listInfo.category }}</ion-card-subtitle>
             <ion-card-subtitle id="subTitle2">{{ card.listInfo.address }}</ion-card-subtitle>
+           <span><ion-icon id="subIcon" color="primary" name="chatbox"></ion-icon>
+            <h5>{{ card.numComments }}</h5></span>
           </ion-card-header>
         </ion-card>
         </div>
@@ -47,6 +49,19 @@
 
     <div *ngIf="selectTabs == 'mapView'">
       <div id="mapid" style="height: 472px"></div>
+        <ion-card id="mapcard" *ngIf="showCard|async">
+          <ion-card-header [ngStyle]="{'background-color':card.listInfo.category === 'Asphalt Repair/Pothole' ? '#FFA949' :card.listInfo.category === 'Other Assistance-Roads' ? '#FFA949':card.listInfo.category === 'Sidewalk Grind|Patch' ? '#744545':card.listInfo.category === 'Sidewalk Grind (Only)' ? '#744545': card.listInfo.category === 'Sidewalk AC Patch (Only)' ? '#744545': card.listInfo.category ==='Sidewalks-Other' ? '#744545': card.listInfo.category ==='Sidewalk Inspection' ? '#FFA949': card.listInfo.category ==='Asphalt/Concrete Repair-Marina' ? '#1BBE35': card.listInfo.category ==='Asphalt/Concrete Repair-Park'? '#1BBE35': card.listInfo.category ==='Storm Drain Tops'? '#408595':card }" id="cardHeader">
+            <ion-item id="cardItem" style="margin-left:-17px" lines="none">
+              <ion-card-subtitle style="margin-right:10px" id="subTitle1"> Hi </ion-card-subtitle>
+              <ion-card-subtitle style="margin-right:10px" id="subTitle1">Hi</ion-card-subtitle>
+              <ion-card-subtitle id="subTitle1">Priority</ion-card-subtitle>
+            </ion-item>
+            <ion-card-subtitle id="category">Hi</ion-card-subtitle>
+            <ion-card-subtitle id="subTitle2">Hi</ion-card-subtitle>
+           <span><ion-icon id="subIcon" color="primary" name="chatbox"></ion-icon>
+            <h5>Hi</h5></span>
+          </ion-card-header>
+        </ion-card>
     </div>
     
   </ion-toolbar>

@@ -29,7 +29,6 @@ export class CommentsPage implements OnInit {
   constructor(private activateRoute: ActivatedRoute, private router: Router, public storage: Storage) { }
 
   ngOnInit() {
-    
     this.materials = this.activateRoute.snapshot.paramMap.get('id');
     this.updateScroll();
     this.storage.get('postID').then( (val) =>{

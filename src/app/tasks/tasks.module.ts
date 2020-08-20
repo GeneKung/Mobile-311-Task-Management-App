@@ -13,7 +13,6 @@ import { EmployeesPage } from '../employees/employees.page';
 import { MaterialsPage } from '../materials/materials.page';
 import { EquipmentPage } from '../equipment/equipment.page';
 import { PhotoGalleryPage } from '../photo-gallery/photo-gallery.page';
-import { ViewTaskPage } from '../view-task/view-task.page';
 @NgModule({
   imports: [
     CommonModule,
@@ -29,7 +28,6 @@ import { ViewTaskPage } from '../view-task/view-task.page';
     MaterialsPage,
     EquipmentPage,
     PhotoGalleryPage,
-    ViewTaskPage
   ]
 })
 export class TasksPageModule {}
