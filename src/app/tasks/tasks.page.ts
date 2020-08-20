@@ -47,11 +47,15 @@ export class TasksPage implements OnInit {
   marker: any;
   latLong = [];
   selectTabs = 'listView';
+<<<<<<< HEAD
   showCard: boolean
+=======
   options : NativeGeocoderOptions = {
     useLocale: true,
     maxResults: 5
   };
+  showCard: boolean = false;
+>>>>>>> parent of 134108d... Merge branch 'master' of https://github.com/GeneKung/Mobile-311-Task-Management-App
   
   constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation,
     public commentPage: CommentsPage, public employeesPage: EmployeesPage,
