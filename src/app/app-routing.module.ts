@@ -66,7 +66,8 @@ const routes: Routes = [
   {
     path: 'comments',
     loadChildren: () => import('./comments/comments.module').then( m => m.CommentsPageModule)
-  },  {
+  },
+  {
     path: 'photo-gallery',
     loadChildren: () => import('./photo-gallery/photo-gallery.module').then( m => m.PhotoGalleryPageModule)
   },
@@ -74,11 +75,6 @@ const routes: Routes = [
     path: 'view-task',
     loadChildren: () => import('./view-task/view-task.module').then( m => m.ViewTaskPageModule)
   },
-  {
-    path: 'view-task',
-    loadChildren: () => import('./view-task/view-task.module').then( m => m.ViewTaskPageModule)
-  },
-
 
 
 

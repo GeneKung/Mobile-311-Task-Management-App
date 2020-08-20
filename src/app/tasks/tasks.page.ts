@@ -15,7 +15,7 @@ import { Storage } from '@ionic/storage';
 import * as L from 'leaflet';
 import * as moment from 'moment';
 import 'leaflet-control-geocoder';
-import { ViewTaskPage } from '../view-task/view-task.page';
+import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 
 @Component({
   selector: 'app-tasks',
@@ -49,6 +49,7 @@ export class TasksPage implements OnInit {
   latLong = [];
   showCard: boolean = true;
   selectTabs = 'listView';
+  
   constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation,
     public commentPage: CommentsPage, public employeesPage: EmployeesPage,
     public materialsPage: MaterialsPage, public equipmentPage: EquipmentPage,
@@ -59,8 +60,8 @@ export class TasksPage implements OnInit {
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
     this.storage.get('cardID').then( (val) =>{
       console.log(val);
-    for(let id = 502; id < val; id+=2){
-      this.storage.get(`${id-1}`).then( (val) =>{
+    for(let id = 500; id < val; id++){
+      this.storage.get(`${id}`).then( (val) =>{
         this.cards.push(JSON.parse(val));
         console.log(this.cards);
         this.workGroup = JSON.stringify(this.cards['workGroup']);
@@ -69,29 +70,22 @@ export class TasksPage implements OnInit {
         this.date = JSON.stringify(this.cards['time']);
         this.assetID = JSON.stringify(this.cards['assetID']);
         this.category = JSON.stringify(this.cards['category']);
-        this.numComments = JSON.stringify(this.cards['totalComments']);
+        this.numComments = JSON.stringify(this.cards[id%100]['comment'].length);
       });
     }
   });
   }
+
   createCard(listInfo){
     this.commentPage.storage.get('postID').then( (val) =>{
       for(let i = 1; i < val; i++){
       this.commentPage.storage.get(`${i}`).then( (val) =>{
         this.commentArr.push(val);
+        console.log(val);
       });
     }
           });
-          var count = 0;
-      for (var k in this.commentArr) {
-        if (this.commentArr.hasOwnProperty(k)) {
-          count++;
-        }
-      }
       this.cardInfo['comment'] = this.commentArr;
-      this.cardInfo['totalComments'] = count;
-      console.log(count);
-      console.log(this.cardInfo['totalComments']);
 
       this.employeesPage.storage.get('data').then( (val) =>{
       for(let i = 100; i < val; i++){
@@ -134,12 +128,6 @@ export class TasksPage implements OnInit {
         console.log(this.cardInfo);
         this.saveCard(this.cardInfo);
         this.cards.push(this.cardInfo);
-        console.log(this.cards);
-        this.commentArr = [];
-        this.employeeArr = [];
-        this.equipArr = [];
-        this.materialArr = [];
-        this.photoArr = [];
     }
 
     saveCard(cardInfo){
@@ -176,6 +164,7 @@ export class TasksPage implements OnInit {
   }
   
   showMap() {
+    var markersList= [];
     var mymap = L.map('mapid').setView([37.702, -122.11], 13);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -237,7 +226,9 @@ export class TasksPage implements OnInit {
     L.marker([37.705318450927734, -122.12457275390625], {icon: greenIcon}).addTo(mymap);
     L.marker([37.701895,-122.129308], {icon: brownIcon}).addTo(mymap);
     L.marker([37.7021, -122.114], {icon: orangeIcon}).addTo(mymap);
-    L.marker([37.68151092529297, -122.13874053955078], {icon: blueIcon}).addTo(mymap);
+    L.marker([37.68151092529297, -122.13874053955078], {icon: blueIcon}).addTo(mymap).on('click', function() {
+      this.showCard = true;
+  });;
     L.marker([37.704158782958984,-122.14347839355469], {icon: blueIcon}).addTo(mymap);
     L.marker([37.68151092529297, -122.13874053955078], {icon: blueIcon}).addTo(mymap).on('click', function(){
       
@@ -270,6 +261,6 @@ export class TasksPage implements OnInit {
     }
   
     console.log(this.selectTabs);
-    return this.selectTabs;
   }
+
 }

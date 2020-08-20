@@ -27,15 +27,13 @@ export class CreatetaskPage implements OnInit {
   getWorkType
   assetID;
   getDepartment;
-  getAddress;
+  getAddress
   getPriority;
   getDescription;
   listInfo = {};
   listInfoID = 1;
   displayPosts = {}
   allPosts = [];
-
-
 
   constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router,  public storage: Storage, public photoService: PhotoService, public employeesPage: EmployeesPage, public materialsPage: MaterialsPage, public equipmentPage: EquipmentPage,
     public tasksPage: TasksPage) { 
@@ -68,8 +66,7 @@ export class CreatetaskPage implements OnInit {
     this.listInfo['priority'] = this.getPriority;
     this.listInfo['description'] = this.getDescription;
     this.tasksPage.createCard(this.listInfo);
-    window.setTimeout(() => this.goTask(), 400);
-
+    this.goTask();
   }
 
   ngOnInit() {
@@ -130,7 +127,5 @@ export class CreatetaskPage implements OnInit {
   goGallery(){
     this.router.navigate(['photo-gallery'])
   }
-
-
 }
 

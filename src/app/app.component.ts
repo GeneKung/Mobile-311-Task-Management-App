@@ -9,6 +9,8 @@ import { CreatetaskPage} from "./createtask/createtask.page";
 import { SettingsPage } from "./settings/settings.page";
 import { MaterialsPage } from "./materials/materials.page"
 import { AlertController } from '@ionic/angular';
+import { CommentsPage } from './comments/comments.page'
+import * as moment from 'moment';
 import { ViewTaskPage } from './view-task/view-task.page';
 @Injectable()
 @Component({
@@ -31,7 +33,8 @@ export class AppComponent implements OnInit {
     public SettingsPage: SettingsPage,
     public materialsPage: MaterialsPage,
     public alertCtrl: AlertController,
-    public viewTaskPage: ViewTaskPage
+    public viewTaskPage: ViewTaskPage,
+    public CommentsPage: CommentsPage
   ) {
     this.initializeApp();
   }
@@ -60,13 +63,13 @@ export class AppComponent implements OnInit {
   }
 
   setAddress(deliveryAddress) {
-    this.CreatetaskPage.address = deliveryAddress;
-    document.getElementById("address").innerHTML = this.CreatetaskPage.address;
+    this.CreatetaskPage.getAddress = deliveryAddress;
+    document.getElementById("address").innerHTML = this.CreatetaskPage.getAddress;
   }
 
   setAssetID(AssetIDs) {
-    this.CreatetaskPage.AssetID = AssetIDs;
-    document.getElementById("AssetID").innerHTML = this.CreatetaskPage.AssetID;
+    this.CreatetaskPage.assetID = AssetIDs;
+    document.getElementById("AssetID").innerHTML = this.CreatetaskPage.assetID;
   }
 
   setDescription(Descriptions) {
@@ -76,6 +79,13 @@ export class AppComponent implements OnInit {
   setMaterial(Material) {
     this.materialsPage.getMaterial = Material;
     document.getElementById("material").innerHTML = this.materialsPage.getMaterial;
+  }
+  setCategory(category) {
+    this.CreatetaskPage.getCategory = category;
+  }
+  addComment(comment) {
+    this.CommentsPage.comment = comment;
+    document.getElementById("comment").innerHTML = this.CommentsPage.comment
   }
   ngAfterViewInit() {
     this.alanBtnComponent.nativeElement.addEventListener('command', (data) => {
@@ -170,11 +180,13 @@ export class AppComponent implements OnInit {
         }
         if (commandData.command === "address") {
           this.setAddress(commandData.address);
-          console.log(this.CreatetaskPage.address);
-          return this.CreatetaskPage.address;
+          console.log(this.CreatetaskPage.getAddress);
+          return this.CreatetaskPage.listInfo;
         }
         if (commandData.command === "AssetID") {
           this.setAssetID(commandData.AssetID);
+          console.log(this.CreatetaskPage.assetID)
+          return this.CreatetaskPage.listInfo;
         }
         if (commandData.command === "Description") {
           this.setDescription(commandData.Description);
