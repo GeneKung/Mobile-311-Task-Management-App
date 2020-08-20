@@ -16,7 +16,7 @@ import * as L from 'leaflet';
 import * as moment from 'moment';
 import 'leaflet-control-geocoder';
 import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
-
+import { ViewTaskPage } from '../view-task/view-task.page';
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.page.html',
@@ -157,9 +157,8 @@ export class TasksPage implements OnInit {
   goCreateTask(){
     this.router.navigate(['createtask'])
   }
-  toViewtask(card){
+  toViewtask(){
     this.router.navigate(['view-task']);
-    card['totalComments'] = '5';
   }
   
   showMap() {
