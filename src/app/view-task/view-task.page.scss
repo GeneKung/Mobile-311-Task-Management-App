@@ -1,4 +1,142 @@
-#closePage {
-    width:35px;
+p.subtitle{
+    position: absolute;
+    width: 344px;
+    height: 22px;
+    left: 16px;
+    top: 10px;
+    /* ionic/ button/ small */
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    /* ionic / medium */
+    color: #7D849F;
+}
+#camera {
+    width:300px;
+    height:75px;
+    align-items:center;
+}
+#gallery {
+    width:300px;
+    height:75px;
+    align-items:center
+}
+#iconLarge {
     height:35px;
+    width:35px;
+}
+
+
+
+
+
+#row1 {
+    position:relative;
+    top:40px;
+}
+#row2 {
+    position:relative;
+    top:30px;
+}
+#row3 {
+    position:relative;
+    top:15px;
+}
+#row4 {
+    position:relative;
+    top:10px;
+}
+#row5 {
+    position:relative;
+    top:0px;
+}
+#row6 {
+    position:relative;
+    top:0px;
+}
+#row7 {
+    position:relative;
+    top:-10px;
+}
+#row8{
+    position:relative;
+    top:-10px;
+}
+#row9{
+    position:relative;
+    top:-15px;
+}
+#row10{
+    position:relative;
+    top:-10px;
+}
+#row11{
+    position:relative;
+    top:-15px;
+}
+#row12{
+    position:relative;
+    top:-15px;
+}
+#row13{
+    position:relative;
+    top:-15px;
+}
+#row14{
+    position:relative;
+    top:-15px;
+}
+#row15{
+    position:relative;
+    top:-15px;
+}
+#row15{
+    position:relative;
+    top:-15px;
+}
+#row16{
+    position:relative;
+    top:-15px;
+}
+#row17{
+    position:relative;
+    top:-15px;
+}
+#row18{
+    position:relative;
+    top:-15px;
+}
+#row19{
+    position:relative;
+    top:-15px;
+}
+#row20{
+    position:relative;
+    top:-15px;
+}
+#row21{
+    position:relative;
+    top:-15px;
+}
+#row22{
+    position:relative;
+    top:-15px;
+}
+#row23{
+    position:relative;
+    top:0px;
+}
+#row24{
+    position:relative;
+    top:10px;
+}
+#row25{
+    position:relative;
+    top:10px;
 }
