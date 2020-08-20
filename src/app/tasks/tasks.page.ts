@@ -57,6 +57,7 @@ export class TasksPage implements OnInit {
     ) { }
 
   ngOnInit() {
+    
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
     this.storage.get('cardID').then( (val) =>{
       console.log(val);

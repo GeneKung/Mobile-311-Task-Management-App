@@ -209,6 +209,103 @@ export class AppComponent implements OnInit {
           this.setMaterial(commandData.material);
         }
 
+        if (commandData.command === 'quantity') {
+          this.materialsPage.quantity = commandData.quantity;
+          document.getElementById("quantity").innerHTML = this.materialsPage.quantity;
+          console.log(this.materialsPage.quantity);
+        }
+        if (commandData.command === 'saveMat') {
+          this.materialsPage.inputData();
+          document.getElementById("unit").innerHTML = this.materialsPage.typeOfQuantity;
+          document.getElementById("quantity").innerHTML = this.materialsPage.quantity;
+          document.getElementById("material").innerHTML = this.materialsPage.getMaterial;
+        }
+        if (commandData.command === 'category') {
+          this.setCategory(commandData.category);
+          console.log(this.CreatetaskPage.getCategory);
+        }
+
+        if (commandData.command === 'Department') {
+          this.CreatetaskPage.getDepartment = commandData.Department;
+          console.log(this.CreatetaskPage.getDepartment)
+        }
+        if (commandData.command === 'Workgroup') {
+          this.CreatetaskPage.getWorkGroup = commandData.workgroup;
+          console.log(this.CreatetaskPage.getWorkGroup)
+        }
+        if (commandData.command === 'workType'){
+          this.CreatetaskPage.getWorkType = commandData.worktypes;
+          console.log(this.CreatetaskPage.getWorkType);
+        }
+        if (commandData.command === 'Priority'){
+          this.CreatetaskPage.getPriority = commandData.Priority;
+          console.log(this.CreatetaskPage.getPriority);
+        }
+        if (commandData.command === 'Description') {
+          this.CreatetaskPage.getDescription = commandData.Description;
+          console.log(this.CreatetaskPage.getDescription);
+        }
+        if (commandData.command === 'save') {
+          this.CreatetaskPage.listInfo['category'] = this.CreatetaskPage.getCategory;
+          this.CreatetaskPage.listInfo['workGroup'] = this.CreatetaskPage.getWorkGroup;
+          this.CreatetaskPage.listInfo['workType'] = this.CreatetaskPage.getWorkType;
+          this.CreatetaskPage.listInfo['assetID'] = this.CreatetaskPage.assetID;
+          this.CreatetaskPage.listInfo['department'] = this.CreatetaskPage.getDepartment;
+          this.CreatetaskPage.listInfo['address'] = this.CreatetaskPage.getAddress;
+          this.CreatetaskPage.listInfo['priority'] = this.CreatetaskPage.getPriority;
+          this.CreatetaskPage.listInfo['description'] = this.CreatetaskPage.getDescription;
+          this.TasksPage.createCard(this.CreatetaskPage.listInfo);
+          this.CreatetaskPage.goTask();
+        }
+
+        //Comment Section
+        if (commandData.command === 'commentsPage'){
+          this.router.navigate(['comments']);
+        }
+        if (commandData.command === 'addComment'){
+          this.addComment(commandData.comment);
+          console.log(this.CommentsPage.comment)
+        }
+
+        if (commandData.command === 'send'){
+          this.CommentsPage.post['name'] = "John Doe";
+          this.CommentsPage.post['time'] = this.CommentsPage.TwelveHourFormat(moment().format('HH:mm'));
+          this.CommentsPage.post['body'] = this.CommentsPage.comment;
+          this.CommentsPage.post['id'] = this.CommentsPage.postID;
+          this.CommentsPage.numComments = this.CommentsPage.numComments += 1;
+          this.CommentsPage.post['numComments'] = this.CommentsPage.numComments;
+          this.CommentsPage.post['replies'] = [];
+          console.log(this.CommentsPage.post);
+          console.log(this.CommentsPage.numComments)
+          this.CommentsPage.storePost(this.CommentsPage.post);
+          this.CommentsPage.comment = null;
+          this.CommentsPage.post = {};
+        }
+        
+        if (commandData.command === 'reply'){
+          var post = {name: 'John Doe'};
+          this.CommentsPage.reply(post);
+          this.CommentsPage.comment = commandData.reply;
+          console.log(this.CommentsPage.comment)
+          let index = this.CommentsPage.displayPosts.indexOf(this.CommentsPage.response);
+          console.log(index);
+          this.CommentsPage.replyPost['name'] = "John Doe";
+          this.CommentsPage.replyPost['time'] = this.CommentsPage.TwelveHourFormat(moment().format('HH:mm'));
+          this.CommentsPage.replyPost['body'] = this.CommentsPage.comment;
+          console.log(this.CommentsPage.displayPosts[index].replies);
+          this.CommentsPage.displayPosts[index].replies.push(this.CommentsPage.replyPost);
+          this.CommentsPage.storeReply();
+          this.CommentsPage.comment = null;
+          this.CommentsPage.replyPost = {};
+          this.CommentsPage.msg = '';
+          this.CommentsPage.placeholder = 'Add Comment';
+        }
+
+        if (commandData.command === 'cardTask'){
+          this.TasksPage.showCard = true;
+          console.log(this.TasksPage.showCard);
+        }
+
         if(commandData.command === 'readNextCategory'){
           this.TasksPage.storage.get(`${501}`).then( (val) =>{
             console.log(val);
