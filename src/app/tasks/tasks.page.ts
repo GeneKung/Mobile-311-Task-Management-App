@@ -16,7 +16,7 @@ import * as L from 'leaflet';
 import * as moment from 'moment';
 import 'leaflet-control-geocoder';
 import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
-
+import { ViewTaskPage } from '../view-task/view-task.page';
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.page.html',
