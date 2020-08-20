@@ -33,8 +33,12 @@ export class AppComponent implements OnInit {
     public SettingsPage: SettingsPage,
     public materialsPage: MaterialsPage,
     public alertCtrl: AlertController,
+<<<<<<< HEAD
     public viewTaskPage: ViewTaskPage,
     public CommentsPage: CommentsPage
+=======
+    public viewTaskPage: ViewTaskPage
+>>>>>>> parent of d7d75bb... View Task
   ) {
     this.initializeApp();
   }
@@ -60,11 +64,6 @@ export class AppComponent implements OnInit {
     this.router.navigate(['tasks'])
   }
     ngOnInit() {
-  }
-
-  setWorkGroup(workGroup){
-    this.CreatetaskPage.workgroup = workGroup;
-    this.CreatetaskPage.getWorkGroup = this.CreatetaskPage.workgroup;
   }
 
   setAddress(deliveryAddress) {
@@ -213,6 +212,7 @@ export class AppComponent implements OnInit {
           this.alertCtrl.dismiss();
           this.setMaterial(commandData.material);
         }
+<<<<<<< HEAD
 
         if (commandData.command === 'category') {
           this.setCategory(commandData.category);
@@ -299,6 +299,8 @@ export class AppComponent implements OnInit {
           this.TasksPage.showCard = true;
           console.log(this.TasksPage.showCard);
         }
+=======
+>>>>>>> parent of d7d75bb... View Task
     });
 }
 
