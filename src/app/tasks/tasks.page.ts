@@ -53,7 +53,7 @@ export class TasksPage implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation,
     public commentPage: CommentsPage, public employeesPage: EmployeesPage,
     public materialsPage: MaterialsPage, public equipmentPage: EquipmentPage,
-    public photoGalleryPage: PhotoGalleryPage, public viewTaskPage: ViewTaskPage, public storage: Storage, public ref: ChangeDetectorRef,
+    public photoGalleryPage: PhotoGalleryPage, public storage: Storage, public ref: ChangeDetectorRef,
     ) { }
 
   ngOnInit() {
@@ -159,7 +159,6 @@ export class TasksPage implements OnInit {
   }
   toViewtask(card){
     this.router.navigate(['view-task']);
-    this.viewTaskPage.collectData(card);
     card['totalComments'] = '5';
   }
   
