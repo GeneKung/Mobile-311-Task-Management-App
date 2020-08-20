@@ -1,22 +1,18 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 
-import { IonicModule } from '@ionic/angular';
-
-import { ViewTaskPageRoutingModule } from './view-task-routing.module';
-
-import { ViewTaskPage } from '../view-task/view-task.page';
 import { TasksPage } from '../tasks/tasks.page';
+import { ViewTaskPage } from './view-task.page';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: ViewTaskPage
+  }
+];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    ViewTaskPageRoutingModule
-  ],
-  declarations: [ViewTaskPage],
-  providers: [TasksPage]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
-export class ViewTaskPageModule {}
+export class ViewTaskPageRoutingModule {}
