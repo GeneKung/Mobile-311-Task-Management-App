@@ -1,11 +1,10 @@
-import { Component, OnInit, OnDestroy, Injectable } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {  MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import * as moment from 'moment';
 
-@Injectable()
 @Component({
   selector: 'app-view-task',
   templateUrl: './view-task.page.html',

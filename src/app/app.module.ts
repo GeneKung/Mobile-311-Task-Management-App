@@ -47,6 +47,7 @@ import { ViewTaskPage } from './view-task/view-task.page';
     CommentsPage,
     CreatetaskPage,
     TasksPage,
+    ViewTaskPage,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
