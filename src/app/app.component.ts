@@ -224,7 +224,6 @@ export class AppComponent implements OnInit {
           this.setCategory(commandData.category);
           console.log(this.CreatetaskPage.getCategory);
         }
-
         if (commandData.command === 'Department') {
           this.CreatetaskPage.getDepartment = commandData.Department;
           console.log(this.CreatetaskPage.getDepartment)
