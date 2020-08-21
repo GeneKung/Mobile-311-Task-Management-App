@@ -14,6 +14,7 @@ import * as moment from 'moment';
 import { EmployeesPage } from './employees/employees.page';
 import { EquipmentPage } from './equipment/equipment.page'
 import { ViewTaskPage } from './view-task/view-task.page';
+import { PhotoService } from './services/photo.service';
 @Injectable()
 @Component({
   selector: 'app-root',
@@ -39,6 +40,7 @@ export class AppComponent implements OnInit {
     public EquipmentPage: EquipmentPage,
     public EmployeesPage: EmployeesPage,
     public viewTaskPage: ViewTaskPage,
+    public photoService: PhotoService
   ) {
     this.initializeApp();
   }
@@ -96,7 +98,7 @@ export class AppComponent implements OnInit {
   ngAfterViewInit() {
     this.alanBtnComponent.nativeElement.addEventListener('command', (data) => {
         const commandData = (<CustomEvent>data).detail;
-
+        //Navigation
         if (commandData.command === 'searchTask'){
           if(this.router.url === '/logout'){
             this.alanBtnComponent.nativeElement.setVisualState({screen: "login"});
@@ -184,21 +186,19 @@ export class AppComponent implements OnInit {
         if(commandData.command === 'toggle'){
           this.SettingsPage.toggle();
         }
-        if (commandData.command === "address") {
-          this.setAddress(commandData.address);
-          console.log(this.CreatetaskPage.getAddress);
-          return this.CreatetaskPage.listInfo;
+        if (commandData.command === 'employeesPage'){
+          this.router.navigate(['employees']);
         }
-        if (commandData.command === "AssetID") {
-          this.setAssetID(commandData.AssetID);
-          console.log(this.CreatetaskPage.assetID)
-          return this.CreatetaskPage.listInfo;
+        if (commandData.command === 'materialPage'){
+          this.router.navigate(['material']);
         }
- 
-        if (commandData.command === 'photo'){
-          this.router.navigate(['photo-gallery']);
+        if (commandData.command === 'equipmentPage'){
+          this.router.navigate(['equipment']);
         }
-
+        if (commandData.command === 'view'){
+          this.router.navigate(['view-task']);
+        }
+        //Material
         if (commandData.command === 'mGroup'){
           this.materialsPage.alanMaterials(commandData.mGroup)
           console.log(commandData.mGroup)
@@ -206,7 +206,6 @@ export class AppComponent implements OnInit {
           console.log(this.materialsPage.getSelectedSubject)
           this.materialsPage.group();
         }
-
         if (commandData.command === 'material') {
           this.alertCtrl.dismiss();
           this.setMaterial(commandData.material);
@@ -223,6 +222,65 @@ export class AppComponent implements OnInit {
           document.getElementById("unit").innerHTML = this.materialsPage.typeOfQuantity;
           document.getElementById("quantity").innerHTML = this.materialsPage.quantity;
           document.getElementById("material").innerHTML = this.materialsPage.getMaterial;
+        }
+
+        //Equipment
+        if (commandData.command === 'ecrew') {
+          this.EquipmentPage.getByGroup = commandData.ecrew;
+          console.log(this.EquipmentPage.getByGroup);
+        }
+        if (commandData.command === 'equipment') {
+          this.EquipmentPage.getEquipment = commandData.equipment;
+          console.log(this.EquipmentPage.getEquipment);
+        }
+        if (commandData.command === 'ehours') {
+          this.EquipmentPage.hours = commandData.ehours;
+          console.log(this.EquipmentPage.hours);
+        }
+        if (commandData.command === 'saveEquip'){
+          
+        }
+        //Employee
+        if (commandData.command === 'crew'){
+          this.EmployeesPage.getSelectedSubject = commandData.crew
+          console.log(this.EmployeesPage.getSelectedSubject);
+        }
+        if (commandData.command === 'employees') {
+          this.EmployeesPage.getEmployee = commandData.employee;
+          console.log(this.EmployeesPage.getEmployee);
+        }
+        if (commandData.command === 'hours'){
+          this.EmployeesPage.hours = commandData.hours;
+          console.log(this.EmployeesPage.hours);
+        }
+        if (commandData.command === 'overtime'){
+          this.EmployeesPage.overtime = commandData.overtime;
+          console.log(this.EmployeesPage.overtime);
+        }
+        if (commandData.command === 'saveEmployee'){
+
+        }
+        //Photo Gallery
+        if (commandData.command === 'photo'){
+          this.router.navigate(['photo-gallery']);
+        }
+        if (commandData.command === 'camera'){
+          this.photoService.addNewToGallery();
+        }
+        if (commandData.command === 'photadd'){
+          this.photoService.addNewToGallerys();
+        }
+
+        //Create Task Page
+        if (commandData.command === "address") {
+          this.setAddress(commandData.address);
+          console.log(this.CreatetaskPage.getAddress);
+          return this.CreatetaskPage.listInfo;
+        }
+        if (commandData.command === "AssetID") {
+          this.setAssetID(commandData.AssetID);
+          console.log(this.CreatetaskPage.assetID)
+          return this.CreatetaskPage.listInfo;
         }
         if (commandData.command === 'category') {
           this.setCategory(commandData.category);
