@@ -47,19 +47,6 @@
         </div>
       </div>
 
-        <div *ngFor="let anotherCard of anotherCards;let index = index;">
-        <ion-card id="mapcard" *ngIf="showCard">
-          <ion-card-header [ngStyle]="{'background-color':anotherCard.listInfo.category === 'Asphalt Repair/Pothole' ? '#FFA949' :anotherCard.listInfo.category === 'Other Assistance-Roads' ? '#FFA949':anotherCard.listInfo.category === 'Sidewalk Grind|Patch' ? '#744545':anotherCard.listInfo.category === 'Sidewalk Grind (Only)' ? '#744545': anotherCard.listInfo.category === 'Sidewalk AC Patch (Only)' ? '#744545': anotherCard.listInfo.category ==='Sidewalks-Other' ? '#744545': anotherCard.listInfo.category ==='Sidewalk Inspection' ? '#FFA949': anotherCard.listInfo.category ==='Asphalt/Concrete Repair-Marina' ? '#1BBE35': anotherCard.listInfo.category ==='Asphalt/Concrete Repair-Park'? '#1BBE35': anotherCard.listInfo.category ==='Storm Drain Tops'? '#408595':anotherCard }" id="cardHeader">
-            <ion-card-subtitle style="margin-right:10px" id="subTitle1">{{anotherCard.listInfo.assetID}} </ion-card-subtitle>
-            <ion-card-subtitle style="margin-right:10px" id="subTitle1">{{ anotherCard.time }}</ion-card-subtitle>
-            <ion-card-subtitle id="subTitle1">Priority{{ anotherCard.listInfo.priority }}</ion-card-subtitle>
-            <ion-card-subtitle id="category">{{ anothercard.listInfo.category }}</ion-card-subtitle>
-            <ion-card-subtitle id="subTitle2">{{ anotherCard.listInfo.address }}</ion-card-subtitle>
-            <ion-icon name="chatbox-outline"></ion-icon><p>{{ anotherCard.totalComments }}</p>
-          </ion-card-header>
-        </ion-card>
-      </div>
-
     <div *ngIf="selectTabs == 'mapView'">
       <div id="mapid" style="height: 472px"></div>
         <ion-card id="mapcard" *ngIf="showCard|async">
