@@ -13,6 +13,7 @@ import { CommentsPage } from './comments/comments.page'
 import * as moment from 'moment';
 import { EmployeesPage } from './employees/employees.page';
 import { EquipmentPage } from './equipment/equipment.page'
+import { ViewTaskPage } from './view-task/view-task.page';
 @Injectable()
 @Component({
   selector: 'app-root',
@@ -37,6 +38,7 @@ export class AppComponent implements OnInit {
     public CommentsPage: CommentsPage,
     public EquipmentPage: EquipmentPage,
     public EmployeesPage: EmployeesPage,
+    public viewTaskPage: ViewTaskPage,
   ) {
     this.initializeApp();
   }
@@ -226,7 +228,6 @@ export class AppComponent implements OnInit {
           this.setCategory(commandData.category);
           console.log(this.CreatetaskPage.getCategory);
         }
-
         if (commandData.command === 'Department') {
           this.CreatetaskPage.getDepartment = commandData.Department;
           console.log(this.CreatetaskPage.getDepartment)
@@ -311,6 +312,31 @@ export class AppComponent implements OnInit {
         if (commandData.command === 'cardTask'){
           this.TasksPage.showCard = true;
           console.log(this.TasksPage.showCard);
+        }
+
+        if(commandData.command === 'readNextCategory'){
+          this.TasksPage.storage.get(`${501}`).then( (val) =>{
+            val = JSON.parse(val);
+            this.alanBtnComponent.nativeElement.setVisualState({category: val.listInfo['category']});
+          });
+        }
+
+        if(commandData.command === 'readNextDescription'){
+          this.TasksPage.storage.get(`${501}`).then( (val) =>{
+            val = JSON.parse(val);
+            this.alanBtnComponent.nativeElement.setVisualState({totalComments: val['totalComments'], description: val.listInfo['description']});
+          });
+        }
+        
+        if(commandData.command === 'readComments'){
+          this.TasksPage.storage.get(`${501}`).then( (val) =>{
+            console.log(val);
+            val = JSON.parse(val);
+            val.comment = JSON.parse(val.comment);
+            let name = val.comment.name;
+            let comment = val.comment.body;
+            this.alanBtnComponent.nativeElement.setVisualState({name: name, comment: comment});
+          });
         }
     });
 }

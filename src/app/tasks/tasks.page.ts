@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Injectable } from '@angular/core';
+import { Component, OnInit, OnDestroy, Injectable, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {  MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -16,8 +16,6 @@ import * as L from 'leaflet';
 import * as moment from 'moment';
 import 'leaflet-control-geocoder';
 import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
-
-@Injectable()
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.page.html',
@@ -41,23 +39,21 @@ export class TasksPage implements OnInit {
   photoArr = [];
   cardID = 500;
   cardInfo = {};
+  anotherCard = {};
+  anotherCards = [];
   cards = [];
   public tasks: string;
   map: Map;
   marker: any;
   latLong = [];
+  showCard: boolean = true;
   selectTabs = 'listView';
-  showCard: boolean
-  options : NativeGeocoderOptions = {
-    useLocale: true,
-    maxResults: 5
-  };
   
   constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router, private geolocation: Geolocation,
     public commentPage: CommentsPage, public employeesPage: EmployeesPage,
     public materialsPage: MaterialsPage, public equipmentPage: EquipmentPage,
-    public photoGalleryPage: PhotoGalleryPage, public storage: Storage, private nativeGeocoder: NativeGeocoder) { 
-    }
+    public photoGalleryPage: PhotoGalleryPage, public storage: Storage, public ref: ChangeDetectorRef,
+    ) { }
 
   ngOnInit() {
     this.tasks = this.activatedRoute.snapshot.paramMap.get('id');
@@ -160,11 +156,8 @@ export class TasksPage implements OnInit {
   goCreateTask(){
     this.router.navigate(['createtask'])
   }
-  showCards(){
-    this.showCard = true;
-    setTimeout(() => {
-      this.showCard = false;
-    }, 5000);
+  toViewtask(){
+    this.router.navigate(['view-task']);
   }
   
   showMap() {
@@ -179,16 +172,26 @@ export class TasksPage implements OnInit {
     accessToken: 'sk.eyJ1Ijoiam9obm55cGhhbTEyMzczIiwiYSI6ImNrZHNpczhiZjBpYjQyeHIxaHIwemp4OGUifQ.Vewhq2l_JEbLg90GBgw_VA'
     }).addTo(mymap);
     
-    var geocoder = L.Control.geocoder('San Leandro',{
-      defaultMarkGeocode: false,
-      setQuery:''
-    }).addTo(mymap);
-    geocoder.on('markgeocode', function(event) {
-      var center = event.geocode.center;
-      markersList.push(L.marker(center, {icon: greenIcon}).addTo(mymap))
-      mymap.setView(center, mymap.getZoom());
-      console.log(markersList);
-  });
+    var geocoder = L.Control.Geocoder.nominatim();
+      if (URLSearchParams && location.search) {
+        // parse /?geocoder=nominatim from URL
+        var params = new URLSearchParams(location.search);
+        var geocoderString = params.get('geocoder');
+        if (geocoderString && L.Control.Geocoder[geocoderString]) {
+          console.log('Using geocoder', geocoderString);
+          geocoder = L.Control.Geocoder[geocoderString]();
+        } else if (geocoderString) {
+          console.warn('Unsupported geocoder', geocoderString);
+        }
+      }
+
+      var control = L.Control.geocoder({
+        query: '',
+        geocoder: false,
+      }).addTo(mymap);
+      var marker;
+
+    
     var greenIcon = L.icon({
       iconUrl: '../assets/icon/marker-icon-green.png',
   
@@ -224,9 +227,11 @@ export class TasksPage implements OnInit {
       this.showCard = true;
   });;
     L.marker([37.704158782958984,-122.14347839355469], {icon: blueIcon}).addTo(mymap);
-    L.marker([37.40696334838867,-121.98856353759766], {icon: blueIcon}).addTo(mymap);
+    L.marker([37.68151092529297, -122.13874053955078], {icon: blueIcon}).addTo(mymap).on('click', function(){
+      
+    });
   }
-
+  
   getPositions(){
     this.geolocation.getCurrentPosition({
       enableHighAccuracy: true
