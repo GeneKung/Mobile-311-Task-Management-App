@@ -11,6 +11,8 @@ import { MaterialsPage } from "./materials/materials.page"
 import { AlertController } from '@ionic/angular';
 import { CommentsPage } from './comments/comments.page'
 import * as moment from 'moment';
+import { EmployeesPage } from './employees/employees.page';
+import { EquipmentPage } from './equipment/equipment.page'
 @Injectable()
 @Component({
   selector: 'app-root',
@@ -32,7 +34,9 @@ export class AppComponent implements OnInit {
     public SettingsPage: SettingsPage,
     public materialsPage: MaterialsPage,
     public alertCtrl: AlertController,
-    public CommentsPage: CommentsPage
+    public CommentsPage: CommentsPage,
+    public EquipmentPage: EquipmentPage,
+    public EmployeesPage: EmployeesPage,
   ) {
     this.initializeApp();
   }
@@ -80,6 +84,8 @@ export class AppComponent implements OnInit {
   }
   setCategory(category) {
     this.CreatetaskPage.getCategory = category;
+    console.log(category);
+    document.getElementById("cate").innerHTML = this.CreatetaskPage.getCategory;
   }
   addComment(comment) {
     this.CommentsPage.comment = comment;
@@ -186,10 +192,7 @@ export class AppComponent implements OnInit {
           console.log(this.CreatetaskPage.assetID)
           return this.CreatetaskPage.listInfo;
         }
-        if (commandData.command === "Description") {
-          this.setDescription(commandData.Description);
-        }
-        
+ 
         if (commandData.command === 'photo'){
           this.router.navigate(['photo-gallery']);
         }
@@ -205,8 +208,20 @@ export class AppComponent implements OnInit {
         if (commandData.command === 'material') {
           this.alertCtrl.dismiss();
           this.setMaterial(commandData.material);
+          document.getElementById("unit").innerHTML = this.materialsPage.typeOfQuantity;
+          console.log(this.materialsPage.typeOfQuantity);
         }
-
+        if (commandData.command === 'quantity') {
+          this.materialsPage.quantity = commandData.quantity;
+          document.getElementById("quantity").innerHTML = this.materialsPage.quantity;
+          console.log(this.materialsPage.quantity);
+        }
+        if (commandData.command === 'saveMat') {
+          this.materialsPage.inputData();
+          document.getElementById("unit").innerHTML = this.materialsPage.typeOfQuantity;
+          document.getElementById("quantity").innerHTML = this.materialsPage.quantity;
+          document.getElementById("material").innerHTML = this.materialsPage.getMaterial;
+        }
         if (commandData.command === 'category') {
           this.setCategory(commandData.category);
           console.log(this.CreatetaskPage.getCategory);
@@ -215,22 +230,27 @@ export class AppComponent implements OnInit {
         if (commandData.command === 'Department') {
           this.CreatetaskPage.getDepartment = commandData.Department;
           console.log(this.CreatetaskPage.getDepartment)
+          document.getElementById('department').innerHTML = this.CreatetaskPage.getDepartment;
         }
         if (commandData.command === 'Workgroup') {
           this.CreatetaskPage.getWorkGroup = commandData.workgroup;
           console.log(this.CreatetaskPage.getWorkGroup)
+          document.getElementById('wgroup').innerHTML = this.CreatetaskPage.getWorkGroup;
         }
         if (commandData.command === 'workType'){
           this.CreatetaskPage.getWorkType = commandData.worktypes;
           console.log(this.CreatetaskPage.getWorkType);
+          document.getElementById('wtype').innerHTML = this.CreatetaskPage.getWorkType;
         }
         if (commandData.command === 'Priority'){
           this.CreatetaskPage.getPriority = commandData.Priority;
           console.log(this.CreatetaskPage.getPriority);
+          document.getElementById('priority').innerHTML = this.CreatetaskPage.getPriority;
         }
         if (commandData.command === 'Description') {
           this.CreatetaskPage.getDescription = commandData.Description;
           console.log(this.CreatetaskPage.getDescription);
+          this.setDescription(commandData.Description);
         }
         if (commandData.command === 'save') {
           this.CreatetaskPage.listInfo['category'] = this.CreatetaskPage.getCategory;
