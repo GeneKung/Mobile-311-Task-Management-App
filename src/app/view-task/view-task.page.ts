@@ -44,6 +44,11 @@ export class ViewTaskPage implements OnInit {
   ngOnInit() {
     this.viewtask = this.activatedRoute.snapshot.paramMap.get('id');
   }
+
+  goGallery(){
+    this.router.navigate(['photo-gallery'])
+  }
+  
   goTask(){
     this.router.navigate(['tasks']) 
   }

@@ -58,7 +58,7 @@
 
   <p id="row15" class="subtitle">{{now}}</p>
   <ion-item lines="none" id="row16">
-    <ion-button id="camera" color="secondary">
+    <ion-button (click)="goGallery()" id="camera" color="secondary">
       <ion-icon  id="iconLarge" name="camera" slot="start"></ion-icon> Camera
     </ion-button>
     <ion-button id="gallery" color="secondary">
@@ -86,11 +86,13 @@
       <p class="replyTime"></p>
       <h5 class="replyPostName">John Doe</h5>
       </div>
-    <div>
-      <p class="replyPostBody"></p>
-    </div>
       </ion-item>
   </ion-item>
+
+  <ion-item id="comment1">
+    <p class="replyPostBody">Make sure to scout and mark area 24 hours before</p>
+  </ion-item>
+
   <ion-item lines="none" id="row23">
     <ion-item lines="none" class="reply">
       <ion-avatar class="replyuserPic">
@@ -100,10 +102,11 @@
       <p class="replyTime"></p>
       <h5 class="replyPostName">John Doe</h5>
       </div>
-    <div>
-      <p class="replyPostBody"></p>
-    </div>
       </ion-item>
+  </ion-item>
+
+  <ion-item id="comment2">
+    <p class="replyPostBody">You should mark the area ASAP, for car saftey</p>
   </ion-item>
 
   <ion-item id="row24">
@@ -123,4 +126,11 @@
       </ion-button>
     </ion-buttons>
   </ion-item>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 </ion-content>
