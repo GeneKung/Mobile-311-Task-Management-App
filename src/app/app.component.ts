@@ -89,7 +89,6 @@ export class AppComponent implements OnInit {
   setCategory(category) {
     this.CreatetaskPage.getCategory = category;
     console.log(category);
-    document.getElementById("cate").innerHTML = this.CreatetaskPage.getCategory;
   }
   addComment(comment) {
     this.CommentsPage.comment = comment;
@@ -198,6 +197,9 @@ export class AppComponent implements OnInit {
         if (commandData.command === 'view'){
           this.router.navigate(['view-task']);
         }
+        if (commandData.command === 'goBack') {
+          this.router.navigate(['createtask']);
+        }
         //Material
         if (commandData.command === 'mGroup'){
           this.materialsPage.alanMaterials(commandData.mGroup)
@@ -289,22 +291,18 @@ export class AppComponent implements OnInit {
         if (commandData.command === 'Department') {
           this.CreatetaskPage.getDepartment = commandData.Department;
           console.log(this.CreatetaskPage.getDepartment)
-          document.getElementById('department').innerHTML = this.CreatetaskPage.getDepartment;
         }
         if (commandData.command === 'Workgroup') {
           this.CreatetaskPage.getWorkGroup = commandData.workgroup;
           console.log(this.CreatetaskPage.getWorkGroup)
-          document.getElementById('wgroup').innerHTML = this.CreatetaskPage.getWorkGroup;
         }
         if (commandData.command === 'workType'){
           this.CreatetaskPage.getWorkType = commandData.worktypes;
           console.log(this.CreatetaskPage.getWorkType);
-          document.getElementById('wtype').innerHTML = this.CreatetaskPage.getWorkType;
         }
         if (commandData.command === 'Priority'){
           this.CreatetaskPage.getPriority = commandData.Priority;
           console.log(this.CreatetaskPage.getPriority);
-          document.getElementById('priority').innerHTML = this.CreatetaskPage.getPriority;
         }
         if (commandData.command === 'Description') {
           this.CreatetaskPage.getDescription = commandData.Description;
