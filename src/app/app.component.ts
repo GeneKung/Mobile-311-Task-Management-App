@@ -238,7 +238,7 @@ export class AppComponent implements OnInit {
           console.log(this.EquipmentPage.hours);
         }
         if (commandData.command === 'saveEquip'){
-          
+
         }
         //Employee
         if (commandData.command === 'crew'){
@@ -267,7 +267,7 @@ export class AppComponent implements OnInit {
         if (commandData.command === 'camera'){
           this.photoService.addNewToGallery();
         }
-        if (commandData.command === 'photadd'){
+        if (commandData.command === 'photoadd'){
           this.photoService.addNewToGallerys();
         }
 
