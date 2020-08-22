@@ -47,6 +47,7 @@ export class EquipmentPage implements OnInit {
     this.dataequip['group'] = this.getByGroup
     this.dataequip['equipment'] = this.getEquipment
     this.dataequip['hours'] = this.hours
+    console.log(this.dataequip);
     this.storeData(this.dataequip)
     this.getByGroup = null
     this.getEquipment = null
@@ -55,11 +56,18 @@ export class EquipmentPage implements OnInit {
   }
 
   storeData(dataequip){
-    this.storage.set(`${this.dataequipID}`, JSON.stringify(dataequip));
+    this.storage.get('dataequipID').then( (val) =>{
+      console.log(val);
+      if(val == 1 || val == null){
+        this.dataequipID = 200;
+      }else{
+        this.dataequipID = val;
+      }    this.storage.set(`${this.dataequipID}`, JSON.stringify(dataequip));
     this.dataequipID++;
     this.storage.set('dataequipID', this.dataequipID);
-    this.displayPosts.push(dataequip)
-  }
+    this.displayPosts.push(dataequip);
+  });
+}
 
   
   goBack() {

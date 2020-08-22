@@ -65,13 +65,20 @@ export class MaterialsPage implements OnInit {
     this.data = {};
   }
   storeData(data){
+    this.storage.get('materialID').then( (val) =>{
+      if(val == 1 || val == null){
+        this.materialID = 300;
+      }else{
+        this.materialID = val;
+      }
     this.storage.set(`${this.materialID}`, JSON.stringify(data));
     this.materialID += 1;
     this.storage.set('materialID', this.materialID);
     this.displayPosts.push(data)
     console.log(data)
     console.log(this.displayPosts);
-  }
+  });
+}
   
   
 

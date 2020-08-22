@@ -52,7 +52,9 @@ export class EmployeesPage implements OnInit {
     this.data['employee'] = this.getEmployee
     this.data['hours'] = this.hours
     this.data['overtime'] = this.overtime
-    this.storeData(this.data)
+    console.log(this.data);
+    this.storeData(this.data);
+    this.displayPosts.push(this.data);
     this.hours = null
     this.overtime = null
     this.getSelectedSubject = null
@@ -60,12 +62,17 @@ export class EmployeesPage implements OnInit {
     this.data = {};
   }
   storeData(data){
-    console.log(this.dataID);
-    this.storage.set(`${this.dataID}`, JSON.stringify(data));
+    this.storage.get('data').then( (val) =>{
+    console.log(val);
+    if(val == 1 || val == null){
+      this.dataID = 100;
+    }else{
+      this.dataID = val;
+    }    this.storage.set(`${this.dataID}`, JSON.stringify(data));
     this.dataID++;
     this.storage.set('data', `${this.dataID}`);
-    this.displayPosts.push(data);
-  }
+  });
+}
   
 
   goBack() {
