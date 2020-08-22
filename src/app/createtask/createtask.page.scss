@@ -197,3 +197,15 @@ div.material {
     position:relative;
     top:35px;
 }
+
+ion-select {
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 2px;
+    text-transform:capitalize;   
+}

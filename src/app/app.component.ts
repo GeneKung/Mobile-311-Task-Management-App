@@ -11,10 +11,10 @@ import { MaterialsPage } from "./materials/materials.page"
 import { AlertController } from '@ionic/angular';
 import { CommentsPage } from './comments/comments.page'
 import * as moment from 'moment';
-import { ViewTaskPage } from './view-task/view-task.page';
-import { EquipmentPage } from './equipment/equipment.page';
 import { EmployeesPage } from './employees/employees.page';
-
+import { EquipmentPage } from './equipment/equipment.page'
+import { ViewTaskPage } from './view-task/view-task.page';
+import { PhotoService } from './services/photo.service';
 @Injectable()
 @Component({
   selector: 'app-root',
@@ -36,10 +36,11 @@ export class AppComponent implements OnInit {
     public SettingsPage: SettingsPage,
     public materialsPage: MaterialsPage,
     public alertCtrl: AlertController,
-    public viewTaskPage: ViewTaskPage,
     public CommentsPage: CommentsPage,
     public EquipmentPage: EquipmentPage,
     public EmployeesPage: EmployeesPage,
+    public viewTaskPage: ViewTaskPage,
+    public photoService: PhotoService
   ) {
     this.initializeApp();
   }
@@ -87,6 +88,8 @@ export class AppComponent implements OnInit {
   }
   setCategory(category) {
     this.CreatetaskPage.getCategory = category;
+    console.log(category);
+    document.getElementById("cate").innerHTML = this.CreatetaskPage.getCategory;
   }
   addComment(comment) {
     this.CommentsPage.comment = comment;
@@ -95,7 +98,7 @@ export class AppComponent implements OnInit {
   ngAfterViewInit() {
     this.alanBtnComponent.nativeElement.addEventListener('command', (data) => {
         const commandData = (<CustomEvent>data).detail;
-
+        //Navigation
         if (commandData.command === 'searchTask'){
           if(this.router.url === '/logout'){
             this.alanBtnComponent.nativeElement.setVisualState({screen: "login"});
@@ -183,24 +186,19 @@ export class AppComponent implements OnInit {
         if(commandData.command === 'toggle'){
           this.SettingsPage.toggle();
         }
-        if (commandData.command === "address") {
-          this.setAddress(commandData.address);
-          console.log(this.CreatetaskPage.getAddress);
-          return this.CreatetaskPage.listInfo;
+        if (commandData.command === 'employeesPage'){
+          this.router.navigate(['employees']);
         }
-        if (commandData.command === "AssetID") {
-          this.setAssetID(commandData.AssetID);
-          console.log(this.CreatetaskPage.assetID)
-          return this.CreatetaskPage.listInfo;
+        if (commandData.command === 'materialPage'){
+          this.router.navigate(['material']);
         }
-        if (commandData.command === "Description") {
-          this.setDescription(commandData.Description);
+        if (commandData.command === 'equipmentPage'){
+          this.router.navigate(['equipment']);
         }
-        
-        if (commandData.command === 'photo'){
-          this.router.navigate(['photo-gallery']);
+        if (commandData.command === 'view'){
+          this.router.navigate(['view-task']);
         }
-
+        //Material
         if (commandData.command === 'mGroup'){
           this.materialsPage.alanMaterials(commandData.mGroup)
           console.log(commandData.mGroup)
@@ -208,12 +206,12 @@ export class AppComponent implements OnInit {
           console.log(this.materialsPage.getSelectedSubject)
           this.materialsPage.group();
         }
-
         if (commandData.command === 'material') {
           this.alertCtrl.dismiss();
           this.setMaterial(commandData.material);
+          document.getElementById("unit").innerHTML = this.materialsPage.typeOfQuantity;
+          console.log(this.materialsPage.typeOfQuantity);
         }
-
         if (commandData.command === 'quantity') {
           this.materialsPage.quantity = commandData.quantity;
           document.getElementById("quantity").innerHTML = this.materialsPage.quantity;
@@ -226,42 +224,64 @@ export class AppComponent implements OnInit {
           document.getElementById("material").innerHTML = this.materialsPage.getMaterial;
         }
 
-        if(commandData.command === 'crew'){
-          this.EmployeesPage.getSelectedSubject = commandData.crew;
-        }
-
-        if(commandData.command === 'employees') {
-          this.EmployeesPage.getEmployee = commandData.employee;
-        }
-
-        if(commandData.command === 'hours'){
-          this.EmployeesPage.hours = commandData.hours;
-        }
-
-        if(commandData.command === 'overtime'){
-          this.EmployeesPage.overtime = commandData.overtime;
-        }
-
-        if(commandData.command === 'saveEmployee') {
-          this.EmployeesPage.inputData();
-        }
-
-        if(commandData.command === 'ecrew'){
+        //Equipment
+        if (commandData.command === 'ecrew') {
           this.EquipmentPage.getByGroup = commandData.ecrew;
+          console.log(this.EquipmentPage.getByGroup);
         }
-
-        if(commandData.command === 'equipment') {
+        if (commandData.command === 'equipment') {
           this.EquipmentPage.getEquipment = commandData.equipment;
+          console.log(this.EquipmentPage.getEquipment);
         }
-
-        if(commandData.command === 'ehours'){
+        if (commandData.command === 'ehours') {
           this.EquipmentPage.hours = commandData.ehours;
+          console.log(this.EquipmentPage.hours);
+        }
+        if (commandData.command === 'saveEquip'){
+
+        }
+        //Employee
+        if (commandData.command === 'crew'){
+          this.EmployeesPage.getSelectedSubject = commandData.crew
+          console.log(this.EmployeesPage.getSelectedSubject);
+        }
+        if (commandData.command === 'employees') {
+          this.EmployeesPage.getEmployee = commandData.employee;
+          console.log(this.EmployeesPage.getEmployee);
+        }
+        if (commandData.command === 'hours'){
+          this.EmployeesPage.hours = commandData.hours;
+          console.log(this.EmployeesPage.hours);
+        }
+        if (commandData.command === 'overtime'){
+          this.EmployeesPage.overtime = commandData.overtime;
+          console.log(this.EmployeesPage.overtime);
+        }
+        if (commandData.command === 'saveEmployee'){
+
+        }
+        //Photo Gallery
+        if (commandData.command === 'photo'){
+          this.router.navigate(['photo-gallery']);
+        }
+        if (commandData.command === 'camera'){
+          this.photoService.addNewToGallery();
+        }
+        if (commandData.command === 'photoadd'){
+          this.photoService.addNewToGallerys();
         }
 
-        if(commandData.command === 'saveEquip') {
-          this.EquipmentPage.inputEquipmentData();
+        //Create Task Page
+        if (commandData.command === "address") {
+          this.setAddress(commandData.address);
+          console.log(this.CreatetaskPage.getAddress);
+          return this.CreatetaskPage.listInfo;
         }
-
+        if (commandData.command === "AssetID") {
+          this.setAssetID(commandData.AssetID);
+          console.log(this.CreatetaskPage.assetID)
+          return this.CreatetaskPage.listInfo;
+        }
         if (commandData.command === 'category') {
           this.setCategory(commandData.category);
           console.log(this.CreatetaskPage.getCategory);
@@ -269,22 +289,27 @@ export class AppComponent implements OnInit {
         if (commandData.command === 'Department') {
           this.CreatetaskPage.getDepartment = commandData.Department;
           console.log(this.CreatetaskPage.getDepartment)
+          document.getElementById('department').innerHTML = this.CreatetaskPage.getDepartment;
         }
         if (commandData.command === 'Workgroup') {
           this.CreatetaskPage.getWorkGroup = commandData.workgroup;
           console.log(this.CreatetaskPage.getWorkGroup)
+          document.getElementById('wgroup').innerHTML = this.CreatetaskPage.getWorkGroup;
         }
         if (commandData.command === 'workType'){
           this.CreatetaskPage.getWorkType = commandData.worktypes;
           console.log(this.CreatetaskPage.getWorkType);
+          document.getElementById('wtype').innerHTML = this.CreatetaskPage.getWorkType;
         }
         if (commandData.command === 'Priority'){
           this.CreatetaskPage.getPriority = commandData.Priority;
           console.log(this.CreatetaskPage.getPriority);
+          document.getElementById('priority').innerHTML = this.CreatetaskPage.getPriority;
         }
         if (commandData.command === 'Description') {
           this.CreatetaskPage.getDescription = commandData.Description;
           console.log(this.CreatetaskPage.getDescription);
+          this.setDescription(commandData.Description);
         }
         if (commandData.command === 'save') {
           this.CreatetaskPage.listInfo['category'] = this.CreatetaskPage.getCategory;

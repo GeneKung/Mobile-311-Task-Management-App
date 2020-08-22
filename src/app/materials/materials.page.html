@@ -41,9 +41,9 @@
     </ion-buttons>
     <ion-label id="material">{{getMaterial}}</ion-label>
   </ion-item>
-  <p class="subtitle">{{typeOfQuantity}}</p>
+  <p class="subtitle" id="unit">{{typeOfQuantity}}</p>
   <ion-item id="row4">
-    <ion-input type="number"[(ngModel)]='quantity' (keyup.enter)="logQuantity()"></ion-input>
+    <ion-input id = "quantity" type="number"[(ngModel)]='quantity' (keyup.enter)="logQuantity()"></ion-input>
   </ion-item>
 
   <ion-item lines="none">
@@ -59,7 +59,7 @@
         </ion-button>
       </ion-buttons>
     </ion-item>
-    <ion-item lines = "none">
+    <ion-item lines = "none" id="mat">
       <h4  style="margin-right:125px;"> {{ data.type }}</h4>
       <h4>{{ data.quantity }}</h4>
     </ion-item>
