@@ -12,6 +12,9 @@ import { AlertController } from '@ionic/angular';
 import { CommentsPage } from './comments/comments.page'
 import * as moment from 'moment';
 import { ViewTaskPage } from './view-task/view-task.page';
+import { EquipmentPage } from './equipment/equipment.page';
+import { EmployeesPage } from './employees/employees.page';
+
 @Injectable()
 @Component({
   selector: 'app-root',
@@ -34,7 +37,9 @@ export class AppComponent implements OnInit {
     public materialsPage: MaterialsPage,
     public alertCtrl: AlertController,
     public viewTaskPage: ViewTaskPage,
-    public CommentsPage: CommentsPage
+    public CommentsPage: CommentsPage,
+    public EquipmentPage: EquipmentPage,
+    public EmployeesPage: EmployeesPage,
   ) {
     this.initializeApp();
   }
@@ -220,6 +225,43 @@ export class AppComponent implements OnInit {
           document.getElementById("quantity").innerHTML = this.materialsPage.quantity;
           document.getElementById("material").innerHTML = this.materialsPage.getMaterial;
         }
+
+        if(commandData.command === 'crew'){
+          this.EmployeesPage.getSelectedSubject = commandData.crew;
+        }
+
+        if(commandData.command === 'employees') {
+          this.EmployeesPage.getEmployee = commandData.employee;
+        }
+
+        if(commandData.command === 'hours'){
+          this.EmployeesPage.hours = commandData.hours;
+        }
+
+        if(commandData.command === 'overtime'){
+          this.EmployeesPage.overtime = commandData.overtime;
+        }
+
+        if(commandData.command === 'saveEmployee') {
+          this.EmployeesPage.inputData();
+        }
+
+        if(commandData.command === 'ecrew'){
+          this.EquipmentPage.getByGroup = commandData.ecrew;
+        }
+
+        if(commandData.command === 'equipment') {
+          this.EquipmentPage.getEquipment = commandData.equipment;
+        }
+
+        if(commandData.command === 'ehours'){
+          this.EquipmentPage.hours = commandData.ehours;
+        }
+
+        if(commandData.command === 'saveEquip') {
+          this.EquipmentPage.inputEquipmentData();
+        }
+
         if (commandData.command === 'category') {
           this.setCategory(commandData.category);
           console.log(this.CreatetaskPage.getCategory);
