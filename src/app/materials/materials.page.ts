@@ -27,6 +27,7 @@ export class MaterialsPage implements OnInit {
   constructor(private activateRoute: ActivatedRoute, private router: Router, public storage: Storage, public alertController: AlertController,) { }
 
   ngOnInit() {
+    
     this.employees = this.activateRoute.snapshot.paramMap.get('id');
     this.storage.get('materialID').then( (val) =>{
       console.log(val);
