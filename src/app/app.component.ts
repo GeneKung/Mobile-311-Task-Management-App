@@ -240,7 +240,7 @@ export class AppComponent implements OnInit {
           console.log(this.EquipmentPage.hours);
         }
         if (commandData.command === 'saveEquip'){
-
+          this.EquipmentPage.inputEquipmentData();
         }
         //Employee
         if (commandData.command === 'crew'){
@@ -260,7 +260,7 @@ export class AppComponent implements OnInit {
           console.log(this.EmployeesPage.overtime);
         }
         if (commandData.command === 'saveEmployee'){
-
+          this.EmployeesPage.inputData();
         }
         //Photo Gallery
         if (commandData.command === 'photo'){
@@ -326,6 +326,7 @@ export class AppComponent implements OnInit {
         if (commandData.command === 'commentsPage'){
           this.router.navigate(['comments']);
         }
+
         if (commandData.command === 'addComment'){
           this.addComment(commandData.comment);
           console.log(this.CommentsPage.comment)
@@ -371,21 +372,21 @@ export class AppComponent implements OnInit {
         }
 
         if(commandData.command === 'readNextCategory'){
-          this.TasksPage.storage.get(`${501}`).then( (val) =>{
+          this.TasksPage.storage.get(`${500}`).then( (val) =>{
             val = JSON.parse(val);
             this.alanBtnComponent.nativeElement.setVisualState({category: val.listInfo['category']});
           });
         }
 
         if(commandData.command === 'readNextDescription'){
-          this.TasksPage.storage.get(`${501}`).then( (val) =>{
+          this.TasksPage.storage.get(`${500}`).then( (val) =>{
             val = JSON.parse(val);
             this.alanBtnComponent.nativeElement.setVisualState({totalComments: val['totalComments'], description: val.listInfo['description']});
           });
         }
         
         if(commandData.command === 'readComments'){
-          this.TasksPage.storage.get(`${501}`).then( (val) =>{
+          this.TasksPage.storage.get(`${500}`).then( (val) =>{
             console.log(val);
             val = JSON.parse(val);
             val.comment = JSON.parse(val.comment);

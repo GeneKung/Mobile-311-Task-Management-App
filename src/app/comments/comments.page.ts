@@ -29,6 +29,7 @@ export class CommentsPage implements OnInit {
   constructor(private activateRoute: ActivatedRoute, private router: Router, public storage: Storage) { }
 
   ngOnInit() {
+
     this.materials = this.activateRoute.snapshot.paramMap.get('id');
     this.updateScroll();
     this.storage.get('postID').then( (val) =>{
@@ -104,7 +105,11 @@ export class CommentsPage implements OnInit {
 
   storePost(post) {
     this.storage.get('postID').then( (val) =>{
-    this.postID = val;
+      if(val == 1 || val == null){
+        this.postID = 1;
+      }else{
+        this.postID = val;
+      }
     this.storage.set(`${this.postID}`, JSON.stringify(post));
     this.postID++;
     this.storage.set('postID', this.postID);
