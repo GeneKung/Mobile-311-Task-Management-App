@@ -68,7 +68,8 @@ export class EmployeesPage implements OnInit {
       this.dataID = 100;
     }else{
       this.dataID = val;
-    }    this.storage.set(`${this.dataID}`, JSON.stringify(data));
+    }    
+    this.storage.set(`${this.dataID}`, JSON.stringify(data));
     this.dataID++;
     this.storage.set('data', `${this.dataID}`);
   });
