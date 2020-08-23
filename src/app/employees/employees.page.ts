@@ -24,6 +24,7 @@ export class EmployeesPage implements OnInit {
   constructor(private activateRoute: ActivatedRoute, private router: Router, public storage: Storage) { }
 
   ngOnInit() {
+    
     this.employees = this.activateRoute.snapshot.paramMap.get('id');
     this.storage.get('data').then( (val) =>{
     console.log(val);

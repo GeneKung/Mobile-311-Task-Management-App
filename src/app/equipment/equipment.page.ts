@@ -23,6 +23,7 @@ export class EquipmentPage implements OnInit {
   constructor(private activateRoute: ActivatedRoute, private router: Router, public storage: Storage) { }
 
   ngOnInit() {
+    
     this.equipment = this.activateRoute.snapshot.paramMap.get('id');
     this.storage.get('dataequipID').then( (val) =>{
       console.log(val);
