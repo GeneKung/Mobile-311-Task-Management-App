@@ -34,6 +34,7 @@ export class CreatetaskPage implements OnInit {
   listInfoID = 1;
   displayPosts = {}
   allPosts = [];
+  static getCategory: any;
 
   constructor(private activatedRoute: ActivatedRoute, public menuCtrl: MenuController, private router: Router,  public storage: Storage, public photoService: PhotoService, public employeesPage: EmployeesPage, public materialsPage: MaterialsPage, public equipmentPage: EquipmentPage,
     public tasksPage: TasksPage) { 
